@@ -1,0 +1,56 @@
+
+
+// Définir la couleur de la barre de navigation bootstrap
+$primary:rgb(30, 82, 30);
+/*background-color: rgb(30,82,30);/* vert foncé navbar*/
+//#044604
+// Définir un espacement entre les items du menu de la navbar
+.navbar-nav > li{
+    padding-left:40px;
+    padding-right:40px;
+  }
+  
+// Définir une marge d'espacement sur les côtés du site web
+body{
+    padding: 30px; 
+};
+
+// Définir la couleur de fond du contenu des pages
+.main-content {
+  /*background-color: #4e67b1; /* Exemple de couleur de fond en bleu pour le contenu */
+  background-color: #d5eeed;
+}
+
+.main-content2 {
+  /*background-color: #4e67b1; /* Exemple de couleur de fond en bleu pour le contenu */
+  background-color: rgb(147,163,142);/*vert-caca d'oie*/
+  /*background-color: rgb(98,114,101); /*vert-gris sombre*/
+  /*background-color: rgb(171,162,145); /*marron*/
+  /*background-color: rgb(62,83,66); /*vert pastel foncé*/
+  
+}
+/*gère le menu accordeon des cartes bootstrap en mode écran smartphone*/
+.accordion .card-header {
+  cursor: pointer;
+}
+
+ /* Style for the active menu item */
+.active {
+  font-weight: bold;
+  color: red;
+}
+
+// Définir la police Calibri pour tout le site
+body {
+  font-family: 'Calibri', 'Arial', sans-serif;
+}
+
+//@use "../../node_modules/bootstrap/scss/bootstrap" as *;
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+# Fichiers de logs
+*.log
+
+# Répertoire des dépendances Composer
+/vendor/
+
+# Répertoire des dépendances Node.js
+/node_modules/
+
+# Caches et fichiers temporaires
+/tmp/
+.cache/
+*.tmp
+*.swp
+*.swo
+
+# Dossiers de compilations et déploiements
+/dist/
+build/
+
+# Fichiers de configuration locaux
+.env
+.env.local
+.env.*.local
+
+# Configuration IDE
+.vscode/
+.idea/
+
+# Fichiers de configuration Composer
+composer.lock
+
+# Fichiers de configuration NPM
+package-lock.json
+
+
+# Fichiers de sortie et de cache
+.npm/
+.pnpm-store/

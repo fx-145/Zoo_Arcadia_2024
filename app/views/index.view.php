@@ -134,7 +134,8 @@
     </div>
   </div>
 
-  
+   <!-- Appel du footer -->
+ <?php include_once ("layouts/footer.php"); ?>
 
   <!-- appel du script bootstrap  -->
   <script src="../../public/js/jquery-3.5.1.slim.min.js"></script>

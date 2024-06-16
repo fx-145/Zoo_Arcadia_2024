@@ -18,13 +18,14 @@ class Navbar
     {
         $uri = str_replace('/app', '', $uri);
         $routes = [
-            '/' => 'index.php',
+            '/'  => 'index.php',
             '/services' => 'services.php',
             '/homes' => 'homes.php',
             '/connection' => 'connection.php',
-            '/contact' => 'contact.php'
+            '/contact' => 'contact.php',
+            '/admin' => 'admin_area.php'
         ];
-        var_dump($uri);
+        //var_dump($uri);
         if (array_key_exists($uri, $routes)) {
             require $routes[$uri];
             return true;

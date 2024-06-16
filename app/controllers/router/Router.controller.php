@@ -24,7 +24,8 @@ class Navbar
             '/connection' => 'connection.php',
             '/contact' => 'contact.php',
             '/admin' => 'admin_area.php',
-            '/vet' => 'vet_area.php'
+            '/vet' => 'vet_area.php',
+            '/employee' => 'employee_area.php'
         ];
         //var_dump($uri);
         if (array_key_exists($uri, $routes)) {

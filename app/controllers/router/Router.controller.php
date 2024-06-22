@@ -2,16 +2,27 @@
 
 class Navbar
 {
-    // Retourne l'URI actuelle
+    // Retourne l'URl actuelle
     public function getCurrentUri()
     {
         return strtok($_SERVER['REQUEST_URI'], '?');
     }
 
-    // Vérifie si l'URI actuelle correspond à la valeur donnée
-    public function urlValue($value)
-    {
-        return $this->getCurrentUri() === $value;
+    // Vérifie si l'URl actuelle correspond à la valeur donnée
+    //public function urlValue($value)
+    //{
+       // return $this->getCurrentUri() === $value;
+    //}
+
+    public function urlValue($value, $params = []) {
+        // Générer l'URL avec les paramètres fournis
+        // $params est facultatif, si un message est présent dans l'Url on va l'utiliser
+        $url = $value;
+        if (!empty($params)) {
+            $queryString = http_build_query($params);
+            $url .= '?' . $queryString;
+        }
+        return $url;
     }
 
     public function router($uri)
@@ -25,9 +36,10 @@ class Navbar
             '/contact' => 'contact.php',
             '/admin' => 'admin_area.php',
             '/vet' => 'vet_area.php',
-            '/employee' => 'employee_area.php'
+            '/employee' => 'employee_area.php',
+            '/information'=> 'information.php'
         ];
-        //var_dump($uri);
+        
         if (array_key_exists($uri, $routes)) {
             require $routes[$uri];
             return true;

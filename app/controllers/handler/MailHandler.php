@@ -1,0 +1,49 @@
+<?php
+require_once '../MailController.php';
+require_once '../../controllers/router/Router.controller.php';
+
+
+
+class MailHandler
+{
+    private $controller;
+
+    public function __construct()
+    {
+        $this->controller = new MailController();
+    }
+
+
+    public function handleForm1($postData)
+    {
+        // Définir l'encodage des caractères dans l'en-tête HTTP
+        header('Content-Type: text/html; charset=utf-8');
+
+        // Construction du mail et envoi du mail
+        $titre = "Creation de compte sur l'application web ZooArcadia en tant que " . htmlspecialchars($postData['compte'], ENT_QUOTES, 'UTF-8');
+        $description = "Félicitations! Votre compte utilisateur en tant que " . htmlspecialchars($postData['compte'], ENT_QUOTES, 'UTF-8') . " est créé dans l'application ZooArcadia. Merci de vous rapprocher de l'administrateur du site web pour obtenir votre mot de passe. Votre username est " . htmlspecialchars($postData['userName'], ENT_QUOTES, 'UTF-8');
+        $emailContact = "zooarcadia2024@gmail.com";
+        $emailRecipient = htmlspecialchars($postData['userName'], ENT_QUOTES, 'UTF-8');
+
+        try {
+            $success = $this->controller->sendContactMail($titre, $description, $emailContact, $emailRecipient);
+        } catch (Exception $e) {
+            // Gestion de l'erreur
+            $success = false;
+            error_log("Error sending email: " . $e->getMessage());
+        }
+
+        // Redirection avec indicateur de succès ou d'échec
+        // header("Location: ../../views/information?success=" . ($success ? '1' : '0'));
+        //exit();
+        $navbar = new Navbar();
+        $redirectUrl = $navbar->urlValue('/information', ['success' => $success ? '1' : '0']);
+        header("Location: " . $redirectUrl);
+        exit();
+    }
+
+
+
+
+}
+

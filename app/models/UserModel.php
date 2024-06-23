@@ -27,7 +27,7 @@ class UserModel
 
                 if ($statement->rowCount() > 0) {
 
-                    var_dump($userName);
+                    //var_dump($userName);
                     echo "cet identifiant est déjà utilisé";
                     return false;
                 } else {
@@ -111,8 +111,9 @@ class UserModel
             $stmt->bindValue(':user_name', $userName);
             $stmt->bindValue(':password', $hashedPassword);
             $stmt->execute();
+            return $stmt;
 
-            echo "Données de register user $userName enregistrées";
+            //echo "Données de register user $userName enregistrées";
         } catch (PDOException $e) {
             echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
         }
@@ -148,8 +149,9 @@ class UserModel
             $stmt->bindValue(':user_id', $uuid);
             $stmt->bindValue(':role_id', $roleId);
             $stmt->execute();
+            return $stmt;
 
-            echo "Données de role user enregistrées, inscription réussie";
+            //echo "Données de role user enregistrées, inscription réussie";
         } catch (PDOException $e) {
             echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
         }

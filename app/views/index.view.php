@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -136,6 +137,8 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                   <div class="card-body">
+              <!-- visitor_Form.php: laissez nous un avis -->
+                  <?php include_once 'elements/opinion_form.php'; ?>
 
                   </div>
                 </div>

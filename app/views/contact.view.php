@@ -15,7 +15,7 @@
         ?>
     <div class="container mt-4">
         <h2>Contactez-nous</h2>
-        <form method="post">
+        <form action="app/controllers/handler/MailHandler.php"method="post">
             <div>
                 <label for="titre">Titre :</label><br>
                 <input type="text" id="titre" name="titre" required><br>
@@ -31,7 +31,7 @@
                 <input type="email" id="emailContact" name="emailContact" required><br><br>
             </div>
 
-            <input type="submit" class="btn btn-primary" name="submit_form1" value="Envoyer"><br><br>
+            <input type="submit" class="btn btn-primary" name="submitForm2" value="Envoyer"><br><br>
         </form>
     </div>
     <!-- Appel du footer -->

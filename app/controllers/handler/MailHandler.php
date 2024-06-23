@@ -42,8 +42,36 @@ class MailHandler
         exit();
     }
 
+    //fonction d'envoi de mail de contact pour un visiteur avec pseudo
+    public function handleForm2($postData)
+    {
+        $titre = $postData['titre'];
+        $description = $postData['description'];
+        $emailContact = $postData['emailContact'];
+        $emailRecipient = isset($postData['emailRecipient']) ? $postData['emailRecipient'] : 'zooarcadia2024@gmail.com';
+        try {
+
+            $success = $this->controller->sendContactMail($titre, $description, $emailContact, $emailRecipient);
+
+        } catch (Exception $e) {
+            // Gestion de l'erreur
+            $success = false;
+            error_log("Error sending email: " . $e->getMessage());
+        }
+        $navbar = new Navbar();
+        $redirectUrl = $navbar->urlValue('/information', ['success' => $success ? '1' : '0']);
+        header("Location: " . $redirectUrl);
+        exit();
 
 
+    }
 
 }
+//Envoi de mail via le formulaire de contact visiteur
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    if (isset($_POST['submitForm2'])) {
+        $mailHandler = new MailHandler();
+        $mailHandler->handleForm2($_POST);
+    }
+}

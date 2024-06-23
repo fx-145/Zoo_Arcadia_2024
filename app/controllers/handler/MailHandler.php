@@ -33,7 +33,7 @@ class MailHandler
             error_log("Error sending email: " . $e->getMessage());
         }
 
-        // Redirection avec indicateur de succès ou d'échec
+        // Redirection vers la page information (routeur) avec indicateur de succès ou d'échec
         // header("Location: ../../views/information?success=" . ($success ? '1' : '0'));
         //exit();
         $navbar = new Navbar();

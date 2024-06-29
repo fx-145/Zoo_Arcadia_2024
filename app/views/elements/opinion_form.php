@@ -1,6 +1,7 @@
 
+
 <div class="container mt-4">
-<form id="visitorForm" method="post">
+<form action= "opinionSend" id="visitorForm" method="post">
         <div class="form-group">
         <label for="pseudo">Pseudo :</label><br>
         <input type="text" id="pseudo" name="pseudo" required><br>

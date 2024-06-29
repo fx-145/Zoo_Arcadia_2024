@@ -37,7 +37,10 @@ class Navbar
             '/admin' => 'admin_area.php',
             '/vet' => 'vet_area.php',
             '/employee' => 'employee_area.php',
-            '/information'=> 'information.php'
+            '/information'=> 'information.php',
+            '/opinionStatusUpdate' => 'updateOpinionStatus.php',
+            '/employee_validation_opinion' => 'employee_validation_opinion.php',
+            '/opinionSend' => 'opinionSend.php',
         ];
         
         if (array_key_exists($uri, $routes)) {

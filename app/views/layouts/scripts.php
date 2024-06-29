@@ -3,4 +3,3 @@
 <script src="../../public/js/bootstrap.min.js"></script>
 <script src="../../public/js/bootstrap.bundle.min.js"></script>
 <script src="../../public/js/popper.min.js"></script>
-<script src="../../public/js/visitor_opinion.js"></script>

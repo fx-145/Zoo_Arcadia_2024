@@ -1,6 +1,6 @@
 <?php
 $role ='administrateur';
-require_once 'app/views/elements/checkSession.php';
+require_once 'app/controllers/handler/checkSession.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">

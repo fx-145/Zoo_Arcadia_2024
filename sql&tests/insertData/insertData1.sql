@@ -3,3 +3,44 @@
 INSERT INTO roles (role_id, role_name) VALUES ("1", "administrateur");
 INSERT INTO roles (role_id, role_name) VALUES ("2", "employe");
 INSERT INTO roles (role_id, role_name) VALUES ("3", "veterinaire");
+
+--insérer données dans la table "homes":
+INSERT INTO homes (home_name, home_description ) VALUES ("Savane africaine","
+La savane africaine est un écosystème unique et diversifié qui se caractérise par ses vastes plaines herbeuses parsemées d'arbres clairsemés, tels que les acacias et les baobabs. Ce paysage distinctif est le résultat d'une interaction complexe entre le climat, le sol et la végétation, offrant un habitat idéal pour une grande variété de faune et de flore");
+INSERT INTO homes (home_name, home_description ) VALUES ("Foret africaine","La forêt africaine, souvent désignée comme la forêt tropicale africaine, est un écosystème luxuriant et diversifié qui joue un rôle crucial dans la régulation du climat mondial et la préservation de la biodiversité");
+INSERT INTO homes (home_name, home_description ) VALUES ("Foret asiatique","La forêt asiatique, est un écosystème riche et diversifié situé principalement en Asie du Sud-Est et en Asie du Sud. Dense et luxuriante, avec une canopée épaisse formée par des arbres de grande taille, et un sous-bois riche en plantes, lianes et épiphytes.");
+INSERT INTO homes (home_name, home_description ) VALUES ("Grande Voliere","La volière tropicale recrée un environnement chaud et humide, similaire à celui des forêts tropicales. Elle est généralement abritée sous un dôme ou un filet pour permettre la pénétration de la lumière naturelle tout en offrant une protection contre les prédateurs et les intempéries.");
+INSERT INTO homes (home_name, home_description ) VALUES ("Grand Froid","L'habitat doit maintenir des températures froides, généralement autour de -1°C à 10°C, pour simuler les conditions arctiques. Des systèmes de réfrigération sont utilisés pour réguler la température.");
+
+--insérer données dans la table "animals":
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Georges", "Lion", "1");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Melman", "Girafe", "1");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("TopGun", "Rhinoceros", "1");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Arthur", "Gorille", "2");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Ernest", "Suricate", "2");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("John", "Chimpanzé", "2");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Miguel", "Gorille", "2");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Gilbert", "Lemurien", "3");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Po", "Panda", "3");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Sherkan", "Tigre", "3");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Carlos", "Aigle", "4");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Coco", "Perroquet", "4");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Zac", "Perroquet", "4");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Kowalski", "Pingouin", "5");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Octave", "Pingouin", "5");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Roger", "Manchot", "5");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Wladimir", "Singe", "3");
+
+--insérer données dans la table "services":
+INSERT INTO services (service_name, service_description) VALUES ("Visite du zoo en petit train", "Ce petit train est concu pour offrir une experience de voyage agreable dans le zoo, avec des sieges confortables et des compartiments ouverts pour une meilleure vue en toute securite");
+INSERT INTO services (service_name, service_description) VALUES ("Restauration", "Le zoo dispose d un nouveau restaurant panoramique qui satisfera vos papilles");
+INSERT INTO services (service_name, service_description) VALUES ("Visite des habitats avec un guide", "Cette prestation totalement gratuite vous permettra d en savoir beaucoup plus sur les animaux et leur vie au zoo");
+
+--insérer données dans la table "services":
+INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("lundi","09:00","17:00");
+INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("mardi","09:00","17:00");
+INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("mercredi","09:00","17:00");
+INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("jeudi","09:00","17:00");
+INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("vendredi","09:00","17:00");
+INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("samedi","09:00","17:00");
+INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("dimanche","09:00","17:00");

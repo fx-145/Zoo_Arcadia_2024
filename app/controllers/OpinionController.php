@@ -25,6 +25,13 @@ class OpinionController
         return $this->model->updateOpinionStatus ($opinion_id, $newOpinionStatus);
     }
 
+    public function getValidatedOpinions(){
+        return $this->model->getValidatedOpinions();
+    }
+
+
+
+
 }
 
 

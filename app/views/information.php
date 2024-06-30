@@ -19,28 +19,33 @@
     <?php
     if (isset($_GET['success'])) {
       $success = $_GET['success'];
-      if ($success == '1') {
-        echo '<p style="color: green;">Le message a été envoyé avec succès!</p>';
-      } else {
-        echo '<p style="color: red;">Échec de l\'envoi du message. Veuillez réessayer.</p>';
+      switch ($success) {
+          case '1':
+              echo '<p style="color: green;">Le message a été envoyé avec succès!</p>';
+              break;
+          default:
+              echo '<p style="color: red;">Échec de l\'envoi du message. Veuillez réessayer.</p>';
+              break;
       }
-    }
-    if (isset($_GET['login'])) {
+  }
+  
+  if (isset($_GET['login'])) {
       $login = $_GET['login'];
-      if ($login == '0') {
-        echo '<p style="color: red;">Erreur lors de l\'authentification. Veuillez réessayer.</p>';
+      switch ($login) {
+          case '0':
+              echo '<p style="color: red;">Erreur lors de l\'authentification. Veuillez réessayer.</p>';
+              break;
+          
       }
-    } else {
+  } elseif (isset($_GET['success'])) {
+      // Si 'success' est défini mais pas 'login', on ne fait rien
+  } else {
       echo '<p style="color: red;">Erreur inattendue</p>';
-    }
-
+  }
+  
 
     ?>
   </div>
-
-
-
-
   <!-- Appel du footer -->
   <?php include ("layouts/footer.php"); ?>
 

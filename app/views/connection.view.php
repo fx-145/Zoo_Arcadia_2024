@@ -23,11 +23,11 @@
             <br>
             <h4> Merci de renseigner votre login et votre mot de passe</h4>
             <br>
-            <form method="POST">
+            <form action="app/controllers/handler/loginHandler.php" method="POST">
                 <!-- EMAIL -->
                 <div class="form-group">
-                    <label for="email">Adresse email :</label>
-                    <input type="email" name="email" required /> <br><br>
+                    <label for="userName">Adresse email :</label>
+                    <input type="userName" name="userName" required /> <br><br>
                 </div>
 
                 <!-- PASSWORD -->

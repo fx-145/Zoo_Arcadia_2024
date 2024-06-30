@@ -16,15 +16,25 @@
 
   <!-- Affichage tableau bootstrap -->
   <div class="container">
-  <?php
+    <?php
     if (isset($_GET['success'])) {
-        $success = $_GET['success'];
-        if ($success == '1') {
-            echo '<p style="color: green;">Le message a été envoyé avec succès!</p>';
-        } else {
-            echo '<p style="color: red;">Échec de l\'envoi du message. Veuillez réessayer.</p>';
-        }
+      $success = $_GET['success'];
+      if ($success == '1') {
+        echo '<p style="color: green;">Le message a été envoyé avec succès!</p>';
+      } else {
+        echo '<p style="color: red;">Échec de l\'envoi du message. Veuillez réessayer.</p>';
+      }
     }
+    if (isset($_GET['login'])) {
+      $login = $_GET['login'];
+      if ($login == '0') {
+        echo '<p style="color: red;">Erreur lors de l\'authentification. Veuillez réessayer.</p>';
+      }
+    } else {
+      echo '<p style="color: red;">Erreur inattendue</p>';
+    }
+
+
     ?>
   </div>
 

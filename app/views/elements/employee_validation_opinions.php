@@ -1,8 +1,6 @@
 <?php
 require_once 'app/controllers/router/Router.controller.php';
-//require_once '../controllers/router/Router.controller.php';
 require_once 'app/controllers/Opinioncontroller.php';
-//require_once '../controllers/Opinioncontroller.php';
 $navbar = new Navbar();
 $controller = new OpinionController();
 $result = $controller->showPendingvisitorOpinions ();

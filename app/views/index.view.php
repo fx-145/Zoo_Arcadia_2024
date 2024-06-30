@@ -1,3 +1,7 @@
+<?php
+require 'app/controllers/handler/welcomePageHandler.php';
+?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -31,6 +35,7 @@
         <div class="card-body">
           <h5 class="card-title">Le Zoo Arcadia</h5>
           <p class="card-text">Le parc est ouvert toute l'année. Voici les horaires d'ouverture :</p>
+          <?php include_once 'app/views/elements/opening_hours.php' ?>
         </div>
       </div>
     </div>
@@ -42,6 +47,12 @@
           <h3 class="card-title">Les animaux</h3>
           <p class="card-text">Une centaine d’animaux chouchoutés par nos équipes, peuplent le Zoo. Ils vous attendent!
             Voici toutes les races d'animaux que vous allez pouvoir rencontrer tout au long de votre visite :</p>
+          <!-- Liste les animaux -->
+          <ul>
+            <?php foreach ($resultA as $row): ?>
+              <li><?php echo htmlspecialchars($row['race'], ENT_QUOTES, 'UTF-8'); ?></li>
+            <?php endforeach; ?>
+          </ul>
           <!-- carousel d'images animaux -->
           <div id="carousel_animaux" class="carousel slide d-none d-sm-block" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -67,6 +78,12 @@
           <h3 class="card-title">Les habitats</h3>
           <p class="card-text">Les animaux évoluent dans une zone aménagée pour eux, qui réunit les conditions proches
             de leur milieu d’origine, afin de contribuer à leur santé morale et physique. Ces habitats sont :</p>
+          <ul>
+            <!-- Liste les habitats -->
+            <?php foreach ($resultH as $row): ?>
+              <li><?php echo htmlspecialchars($row['home_name'], ENT_QUOTES, 'UTF-8'); ?></li>
+            <?php endforeach; ?>
+          </ul>
           <div>
             <img class="d-block w-100" src="../../public/images/habitats/VT_02.jpg" alt="Habitat">
           </div>
@@ -81,6 +98,11 @@
           <h3 class="card-title">Les services</h3>
           <p class="card-text">Notre Zoo va vous faire vivre une expérience dont vous vous souviendrez très longtemps.
             Pour améliorer encore votre visite, nous proposons plusieurs services :</p>
+          <!-- Liste les services -->
+          <ul><?php foreach ($resultS as $row): ?>
+              <li><?php echo htmlspecialchars($row['service_name'], ENT_QUOTES, 'UTF-8'); ?></li>
+            <?php endforeach; ?>
+          </ul>
           <img class="d-block w-100" src="../../public/images/services/visite_guidee/visite_guidee1.jpg" alt="Service">
         </div>
       </div>
@@ -117,8 +139,13 @@
                         </tr>
                       </thead>
                       <tbody>
-
-
+                        <!-- Liste des avis validés-->
+                        <?php foreach ($resultO as $row): ?>
+                          <tr>
+                            <td><?php echo htmlspecialchars($row['pseudo'], ENT_QUOTES, 'UTF-8'); ?></td>
+                            <td><?php  echo htmlspecialchars($row['opinion'], ENT_QUOTES, 'UTF-8'); ?></td>
+                          </tr>
+                        <?php endforeach; ?>
                       </tbody>
                     </table>
                   </div>
@@ -137,8 +164,8 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                   <div class="card-body">
-              <!-- visitor_Form.php: laissez nous un avis -->
-                  <?php include_once 'elements/opinion_form.php'; ?>
+                    <!-- visitor_Form.php: laissez nous un avis -->
+                    <?php include_once 'elements/opinion_form.php'; ?>
 
                   </div>
                 </div>

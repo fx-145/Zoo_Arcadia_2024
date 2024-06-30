@@ -1,3 +1,7 @@
+<?php
+$role ='administrateur';
+require_once 'app/views/elements/checkSession.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

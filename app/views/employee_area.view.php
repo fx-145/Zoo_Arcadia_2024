@@ -1,3 +1,7 @@
+<?php
+$role ='employe';
+require_once 'app/views/elements/checkSession.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

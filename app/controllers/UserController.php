@@ -36,4 +36,23 @@ class UserController {
     public function RegisterRole($uuid, $role_id){
         return $this->model->RegisterRole($uuid, $role_id);
     }
+
+    public function checkUserLogin($userName){
+        return $this->model->checkUserLogin($userName);
+    }
+    public function getPassword($userName){
+        return $this->model->getPassword($userName);
+    }
+
+    public function checkPassword($passwordForm, $password){
+        return $this->model->checkPassword($passwordForm, $password);
+    }
+
+    public function checkRole($userName){
+        return $this->model->checkRole($userName);
+    }
+
+    public function roleRouter($userName, $role){
+        return $this->model->roleRouter($userName, $role);
+    }
 }

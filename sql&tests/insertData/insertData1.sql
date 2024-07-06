@@ -44,3 +44,28 @@ INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("jeud
 INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("vendredi","09:00","17:00");
 INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("samedi","09:00","17:00");
 INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("dimanche","09:00","17:00");
+
+--insérer données dans table "home_pictures":
+
+INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/SA_01.jpg", "1");
+INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/SA_02.jpg", "1");
+INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/JU_01.jpg", "2");
+INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/JU_02.jpg", "2");
+INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/MA_01.jpg", "3");
+INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/MA_02.jpg", "3");
+INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/VT_01.jpg", "4");
+INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/VT_02.jpg", "4");
+INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/FP_01.jpg", "5");
+INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/FP_02.jpg", "5");
+
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FA_Georges.jpg", "1");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FA_Melman.jpg", "2");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FA_TopGun.jpg", "3");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FA_Arthur.jpg", "4");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FP_Ernest.jpg", "5");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FP_John.jpg", "6");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FP_Miguel.jpg", "7");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FT_Gilbert.jpg", "8");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FT_Po.jpg", "9");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FT_Sherkan.jpg", "10");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FT_Wladimir.jpg", "11");

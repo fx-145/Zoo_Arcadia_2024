@@ -44,6 +44,7 @@ class Navbar
             '/admin_area'=> 'admin_area.php',
             '/employee_area'=> 'employee_area.php',
             '/vet_area'=> 'vet_area.php',
+            '/homeDetails'=> 'homeDetails.php'
         ];
         
         if (array_key_exists($uri, $routes)) {

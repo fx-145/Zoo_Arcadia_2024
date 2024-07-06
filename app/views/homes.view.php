@@ -1,3 +1,15 @@
+<?php
+require_once 'app/controllers/HomeController.php';
+$controller = new HomeController();
+$result = $controller->getHomesAndOnePicture();
+//var_dump($result);
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -34,15 +46,27 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th></th>
-                        <th></th>
-
+                        <th>Nom</th>
+                        <th>Image</th>
                       </tr>
                     </thead>
                     <tbody>
-
+                      <?php foreach ($result as $row): ?>
+                        <tr>
+                          <td>
+                            <a href="/homeDetails?home_id=<?php echo urlencode($row['home_id']); ?>">
+                              <?php echo htmlspecialchars($row['home_name']); ?>
+                            </a>
+                          </td>
+                          <td>
+                            <img src="<?php echo htmlspecialchars($row['home_picture_path']); ?>"
+                              alt="<?php echo htmlspecialchars($row['home_name']); ?>" width="350">
+                          </td>
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                   </table>
+
 
             </li>
 

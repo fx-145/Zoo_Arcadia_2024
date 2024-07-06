@@ -57,13 +57,13 @@ require 'app/controllers/handler/welcomePageHandler.php';
           <div id="carousel_animaux" class="carousel slide d-none d-sm-block" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" src="../../public/images/animaux/FA_Arthur.jpg" alt="First slide">
+                <img class="d-block w-100" src="../../public/images/animaux/JU_Arthur.jpg" alt="First slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="../../public/images/animaux/FT_Gilbert.jpg" alt="Second slide">
+                <img class="d-block w-100" src="../../public/images/animaux/JU_Gilbert.jpg" alt="Second slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="../../public/images/animaux/PA_Georges.jpg" alt="Third slide">
+                <img class="d-block w-100" src="../../public/images/animaux/SA_Georges.jpg" alt="Third slide">
               </div>
             </div>
           </div>

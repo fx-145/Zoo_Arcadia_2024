@@ -16,4 +16,15 @@ class HomeController
         return $this->model->getHomes();
 
     }
+    public function getHomesAndOnePicture()
+    {
+        return $this->model->getHomesAndOnePicture();
+
+    }
+    public function getHomeAndAnimalsDetails($home_id)
+    {
+        return $this->model->getHomeAndAnimalsDetails($home_id);
+
+    }
+    
 }

@@ -11,4 +11,9 @@ class AnimalController {
     public function getAnimals() {
         return $this->model->getAnimals();     
     }
+    public function getAnimalsAndOnePicture($home_id)
+    {
+        return $this->model->getAnimalsAndOnePicture($home_id);
+
+    }
 }    

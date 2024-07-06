@@ -1,3 +1,8 @@
+<?php 
+require_once 'app/controllers/handler/serviceHandler.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -27,7 +32,13 @@
         </tr>
       </thead>
       <tbody>
-
+      <?php foreach ($result as $row): ?>
+          <tr>
+            <td><?php echo $row['service_name']; ?></td>
+            <td><?php echo $row['service_description']; ?></td>
+           
+          </tr>
+        <?php endforeach; ?>
       </tbody>
     </table>
     <br><br>

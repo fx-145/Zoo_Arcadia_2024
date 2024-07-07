@@ -17,6 +17,18 @@
   <!-- Affichage tableau bootstrap -->
   <div class="container">
     <?php
+     if (isset($_GET['success_report_e'])) {
+      $success = $_GET['success_report_e'];
+    
+      switch ($success) {
+          case '1':
+              echo '<p style="color: green;">Le rapport d\'alimentation de l\'animal a été envoyé avec succès!</p>';
+              break;
+          default:
+              echo '<p style="color: red;">Échec de l\'envoi du rapport d\'alimentation animal. Veuillez réessayer.</p>';
+              break;
+      }
+  }
     if (isset($_GET['success'])) {
       $success = $_GET['success'];
       switch ($success) {
@@ -39,7 +51,8 @@
       }
   } elseif (isset($_GET['success'])) {
       // Si 'success' est défini mais pas 'login', on ne fait rien
-  } else {
+      //eviter le message "erreur inattendue" dans le cas du rapport d'alimentation employé
+  } elseif (!isset($_GET['success_report_e'])) {
       echo '<p style="color: red;">Erreur inattendue</p>';
   }
   

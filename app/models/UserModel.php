@@ -1,6 +1,9 @@
 <?php
 require_once '../../../config/Database.php';
-require '../../../vendor/autoload.php'; //charger les dépendances de composer
+require '../../../vendor/autoload.php';
+
+
+//charger les dépendances de composer
 use Ramsey\Uuid\Uuid;//utilisation de l'UUID pour générer des id_users sécurisés.
 
 class UserModel
@@ -297,7 +300,29 @@ class UserModel
 
 
     }
+    public function getUserId($userName)
+    {
+        //$emailForm = 'joe3@mail.fr';
+        
+        try {
+            $query = "SELECT user_id FROM users WHERE user_name = :user_name";
+            $statement = $this->db->prepare($query);
+            $statement->bindParam(':user_name', $userName, PDO::PARAM_STR);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            if ($result) {
+                return $result['user_id'];
+            } else {
+                echo "Impossible de récupérer l'id de $userName";
+                //return null;
+            }
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+            return null;
 
+
+        }
+    }
 
 }
 

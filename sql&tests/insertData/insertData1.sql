@@ -4,15 +4,17 @@ INSERT INTO roles (role_id, role_name) VALUES ("1", "administrateur");
 INSERT INTO roles (role_id, role_name) VALUES ("2", "employe");
 INSERT INTO roles (role_id, role_name) VALUES ("3", "veterinaire");
 
---insérer données dans la table "homes":
-INSERT INTO homes (home_name, home_description ) VALUES ("Savane africaine","
-La savane africaine est un écosystème unique et diversifié qui se caractérise par ses vastes plaines herbeuses parsemées d'arbres clairsemés, tels que les acacias et les baobabs. Ce paysage distinctif est le résultat d'une interaction complexe entre le climat, le sol et la végétation, offrant un habitat idéal pour une grande variété de faune et de flore");
-INSERT INTO homes (home_name, home_description ) VALUES ("Foret africaine","La forêt africaine, souvent désignée comme la forêt tropicale africaine, est un écosystème luxuriant et diversifié qui joue un rôle crucial dans la régulation du climat mondial et la préservation de la biodiversité");
-INSERT INTO homes (home_name, home_description ) VALUES ("Foret asiatique","La forêt asiatique, est un écosystème riche et diversifié situé principalement en Asie du Sud-Est et en Asie du Sud. Dense et luxuriante, avec une canopée épaisse formée par des arbres de grande taille, et un sous-bois riche en plantes, lianes et épiphytes.");
+--2 Insérer donées dans table users: pour l'admin, methode detaillée. Pour les employés et vétérinaires, passer par l'appli.
+
+-- 3 insérer données dans la table "homes":
+INSERT INTO homes (home_name, home_description ) VALUES ("La Savane","
+La savane est un ecosysteme unique et diversifie qui se caracterise par ses vastes plaines herbeuses parsemees d'arbres clairsemes, tels que les acacias et les baobabs. Ce paysage distinctif est le resultat d'une interaction complexe entre le climat, le sol et la vegetation, offrant un habitat ideal pour une grande variete de faune et de flore");
+INSERT INTO homes (home_name, home_description ) VALUES ("La Jungle","La jungle abrite une incroyable diversite d'especes animales et vegetales. On y trouve des mammiferes, des oiseaux, des reptiles, des amphibiens, des poissons et d'innombrables insectes");
+INSERT INTO homes (home_name, home_description ) VALUES ("Le Marais","Il offre un habitat crucial pour de nombreuses especes et joue un role important dans les cycles de l eau et des nutriments.");
 INSERT INTO homes (home_name, home_description ) VALUES ("Grande Voliere","La volière tropicale recrée un environnement chaud et humide, similaire à celui des forêts tropicales. Elle est généralement abritée sous un dôme ou un filet pour permettre la pénétration de la lumière naturelle tout en offrant une protection contre les prédateurs et les intempéries.");
 INSERT INTO homes (home_name, home_description ) VALUES ("Grand Froid","L'habitat doit maintenir des températures froides, généralement autour de -1°C à 10°C, pour simuler les conditions arctiques. Des systèmes de réfrigération sont utilisés pour réguler la température.");
 
---insérer données dans la table "animals":
+-- 4 insérer données dans la table "animals":
 INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Georges", "Lion", "1");
 INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Melman", "Girafe", "1");
 INSERT INTO animals (animal_name, race, home_id  ) VALUES ("TopGun", "Rhinoceros", "1");
@@ -31,12 +33,12 @@ INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Octave", "Pingouin",
 INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Roger", "Manchot", "5");
 INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Wladimir", "Singe", "3");
 
---insérer données dans la table "services":
+-- 5 insérer données dans la table "services":
 INSERT INTO services (service_name, service_description) VALUES ("Visite du zoo en petit train", "Ce petit train est concu pour offrir une experience de voyage agreable dans le zoo, avec des sieges confortables et des compartiments ouverts pour une meilleure vue en toute securite");
 INSERT INTO services (service_name, service_description) VALUES ("Restauration", "Le zoo dispose d un nouveau restaurant panoramique qui satisfera vos papilles");
 INSERT INTO services (service_name, service_description) VALUES ("Visite des habitats avec un guide", "Cette prestation totalement gratuite vous permettra d en savoir beaucoup plus sur les animaux et leur vie au zoo");
 
---insérer données dans la table "services":
+--6 insérer données dans la table "opening_hours":
 INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("lundi","09:00","17:00");
 INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("mardi","09:00","17:00");
 INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("mercredi","09:00","17:00");
@@ -45,7 +47,7 @@ INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("vend
 INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("samedi","09:00","17:00");
 INSERT INTO opening_hours (opening_day, opening_time,closing_time) VALUES ("dimanche","09:00","17:00");
 
---insérer données dans table "home_pictures":
+--7 insérer données dans table "home_pictures":
 
 INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/SA_01.jpg", "1");
 INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/SA_02.jpg", "1");
@@ -53,19 +55,22 @@ INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/
 INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/JU_02.jpg", "2");
 INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/MA_01.jpg", "3");
 INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/MA_02.jpg", "3");
+
+-- brouillon
 INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/VT_01.jpg", "4");
 INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/VT_02.jpg", "4");
 INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/FP_01.jpg", "5");
 INSERT INTO home_pictures (home_picture_path, home_id  ) VALUES ("public/images/habitats/FP_02.jpg", "5");
 
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FA_Georges.jpg", "1");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FA_Melman.jpg", "2");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FA_TopGun.jpg", "3");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FA_Arthur.jpg", "4");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FP_Ernest.jpg", "5");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FP_John.jpg", "6");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FP_Miguel.jpg", "7");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FT_Gilbert.jpg", "8");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FT_Po.jpg", "9");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FT_Sherkan.jpg", "10");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/FT_Wladimir.jpg", "11");
+--8 insérer données dans table "animal_pictures":
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/SA_Georges.jpg", "1");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/SA_Melman.jpg", "2");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/SA_TopGun.jpg", "3");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Arthur.jpg", "4");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Ernest.jpg", "5");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_John.jpg", "6");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Miguel.jpg", "7");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Gilbert.jpg", "8");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Po.jpg", "9");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Sherkan.jpg", "10");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Wladimir.jpg", "11");

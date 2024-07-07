@@ -1,26 +1,14 @@
-<?php
-$role ='employe';
-require_once 'app/controllers/handler/checkSession.php';
-?>
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espace Employee</title>
-    <link rel="stylesheet" href="../../public/css/sidebar_style.css">
-    <link rel="stylesheet" href="../../public/css/main.css">
-</head>
-
-<body>
+        
+        <!-- Appel de l'area employee-->
+         <?php include_once ("elements/employee_area.php"); ?>
+         <body>
     <!-- Affichage de la sidebar -->
     <?php
-    include_once ("layouts/sidebar_employee.php"); ?>
+    include_once ("app/views/layouts/sidebar_employee.php"); ?>
     <!-- Affichage de la navbarbar -->
     <div id="content">
 
-        <?php include_once ("layouts/navbar.php"); ?>
+        <?php include_once ("app/views/layouts/navbar.php"); ?>
        
         
 
@@ -31,7 +19,6 @@ require_once 'app/controllers/handler/checkSession.php';
             <p>Bienvenue sur votre espace <span style="margin-left: 5px;"></span></p>
             
         </div>
-
 
 
 

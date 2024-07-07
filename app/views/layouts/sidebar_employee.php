@@ -23,15 +23,14 @@
                         <li><a href="dd">Modifier/supprimer</a></li>
                     </ul>
                 </li>
-              
-                
                 <br>
                 <hr class="separator">
                 <h2>Alimentation des animaux</h2>
                 <img class="icon" src="../../../public/images/icones/food.png" alt="Menu">
-                
+                <br>
+                <br>
                 <li class="nav-item">
-                    <a class="nav-link" href="dd">Lancer le formulaire</a>
+                    <a class="nav-link" href="/employee_food_form">Lancer le formulaire</a>
                 </li>
                 <h2>Compte utilisateur</h2>
                 <img class="icon" src="../../../public/images/icones/user.png" alt="Menu">

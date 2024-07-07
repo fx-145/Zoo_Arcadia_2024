@@ -1,7 +1,14 @@
 <?php
+//namespace UserController;
+//require_once 'app/models/UserModel.php';
+require_once '../../../config.php';
+require_once APP_MODEL_PATH . '/UserModel.php';
 
-require_once '../../models/UserModel.php';
 
+//require_once '../../models/UserModel.php';
+
+//require_once __DIR__ .'/models/UserModel.php';
+//use UserModel\UserModel;
 class UserController {
     private $model;
 
@@ -55,4 +62,10 @@ class UserController {
     public function roleRouter($userName, $role){
         return $this->model->roleRouter($userName, $role);
     }
+
+    public function getUserId($userName){
+        return $this->model->getUserId($userName);
+    }
+
+    
 }

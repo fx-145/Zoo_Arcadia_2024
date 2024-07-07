@@ -3,7 +3,7 @@ require_once '../UserController.php';
 require_once '../../controllers/router/Router.controller.php';
 //activer le routeur
 $navbar = new Navbar();
-
+//use UserController\UserController;
 $controller = new UserController();
 if (isset($_POST['userName']) && !empty($_POST['userName']) && filter_var($_POST['userName'], FILTER_VALIDATE_EMAIL)) {
     //récupérer l'email renseigné dans le formulaire: sécurité: vérifier que l'adresse mail est bien sous format email avec filter_var

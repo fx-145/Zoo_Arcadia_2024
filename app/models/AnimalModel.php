@@ -1,10 +1,11 @@
 <?php
-require_once 'config/Database.php';
-
+// -- require_once 'config/Database.php';
+require_once __DIR__ . '../../../config.php';
+require_once DB_PATH . '/Database.php';
 class AnimalModel
 {
     private $db;
-    //appel de la base de donnée stockée dans le fichier Database, et dans une classe Database.
+    //appel de la base de donnée stockée dans le fichier Database, et dans la classe Database.
     public function __construct()
     {
         $database = new Database();
@@ -61,6 +62,48 @@ class AnimalModel
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
             return null;
+        }
+    }
+    //Affiche le nom des animaux dans le champ de sélection (Vetform et employeeForm)
+    public function scrollBarAnimalName()
+    {
+        try {
+            $query = "SELECT animal_name FROM animals ORDER BY animal_name ASC";
+            $statement = $this->db->prepare($query);
+            $statement->execute();
+            return $statement->fetchAll();
+            if ($statement) {
+                return $statement;
+            } else {
+                echo "Impossible de récupérer les noms des animaux";
+                //return null;
+            }
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+            return null;
+
+
+        }
+    }
+    public function getAnimalId($animal_name)
+    {
+        try {
+            $query = "SELECT animal_id FROM animals WHERE animal_name = :animal_name";
+            $statement = $this->db->prepare($query);
+            $statement->bindParam(':animal_name', $animal_name, PDO::PARAM_STR);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            if ($result) {
+                return $result['animal_id'];
+            } else {
+                echo "Impossible de récupérer l'id de $animal_name";
+                //return null;
+            }
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+            return null;
+
+
         }
     }
 }

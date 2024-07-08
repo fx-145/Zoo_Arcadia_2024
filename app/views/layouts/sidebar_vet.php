@@ -11,7 +11,7 @@
                 <img class="icon" src="../../../public/images/icones/vet.png" alt="Menu" >
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="dd">Lancer le formulaire - Visualiser les rapports d'alimentation</a>
+                    <a class="nav-link" href="/vet_visit_form">Lancer le formulaire - Visualiser les rapports d'alimentation</a>
                 </li>
                 <br>
                 <hr class="separator">

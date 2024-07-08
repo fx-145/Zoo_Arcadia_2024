@@ -1,8 +1,7 @@
 <?php
-//-- require_once 'config/Database.php';
 require_once '../../../config.php';
 require_once DB_PATH . '/Database.php';
-//require_once '../../../config/Database.php';
+
 class EmployeeModel
 {
     private $db;
@@ -16,17 +15,10 @@ class EmployeeModel
     }
 
 
-    //fonction de recherche de l'animal_id en fonction de son animal_name
+    //Enregistrer les données de rapport d'alimentation animal
     public function EmployeePassageReport($animal_id, $user_id,$type_of_food_given, $qty_of_food_given, $date_time)
     {
         try {
-
-            //$pdo = new PDO($dsn, $username, $passwd);
-            //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            //$dbconnection = Database::getConnection();
-        
-            
-        
             // Préparer une requête pour l'insertion des données dans la table "employee_passages"
             $insertQuery = "INSERT INTO employee_passages (given_type_of_food, given_food_weight, employee_passage_date_time, user_id, animal_id) 
             VALUES (:given_type_of_food, :given_food_weight, :employee_passage_date_time, :user_id,:animal_id)";

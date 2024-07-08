@@ -1,5 +1,4 @@
 <?php
-// -- require_once 'config/Database.php';
 require_once __DIR__ . '../../../config.php';
 require_once DB_PATH . '/Database.php';
 class AnimalModel
@@ -51,7 +50,7 @@ class AnimalModel
             $statement->bindParam(':home_id', $home_id, PDO::PARAM_INT);
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-    
+
             // Vérifiez si des résultats ont été récupérés
             if ($result) {
                 return $result;
@@ -97,6 +96,28 @@ class AnimalModel
                 return $result['animal_id'];
             } else {
                 echo "Impossible de récupérer l'id de $animal_name";
+                //return null;
+            }
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+            return null;
+
+
+        }
+    }
+
+    public function getAnimalHomeId($animal_name)
+    {
+        try {
+            $query = "SELECT home_id FROM animals WHERE animal_name = :animal_name";
+            $statement = $this->db->prepare($query);
+            $statement->bindParam(':animal_name', $animal_name, PDO::PARAM_STR);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            if ($result) {
+                return $result['home_id'];
+            } else {
+                echo "Impossible de récupérer l'home_id de $animal_name";
                 //return null;
             }
         } catch (PDOException $e) {

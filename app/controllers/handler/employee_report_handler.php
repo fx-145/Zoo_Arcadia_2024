@@ -10,8 +10,7 @@ $controllerU = new UserController();
 $controllerE = new EmployeeController();
 $controllerN = new Navbar();
 // Rechercher les noms des animaux à afficher dans le champ animaux:
-//$data = $controllerA->scrollBarAnimalName();
-//var_dump($_SESSION['userName']);
+;
 // Si le formulaire est soumis, retrouver l'Id de l'animal en fonction de son nom
 if (isset($_POST['animal_name']) && isset($_POST['type_of_food_given']) && isset($_POST['qty_of_food_given']) && isset($_POST['date_time'])) {
   try {
@@ -50,23 +49,6 @@ if (isset($_POST['animal_name']) && isset($_POST['type_of_food_given']) && isset
   echo 'Erreur : Tous les champs du formulaire ne sont pas définis.';
 }
        
-
-
-
-
-// Si le formulaire est soumis, retrouver l'Id du user en fonction de son nom
-//if (isset($_POST['user_name'])) {
- 
- // $emailForm = 'joe2@mail.fr';
- //session_start();
-  
- // var_dump($emailForm);
-
-// Créer une instance du contrôleur pour l'insertion de toutes les données du formulaire, suite au passage de l'employé
-
-// Si le formulaire est soumis, intégrer les données de passage du vétérinaire
-
-
 
  
  

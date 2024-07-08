@@ -31,6 +31,11 @@ class AnimalController {
         return $this->model->getAnimalId($animal_name);
 
     }
+    public function getAnimalHomeId($animal_name)
+    {
+        return $this->model->getAnimalHomeId($animal_name);
+
+    }
     
     
 }    

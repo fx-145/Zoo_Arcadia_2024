@@ -1,5 +1,6 @@
 <?php
-require_once '../../../config.php';
+//require_once '../../../config.php';
+require_once __DIR__.'../../../config.php';
 require_once DB_PATH . '/Database.php';
 
 class EmployeeModel
@@ -37,6 +38,35 @@ class EmployeeModel
             echo "Données de passage vétérinaire sur l'animal $animal_id enregistrées";
         } catch (PDOException $e) {
             echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
+        }
+    }
+
+    // afficher les comptes-rendus d'alimentation par les employés
+    public function getEmployeeReports()
+    {
+       
+        {
+             try {
+                $query = "SELECT * FROM employee_passages
+                INNER JOIN users ON employee_passages.user_id = users.user_id
+                INNER JOIN animals ON employee_passages.animal_id = animals.animal_id";;
+                $statement = $this->db->prepare($query);
+                $statement->execute();
+                return $statement->fetchAll(PDO::FETCH_ASSOC);
+                //var_dump($statement);
+                if ($statement) {
+                    return $statement;
+                } else {
+                    echo "pas d'enregistrement";}
+                    //return null;
+                
+            } catch (PDOException $e) {
+                echo "Erreur : " . $e->getMessage();
+                return null;
+
+
+            }
+
         }
     }
 }

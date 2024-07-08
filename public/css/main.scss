@@ -45,6 +45,11 @@ body {
   font-family: 'Calibri', 'Arial', sans-serif;
 }
 
+#tableContainer {
+  max-height: 400px; /* Adjust as needed */
+  overflow-y: auto;
+}
+
 //@use "../../node_modules/bootstrap/scss/bootstrap" as *;
 @import "../../node_modules/bootstrap/scss/bootstrap";
 

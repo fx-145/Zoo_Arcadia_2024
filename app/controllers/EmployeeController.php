@@ -2,7 +2,8 @@
 
 //require_once '../../models/EmployeeModel.php';
 // -- require_once 'app/models/EmployeeModel.php';
-require_once '../../../config.php';
+//require_once '../../../config.php';
+require_once __DIR__.'../../../config.php';
 require_once APP_MODEL_PATH . '/EmployeeModel.php';
 class EmployeeController {
     private $model;
@@ -16,4 +17,11 @@ class EmployeeController {
         return $this->model->EmployeePassageReport($animal_id, $user_id,$type_of_food_given, $qty_of_food_given, $date_time);
         
     }
+
+    public function getEmployeeReports() {
+        return $this->model->getEmployeeReports();
+        
+    }
+  
+
 }

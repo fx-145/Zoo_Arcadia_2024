@@ -7,7 +7,7 @@ $data = $controllerA->scrollBarAnimalName();
 
 
 
-<body>
+
   <!-- Appel de l'area vet-->
   <?php include_once("app/views/elements/vet_area.php"); ?>
   <!-- Affichage de la sidebar -->
@@ -15,7 +15,8 @@ $data = $controllerA->scrollBarAnimalName();
   <!-- Affichage de la navbar -->
   <div id="content">
     <?php include_once("app/views/layouts/navbar.php"); ?>
-
+    
+    <body>
     <div class="container mt-4">
       <h1 class="mt-4">Espace Vétérinaire</h1>
       <button class="btn btn-success mx-2" id="menu-toggle">

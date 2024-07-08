@@ -1,25 +1,17 @@
 
 <?php
 require_once 'app/controllers/EmployeeController.php';
-//require_once '../../config/Database.php';
 
 $controller = new EmployeeController();
 $result = $controller->getEmployeeReports();
-//var_dump($result);
+
 ?>
-
-
-
-
-
-<!-- Ajouter un service -->
-<!--<div class="container"> -->
 
    <input type="text" id="searchInput" class="form-control search-input" placeholder="Rechercher par Nom de l'animal"> 
  
  
      <!--  affichage de tous les champs, croisées de 3 tables (récupère username et animal_name) -->
-    <div id = tablecontainer>
+    <div id = "tableContainer">
      <table class="table mt-3">
        <thead>
          <tr>

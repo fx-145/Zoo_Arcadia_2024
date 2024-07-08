@@ -7,7 +7,7 @@
        
     <div class="list-group list-group-flush">
         <div>
-            <h2>Consultation des vues</h2>
+            <h3>Consultation des vues par animal et des rapports vétérinaires</h3>
             <ul>
             <li class="nav-item d-flex align-items-center">
                     <img class="icon" src="../../../public/images/icones/consulter.png" alt="Menu" >
@@ -16,6 +16,11 @@
             <ul>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Dashboard consultations par animal</a>
+                </li>
+            </ul>
+            <ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="/vet_reports_for_admin">Consultation des rapports vétérinaires</a>
                 </li>
             </ul>
             

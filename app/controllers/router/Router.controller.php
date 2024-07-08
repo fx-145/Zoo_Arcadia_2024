@@ -47,7 +47,8 @@ class Navbar
             '/homeDetails'=> 'homeDetails.php',
             '/employee_food_form' => 'employee_food_form.php',
             '/employee_report_handler' => 'employee_report_handler.php',
-            '/vet_visit_form' => 'vet_visit_form.php'
+            '/vet_visit_form' => 'vet_visit_form.php',
+            '/vet_reports_for_admin' => 'vet_reports_for_admin.php'
         ];
         
         if (array_key_exists($uri, $routes)) {

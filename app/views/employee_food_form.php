@@ -91,7 +91,7 @@ $data = $controllerA->scrollBarAnimalName();
 <!-- Appel du script de la sidebar -->
 
 <script src="public/js/sidebar_script.js"></script>
-<!-- cette cloture de div ci-dessous balise la fin du contenu de tout l'affichage dans area_admin -->
+
 </div>
 
 </body>

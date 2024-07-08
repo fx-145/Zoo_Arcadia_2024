@@ -38,7 +38,7 @@ body {
 }
 
 #tableContainer {
-  max-height: 700px; /* Adjust as needed */
+  max-height: 700px;
   overflow-y: auto;
 }
 

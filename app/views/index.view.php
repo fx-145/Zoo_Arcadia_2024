@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'app/controllers/handler/welcomePageHandler.php';
 ?>
 

@@ -16,29 +16,68 @@ $navbar = new Navbar();
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <?php
-                echo ($navbar->urlValue('/')) ?
+
+                //mise en surbrillance du lien de la navbar si le lien est actif
+                $currentPage = basename($_SERVER['PHP_SELF']);
+
+                // (code special pour la page index.view)
+                $isHomePage = $currentPage === '' || $currentPage === 'index.php';
+
+                echo $isHomePage ?
                     '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Accueil</a></li>' :
                     '<li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>';
 
-
-                echo ($navbar->urlValue('/services')) ?
+                echo ($currentPage === 'services') ?
                     '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/services">Services</a></li>' :
                     '<li class="nav-item"><a class="nav-link" href="/services">Services</a></li>';
 
-                echo ($navbar->urlValue('/homes')) ?
+                echo ($currentPage === 'homes') ?
                     '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/homes">Habitats</a></li>' :
                     '<li class="nav-item"><a class="nav-link" href="/homes">Habitats</a></li>';
 
-                echo ($navbar->urlValue('/connection')) ?
+                echo ($currentPage === 'connection') ?
                     '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/connection">Connexion</a></li>' :
                     '<li class="nav-item"><a class="nav-link" href="/connection">Connexion</a></li>';
 
-                echo ($navbar->urlValue('/contact')) ?
+                echo ($currentPage === 'contact') ?
                     '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/contact">Contact</a></li>' :
                     '<li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>';
 
 
+                if (isset($_SESSION['role'])) {
+                    $currentPage = basename($_SERVER['PHP_SELF']);
+                    $adminPages = ['admin_area', 'vet_reports_for_admin'];
+                    $vetPages = ['vet_area', 'employee_reports_for_vets'];
+                    $employeePages = ['employee_area', 'employee_food_form'];
+
+                    switch ($_SESSION['role']) {
+                        case 'administrateur':
+                            $isAdminPage = in_array($currentPage, $adminPages);
+                            echo $isAdminPage ?
+                                '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/admin_area">Espace Admin</a></li>' :
+                                '<li class="nav-item"><a class="nav-link" href="/admin_area">Espace Admin</a></li>';
+                            break;
+
+                        case 'veterinaire':
+                            $isVetPage = in_array($currentPage, $vetPages);
+                            echo $isVetPage ?
+                                '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/vet_area">Espace Vétérinaire</a></li>' :
+                                '<li class="nav-item"><a class="nav-link" href="/vet_area">Espace Vétérinaire</a></li>';
+                            break;
+
+                        case 'employe':
+                            $isEmployeePage = in_array($currentPage, $employeePages);
+                            echo $isEmployeePage ?
+                                '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/employee_area">Espace Employé</a></li>' :
+                                '<li class="nav-item"><a class="nav-link" href="/employee_area">Espace Employé</a></li>';
+                            break;
+                    }
+                }
                 ?>
+
+
+
+
             </ul>
         </div>
     </div>

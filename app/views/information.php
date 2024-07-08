@@ -17,46 +17,26 @@
   <!-- Affichage tableau bootstrap -->
   <div class="container">
     <?php
-     if (isset($_GET['success_report_e'])) {
-      $success = $_GET['success_report_e'];
-    
-      switch ($success) {
-          case '1':
-              echo '<p style="color: green;">Le rapport d\'alimentation de l\'animal a été envoyé avec succès!</p>';
-              break;
-          default:
-              echo '<p style="color: red;">Échec de l\'envoi du rapport d\'alimentation animal. Veuillez réessayer.</p>';
-              break;
-      }
-  }
-    if (isset($_GET['success'])) {
-      $success = $_GET['success'];
-      switch ($success) {
-          case '1':
-              echo '<p style="color: green;">Le message a été envoyé avec succès!</p>';
-              break;
-          default:
-              echo '<p style="color: red;">Échec de l\'envoi du message. Veuillez réessayer.</p>';
-              break;
-      }
-  }
-  
-  if (isset($_GET['login'])) {
-      $login = $_GET['login'];
-      switch ($login) {
-          case '0':
-              echo '<p style="color: red;">Erreur lors de l\'authentification. Veuillez réessayer.</p>';
-              break;
-          
-      }
-  } elseif (isset($_GET['success'])) {
-      // Si 'success' est défini mais pas 'login', on ne fait rien
-      //eviter le message "erreur inattendue" dans le cas du rapport d'alimentation employé
-  } elseif (!isset($_GET['success_report_e'])) {
-      echo '<p style="color: red;">Erreur inattendue</p>';
-  }
-  
+    function displayMessage($type, $successMsg, $failureMsg) {
+        $success = $_GET[$type] ?? null;
+        if ($success !== null) {
+            if ($success === '1') {
+                echo '<p style="color: green;">' . $successMsg . '</p>';
+            } else {
+                echo '<p style="color: red;">' . $failureMsg . '</p>';
+            }
+        }
+    }
 
+    displayMessage('success_report_e', "Le rapport d'alimentation de l'animal a été envoyé avec succès!", "Échec de l'envoi du rapport d'alimentation animal. Veuillez réessayer.");
+    displayMessage('success_report_v', "Le rapport de visite de l'animal a été envoyé avec succès!", "Échec d'envoi du rapport de visite animal. Veuillez réessayer.");
+    displayMessage('success', "Le message a été envoyé avec succès!", "Échec de l'envoi du message. Veuillez réessayer.");
+
+    if (isset($_GET['login']) && $_GET['login'] === '0') {
+        echo '<p style="color: red;">Erreur lors de l\'authentification. Veuillez réessayer.</p>';
+    } elseif (!isset($_GET['success_report_e']) && !isset($_GET['success_report_v']) && !isset($_GET['success'])) {
+        echo '<p style="color: red;">Erreur inattendue</p>';
+    }
     ?>
   </div>
   <!-- Appel du footer -->

@@ -19,7 +19,7 @@ $result = $controller->getVetReports();
   <!-- Ajouter un service -->
   <div class="container">
   <button class="btn btn-success mx-2" id="menu-toggle"><></button>
-    <h1>Espace Rapports vétérinaires</h1>
+    <h1>Rapports des vétérinaires</h1>
 
 
      <!--installer les filtres sur animal et date de rapport -->

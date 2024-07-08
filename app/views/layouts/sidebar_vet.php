@@ -20,7 +20,7 @@
                 <img class="icon" src="../../../public/images/icones/user.png" alt="Menu" >
                 
                 <li class="nav-item">
-                    <a class="nav-link" href=" dd">Se déconnecter</a>
+                    <a class="nav-link" href="end_session">Se déconnecter</a>
                 </li>
             </ul>
         </div>

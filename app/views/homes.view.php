@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'app/controllers/HomeController.php';
 $controller = new HomeController();
 $result = $controller->getHomesAndOnePicture();

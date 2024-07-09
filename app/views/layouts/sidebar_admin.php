@@ -36,8 +36,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#submenu1" data-toggle="collapse">Habitats</a>
                     <ul id="submenu1" class="collapse">
-                        <li><a href="#">Ajouter</a></li>
-                        <li><a href="#">Modifier/supprimer</a></li>
+                        <li><a href="crud_homes_add">Ajouter</a></li>
+                        <li><a href="crud_homes">Modifier/supprimer</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

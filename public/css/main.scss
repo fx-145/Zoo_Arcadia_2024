@@ -50,6 +50,10 @@ body {
   overflow-y: auto;
 }
 
+.btn-custom {
+  width: 100px;
+}
+
 //@use "../../node_modules/bootstrap/scss/bootstrap" as *;
 @import "../../node_modules/bootstrap/scss/bootstrap";
 

@@ -27,5 +27,14 @@ class PictureController {
         return $this->model->getAnimalPictures($animal_id);
         
     } 
+    public function addAnimalPictures($animal_id, $animal_picture_path) {
+        return $this->model->addAnimalPictures($animal_id, $animal_picture_path);
+        
+    } 
+
+    public function deleteAnimalPicture($animal_picture_id) {
+        return $this->model->deleteAnimalPicture($animal_picture_id);
+        
+    } 
     
 }

@@ -54,7 +54,7 @@ require_once 'app/controllers/HomeController.php';
                 <br>
 
             <button type="submit" class="btn btn-primary" name="submit_add_animal">Ajouter</button>
-            <a href ="area_admin_animals.php" class= "btn btn-secondary">Annuler</a>
+            <a href ="crud_animals" class= "btn btn-secondary">Annuler</a>
         </form>
     </div>
     <br>

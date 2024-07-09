@@ -98,5 +98,47 @@ class PictureModel
             }
         }
     }
-
+    public function addAnimalPictures($animal_id, $animal_picture_path)
+     {
+         try {
+ 
+             // Préparer une requête pour la création de données dans la table "animals"
+             $insertQuery = "INSERT INTO animal_pictures (animal_id, animal_picture_path)
+             VALUES (:animal_id, :animal_picture_path)";
+             $stmt = $this->db->prepare($insertQuery);
+             $stmt->execute(array(':animal_id' => $animal_id, ':animal_picture_path' => $animal_picture_path));
+            // $stmt->bindParam(':animal_name', $animal_name, PDO::PARAM_STR);
+             //$stmt->bindParam(':animal_description', $animal_description, PDO::PARAM_STR);
+            // $stmt->execute();
+            if ($stmt) {
+             echo "Photo d'animal ajoutée avec succès et chemin d'accès enregistré";
+                 
+ 
+         }
+ 
+             //echo "Photo d'habitat enregistré";
+         } catch (PDOException $e) {
+             echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
+         }
+     }
+ 
+     public function deleteAnimalPicture($animal_picture_id)
+     {
+         try {
+ 
+             // Préparer une requête pour la suppression des données dans la table "animals"
+             $deleteQuery = "DELETE FROM animal_pictures WHERE animal_picture_id=?";
+             $stmt = $this->db->prepare($deleteQuery);
+           //  $stmt->bindParam(':animal_id', $animal_id, PDO::PARAM_INT);
+             $stmt->execute([$animal_picture_id]);
+             if ($stmt) {
+                 echo "Photo d'habitat supprimée avec succès";
+ 
+             }
+ 
+ 
+         } catch (PDOException $e) {
+             echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
+         }
+     }
 }

@@ -84,7 +84,7 @@ if (isset($_POST['animal_id'])) {
             <hr>
             <!-- Tableau Bootstrap affichage de toutes les photos des animals -->
             <h2 class="mt-4">Photos de l'animal</h2>
-            <form action="crudanimalPictureHandler" method="post">
+            <form action="crudAnimalPictureHandler" method="post">
                 <table class="table table-striped table-bordered">
                     <thead class="thead-dark">
                         <tr>

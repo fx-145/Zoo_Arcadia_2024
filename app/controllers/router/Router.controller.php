@@ -59,7 +59,10 @@ class Navbar
             '/crud_animals' =>'app/views/crud/crud_animals.php',
             '/crud_animals_update' =>'app/views/crud/crud_animals_update.php',
             '/crudAnimalHandler'=> 'app/controllers/handler/editHandler/crudAnimalHandler.php',
-            '/crud_animals_add'=> 'app/views/crud/crud_animals_add.php'
+            '/crud_animals_add'=> 'app/views/crud/crud_animals_add.php',
+            '/crud_animal_picture_add'=> 'app/views/crud/crud_animal_picture_add.php',
+            '/crudAnimalPictureHandler'=> 'app/controllers/handler/editHandler/crudAnimalPictureHandler.php'
+
         ];
         
         if (array_key_exists($uri, $routes)) {

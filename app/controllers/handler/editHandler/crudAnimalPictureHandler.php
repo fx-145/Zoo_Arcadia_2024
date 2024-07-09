@@ -1,6 +1,6 @@
 <?php
 require_once 'app/controllers/PictureController.php';
-class HomePictureHandler
+class AnimalPictureHandler
 {
 
     private $controller;
@@ -9,7 +9,7 @@ class HomePictureHandler
         $this->controller = new PictureController();
     }
     
-    public function handleAddHomePicture()
+    public function handleAddAnimalPicture()
     { 
  
         try {// Configuration des paramètres de téléchargement
@@ -19,17 +19,17 @@ class HomePictureHandler
             // récupération de l'info de taille de l'image
             $file_size = $_FILES['picture']['size'];
     
-            $home_picture_name = htmlspecialchars($_POST['home_picture_name']);
+            $animal_picture_name = htmlspecialchars($_POST['animal_picture_name']);
             //transformer le nom de la photo sans espace et sans caractères spéciaux:
                 // sans caractères spéciaux:
-            $home_picture_name_scs = preg_replace('/[^A-Za-z0-9]/', ' ', $home_picture_name);
+            $animal_picture_name_scs = preg_replace('/[^A-Za-z0-9]/', ' ', $animal_picture_name);
                 // sans espace
-            $home_picture_name_se = str_replace(' ', '', $home_picture_name_scs);
+            $animal_picture_name_se = str_replace(' ', '', $animal_picture_name_scs);
                 // on reprend notre variable modifiée
-            $home_picture_name = $home_picture_name_se;
+            $animal_picture_name = $animal_picture_name_se;
     
-            // Vérifier l'intégrité de $home_picture_name
-            if (!preg_match('/^[a-zA-Z0-9_-]+$/', $home_picture_name)) {
+            // Vérifier l'intégrité de $animal_picture_name
+            if (!preg_match('/^[a-zA-Z0-9_-]+$/', $animal_picture_name)) {
                 echo "Le nom de l'image contient des caractères non valides. Utilisez uniquement des lettres, chiffres, tirets et underscores.";
                 return;
             }
@@ -38,7 +38,7 @@ class HomePictureHandler
                 die("Erreur: La taille du fichier est trop grande.");
             }
   
-            $homePicsDirectory = 'public/images/habitats/';
+            $animalPicsDirectory = 'public/images/animaux/';
     
             // Récupération des informations du fichier téléchargé
             $picture = $_FILES['picture']['name'];
@@ -51,24 +51,26 @@ class HomePictureHandler
                 return;
             }
     
-            /// Générer un identifiant unique, greffé au nom de l'home
-        $uniqueID = uniqid($home_picture_name . "_", true);
+            /// Générer un identifiant unique, greffé au nom de l'animal
+        $uniqueID = uniqid($animal_picture_name . "_", true);
         
         // Renommer le fichier avec l'ID unique et conserver l'extension originale
         $newFileName = $uniqueID . '.' . $imageExtension;
-        $destination = $homePicsDirectory . $newFileName;
-        $home_picture_path = $destination;
+        $destination = $animalPicsDirectory . $newFileName;
+        $animal_picture_path = $destination;
         
     
              // Déplacement du fichier téléchargé vers le répertoire de destination
         if (move_uploaded_file($_FILES['picture']['tmp_name'], $destination)) {
             echo "Le fichier a été téléchargé avec succès.";
-            //on inègre le nom de l'image dans la base de données et on le rattache à l'home
-            $home_id = $_POST['home_id'];
-            $home_picture_path = $destination;
-         
-            $this->controller->addhomePictures($home_id, $home_picture_path);
-
+            //on inègre le nom de l'image dans la base de données et on le rattache à l'animal
+            $animal_id = $_POST['animal_id'];
+            $animal_picture_path = $destination;
+           
+            $this->controller->addAnimalPictures($animal_id, $animal_picture_path);
+            
+            header("Location: /crud_animals");
+            exit(); // Afin que le script se termine
         } else {
             echo "Désolé, une erreur s'est produite lors du téléchargement de votre fichier.";
         }
@@ -83,10 +85,10 @@ class HomePictureHandler
 
 
 
-    public function handleDeleteHomePicture()
+    public function handleDeleteAnimalPicture()
     {   
-        //supprimer la photo du répertoire "images/homes"
-        $file_path = $_POST['home_picture_path'];
+        //supprimer la photo du répertoire "images/animals"
+        $file_path = $_POST['animal_picture_path'];
         var_dump($file_path);
     
         
@@ -106,28 +108,28 @@ class HomePictureHandler
 
 
 
-        // 2 supprimer l'enregistrement de la photo de l'home
-        $home_picture_id = $_POST['home_picture_id'];
-        $this->controller->deleteHomePicture($home_picture_id);
-        header("Location: crud_homes");
+        // 2 supprimer l'enregistrement de la photo de l'animal
+        $animal_picture_id = $_POST['animal_picture_id'];
+        $this->controller->deleteAnimalPicture($animal_picture_id);
+        header("Location: crud_animals");
         exit(); //arrêt du script
 
     }}
 
     
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $formHandlerH = new HomePictureHandler();
+    $formHandlerA = new AnimalPictureHandler();
 
 
-//Habitat
-    if (isset($_POST['submit_add_home_picture'])) {
+//Animaux
+    if (isset($_POST['submit_add_animal_picture'])) {
 
-        $formHandlerH->handleAddHomePicture();
+        $formHandlerA->handleAddAnimalPicture();
     }
     
-    if (isset($_POST['submit_delete_home_picture'])) {
+    if (isset($_POST['submit_delete_animal_picture'])) {
 
-        $formHandlerH->handleDeleteHomePicture();
+        $formHandlerA->handleDeleteAnimalPicture();
     }
 
       

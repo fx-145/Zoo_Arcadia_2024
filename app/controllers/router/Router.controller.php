@@ -53,7 +53,9 @@ class Navbar
             '/crud_homes' =>'app/views/crud/crud_homes.php',
             '/crud_homes_update' =>'app/views/crud/crud_homes_update.php',
             '/crudHomeHandler'=> 'app/controllers/handler/editHandler/crudHomeHandler.php',
-            '/crud_homes_add'=> 'app/views/crud/crud_homes_add.php'
+            '/crudHomePictureHandler'=> 'app/controllers/handler/editHandler/crudHomePictureHandler.php',
+            '/crud_homes_add'=> 'app/views/crud/crud_homes_add.php',
+            '/crud_home_picture_add'=> 'app/views/crud/crud_home_picture_add.php'
         ];
         
         if (array_key_exists($uri, $routes)) {

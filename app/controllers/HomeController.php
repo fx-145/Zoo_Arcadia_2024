@@ -49,5 +49,9 @@ class HomeController
         return $this->model->deleteHome($home_id);
         
     } 
+    public function scrollBarHomeName() {
+        return $this->model->scrollBarHomeName();
+    }
+        
+    } 
     
-}

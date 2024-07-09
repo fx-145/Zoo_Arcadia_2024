@@ -189,4 +189,27 @@ class HomeModel
             echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
         }
     }
+
+
+    //Scroll bar sélection de l'habitat dans crud_animal_update
+    public function scrollBarHomeName()
+    {
+        try {
+            $query = "SELECT * FROM homes";
+            $statement = $this->db->prepare($query);
+            $statement->execute();
+            return $statement->fetchAll();
+            if ($statement) {
+                return $statement;
+            } else {
+                echo "Impossible de récupérer les noms des habitats";
+                //return null;
+            }
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+            return null;
+
+
+        }
+    }
 }

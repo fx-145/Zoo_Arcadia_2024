@@ -70,5 +70,33 @@ class PictureModel
         }
     }
 
+    // Recenser toutes les photos des animaux
+    public function getAnimalPictures($animal_id)
+    { {
+            try {
+                // $query = "SELECT * FROM homes WHERE home_id = :home_id";
+                $query = "SELECT * FROM animal_pictures WHERE animal_id = :animal_id";
+                $statement = $this->db->prepare($query);
+                $statement->bindParam(':animal_id', $animal_id, PDO::PARAM_INT);
+                $statement->execute();
+                return $statement->fetchAll(PDO::FETCH_ASSOC);
+                
+
+                //var_dump($result)['home_name'];
+                if ($statement) {
+                   
+                    return $statement;
+                    
+                } else {
+                    echo "pas d'enregistrement";
+                    //return null;
+                }
+            } catch (PDOException $e) {
+                echo "Erreur : " . $e->getMessage();
+                return null;
+
+            }
+        }
+    }
 
 }

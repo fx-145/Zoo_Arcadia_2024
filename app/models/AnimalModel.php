@@ -127,4 +127,116 @@ class AnimalModel
 
         }
     }
+    public function getAllAnimalWithHomes()
+    {
+        try {
+            $query = "SELECT *
+            FROM animals
+            INNER JOIN homes ON animals.home_id = homes.home_id";
+            $statement = $this->db->prepare($query);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            // Vérifiez si des résultats ont été récupérés
+            if ($result) {
+                return $result;
+            } else {
+                echo "Impossible de récupérer les enregistrements";
+                return null;
+            }
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+            return null;
+        }
+    }
+
+    //crud update animals
+    public function getAnimalsWithId($animal_id)
+    {
+        // Afficher l'animal sélectionné pour mise à jour, avec affichage de l'habitat
+        {
+             try {
+                $query = "SELECT * FROM animals 
+                INNER JOIN homes ON animals.home_id = homes.home_id
+                WHERE animal_id = :animal_id";
+                $statement = $this->db->prepare($query);
+                $statement->bindParam(':animal_id', $animal_id, PDO::PARAM_INT);
+                $statement->execute();
+                $result=$statement->fetch(PDO::FETCH_ASSOC);
+                if ($result) {
+                    return $result;
+                } else {
+                    echo "pas d'enregistrement";
+                    //return null;
+                }
+                
+            } catch (PDOException $e) {
+                echo "Erreur : " . $e->getMessage();
+                return null;
+
+
+            }
+
+        }
+    }
+    // mettre à jour les données de l'animal sélectionné
+    public function updateAnimal($animal_id,$new_animal_name, $new_animal_race,$new_home_id)
+    {
+        
+        try {
+
+            // Préparer une requête pour la mise à jour des données dans la table "animals"
+            $insertQuery = "UPDATE animals SET animal_name= :animal_name, race=:animal_race, home_id = :home_id WHERE animal_id=:animal_id";
+            $stmt = $this->db->prepare($insertQuery);
+            $stmt->bindParam(':animal_name', $new_animal_name, PDO::PARAM_STR);
+            $stmt->bindParam(':animal_race', $new_animal_race, PDO::PARAM_STR);
+            $stmt->bindParam(':home_id', $new_home_id, PDO::PARAM_INT);
+            $stmt->bindParam(':animal_id', $animal_id, PDO::PARAM_STR);
+            $stmt->execute();
+           
+        } catch (PDOException $e) {
+            echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
+        }}
+        public function addAnimal($animal_name, $animal_race,$home_id)
+        {
+            try {
+    
+                // Préparer une requête pour la création de données dans la table "animals"
+                $insertQuery = "INSERT INTO animals (animal_name, race, home_id)
+                VALUES (:animal_name, :animal_race, :home_id)";
+                $stmt = $this->db->prepare($insertQuery);
+                $stmt->bindParam(':animal_name', $animal_name, PDO::PARAM_STR);
+                $stmt->bindParam(':animal_race', $animal_race, PDO::PARAM_STR);
+                $stmt->bindParam(':home_id', $home_id, PDO::PARAM_INT);
+                $stmt->execute();
+               if ($stmt) {
+                //echo "animal ajouté avec succès";   
+    
+    
+            }
+    
+                //echo "Nouvel animal enregistré";
+            } catch (PDOException $e) {
+                echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
+            }
+        }
+
+
+        public function deleteAnimal($animal_id)
+        {
+            try {
+    
+                // Préparer une requête pour la suppression des données dans la table "animals"
+                $deleteQuery = "DELETE FROM animals WHERE animal_id=?";
+                $stmt = $this->db->prepare($deleteQuery);
+                $stmt->execute([$animal_id]);
+                if ($stmt) {
+                    echo "Fiche animal supprimée avec succès";
+    
+                }
+    
+    
+            } catch (PDOException $e) {
+                echo "Erreur lors de la suppression des données : " . $e->getMessage();
+            }
+        }
 }

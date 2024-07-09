@@ -43,8 +43,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#submenu2" data-toggle="collapse">Animaux</a>
                     <ul id="submenu2" class="collapse">
-                        <li><a href="#">Ajouter</a></li>
-                        <li><a href="#">Modifier/supprimer</a></li>
+                        <li><a href="crud_animals_add">Ajouter</a></li>
+                        <li><a href="crud_animals">Modifier/supprimer</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

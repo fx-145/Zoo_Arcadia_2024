@@ -55,7 +55,11 @@ class Navbar
             '/crudHomeHandler'=> 'app/controllers/handler/editHandler/crudHomeHandler.php',
             '/crudHomePictureHandler'=> 'app/controllers/handler/editHandler/crudHomePictureHandler.php',
             '/crud_homes_add'=> 'app/views/crud/crud_homes_add.php',
-            '/crud_home_picture_add'=> 'app/views/crud/crud_home_picture_add.php'
+            '/crud_home_picture_add'=> 'app/views/crud/crud_home_picture_add.php',
+            '/crud_animals' =>'app/views/crud/crud_animals.php',
+            '/crud_animals_update' =>'app/views/crud/crud_animals_update.php',
+            '/crudAnimalHandler'=> 'app/controllers/handler/editHandler/crudAnimalHandler.php',
+            '/crud_animals_add'=> 'app/views/crud/crud_animals_add.php'
         ];
         
         if (array_key_exists($uri, $routes)) {

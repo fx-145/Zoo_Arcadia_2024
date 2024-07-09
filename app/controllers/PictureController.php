@@ -23,4 +23,9 @@ class PictureController {
         return $this->model->deleteHomePicture($home_picture_id);
         
     } 
+    public function getAnimalPictures($animal_id) {
+        return $this->model->getAnimalPictures($animal_id);
+        
+    } 
+    
 }

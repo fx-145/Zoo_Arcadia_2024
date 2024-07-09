@@ -36,6 +36,32 @@ class AnimalController {
         return $this->model->getAnimalHomeId($animal_name);
 
     }
+    public function getAllAnimalWithHomes()
+    {
+        return $this->model->getAllAnimalWithHomes();
+
+    }
+    public function getAnimalsWithId($animal_id)
+    {
+        return $this->model->getAnimalsWithId($animal_id);
+
+    }
+
+    public function updateAnimal($animal_id,$new_animal_name, $new_animal_race,$new_home_id)
+    {
+        return $this->model->updateAnimal($animal_id,$new_animal_name, $new_animal_race,$new_home_id);
+
+    }
+    public function addAnimal($animal_name, $animal_race,$home_id)
+    {
+        return $this->model->addAnimal($animal_name, $animal_race,$home_id);
+
+    }
+    public function deleteAnimal($animal_id)
+    {
+        return $this->model->deleteAnimal($animal_id);
+
+    }
     
     
 }    

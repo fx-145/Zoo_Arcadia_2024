@@ -1,5 +1,4 @@
 <?php
-//include '../Model/HomeModel.php';
 require_once 'app/controllers/HomeController.php';
 require_once 'app/controllers/PictureController.php';
  
@@ -49,7 +48,7 @@ if (isset($_POST['home_id'])) {
             <hr>
             <!-- Tableau Bootstrap affichage de toutes les photos des habitats -->
             <h2 class="mt-4">Photos de l'habitat</h2>
-            <form action="../Controller/PictureController.php" method="post">
+            <form action="crudHomePictureHandler" method="post">
                 <table class="table table-striped table-bordered">
                     <thead class="thead-dark">
                         <tr>
@@ -73,7 +72,7 @@ if (isset($_POST['home_id'])) {
                     </tbody>
                 </table>
             </form>
-            <form action="crud_homes_pictures_add.php" method="post" class="mt-2">
+            <form action="crud_home_picture_add" method="post" class="mt-2">
                 <input type="hidden" name="home_id" value="<?php echo htmlspecialchars($home_id, ENT_QUOTES, 'UTF-8'); ?>">
                 <input type="hidden" name="home_name" value="<?php echo htmlspecialchars($home_name, ENT_QUOTES, 'UTF-8'); ?>">
                 <button type="submit" class="btn btn-success">Ajouter Photo</button>

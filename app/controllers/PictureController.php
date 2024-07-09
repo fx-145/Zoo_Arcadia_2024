@@ -1,6 +1,5 @@
 <?php
 require_once 'app/models/PictureModel.php';
-//require_once '../handler/EditHandler.php';
 
 class PictureController {
     private $model;
@@ -14,4 +13,14 @@ class PictureController {
         return $this->model->getHomePictures($home_id);
         
     }
+
+    public function addHomePictures($home_id, $home_picture_path) {
+        return $this->model->addHomePictures($home_id, $home_picture_path);
+        
+    }
+    
+    public function deleteHomePicture($home_picture_id) {
+        return $this->model->deleteHomePicture($home_picture_id);
+        
+    } 
 }

@@ -23,16 +23,10 @@ class PictureModel
                 $statement->bindParam(':home_id', $home_id, PDO::PARAM_INT);
                 $statement->execute();
                 return $statement->fetchAll(PDO::FETCH_ASSOC);
-                
-
-                //var_dump($result)['home_name'];
                 if ($statement) {
-                   
                     return $statement;
-                    
                 } else {
                     echo "pas d'enregistrement";
-                    //return null;
                 }
             } catch (PDOException $e) {
                 echo "Erreur : " . $e->getMessage();
@@ -41,4 +35,40 @@ class PictureModel
             }
         }
     }
+    public function addHomePictures($home_id, $home_picture_path)
+    {
+        try {
+
+            // Préparer une requête pour la création de données dans la table "homes"
+            $insertQuery = "INSERT INTO home_pictures (home_id, home_picture_path)
+            VALUES (:home_id, :home_picture_path)";
+            $stmt = $this->db->prepare($insertQuery);
+            $stmt->execute(array(':home_id' => $home_id, ':home_picture_path' => $home_picture_path));
+           if ($stmt) {
+            echo "Photo d'habitat ajoutée avec succès et chemin d'accès enregistré";
+            header("Location: crud_homes");   
+            exit();
+        }
+
+        } catch (PDOException $e) {
+            echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
+        }
+    }
+
+    public function deleteHomePicture($home_picture_id)
+    {
+        try {
+
+            // Préparer une requête pour la suppression des données dans la table "home_pictures"
+            $deleteQuery = "DELETE FROM home_pictures WHERE home_picture_id=?";
+            $stmt = $this->db->prepare($deleteQuery);
+            $stmt->execute([$home_picture_id]);
+           
+
+        } catch (PDOException $e) {
+            echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
+        }
+    }
+
+
 }

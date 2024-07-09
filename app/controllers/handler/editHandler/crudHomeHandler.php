@@ -34,9 +34,7 @@ class HomeHandler
         header("Location: /crud_homes");
         exit(); // Afin que le script se termine
     }
-    
-
-    public function handleDeleteHome()
+        public function handleDeleteHome()
     {
         // supprime l'enregistrement de l'animal
         $home_id = $_POST['home_id'];
@@ -45,10 +43,6 @@ class HomeHandler
         exit(); // Afin que le script se termine
     }
 }
-
-
-
-
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $formHandler = new HomeHandler();

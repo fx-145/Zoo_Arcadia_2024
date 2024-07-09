@@ -6,9 +6,7 @@
     <div id="content">
         <?php include_once("app/views/layouts/navbar.php"); ?>
     <title>Ajouter un habitat</title>
-    <!-- Bootstrap CSS -->
     
-
 <body>
     <br>
 <button class="btn btn-success mx-2" id="menu-toggle"><></button>
@@ -34,7 +32,6 @@
         <!-- Appel des scripts -->
         <?php include("app/views/layouts/scripts.php"); ?>
         <!-- Appel du script de la sidebar -->
-        
         <script src="public/js/sidebar_script.js"></script>
     </div>
 </body>

@@ -65,7 +65,10 @@ class Navbar
             '/crud_services' =>'app/views/crud/crud_services.php',
             '/crud_services_update' =>'app/views/crud/crud_services_update.php',
             '/crudServiceHandler'=> 'app/controllers/handler/editHandler/crudServiceHandler.php',
-            '/crud_services_add'=> 'app/views/crud/crud_services_add.php'
+            '/crud_services_add'=> 'app/views/crud/crud_services_add.php',
+            '/crud_opening_hours'=> 'app/views/crud/crud_opening_hours.php',
+            '/crud_opening_hours_update'=> 'app/views/crud/crud_opening_hours_update.php',
+            '/crudOpeningHoursHandler'=> 'app/controllers/handler/editHandler/crudOpeningHoursHandler.php',
 
         ];
         

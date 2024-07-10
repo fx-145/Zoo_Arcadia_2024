@@ -9,7 +9,7 @@
                 
                 <h2>Examen des animaux</h2>
                 <img class="icon" src="../../../public/images/icones/vet.png" alt="Menu" >
-                
+                <br><br>
                 <li class="nav-item">
                     <a class="nav-link" href="/vet_visit_form">Lancer le formulaire - Visualiser les rapports d'alimentation</a>
                 </li>

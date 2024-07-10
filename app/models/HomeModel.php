@@ -176,9 +176,10 @@ class HomeModel
         try {
 
             // Préparer une requête pour la suppression des données dans la table "homes"
-            $deleteQuery = "DELETE FROM homes WHERE home_id=?";
+            $deleteQuery = "DELETE FROM homes WHERE home_id=:home_id";
             $stmt = $this->db->prepare($deleteQuery);
-            $stmt->execute([$home_id]);
+            $stmt->bindParam(':home_id', $home_id, PDO::PARAM_INT);
+            $stmt->execute();
             if ($stmt) {
                 echo "Habitat supprimé avec succès";
 

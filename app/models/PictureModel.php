@@ -60,9 +60,10 @@ class PictureModel
         try {
 
             // Préparer une requête pour la suppression des données dans la table "home_pictures"
-            $deleteQuery = "DELETE FROM home_pictures WHERE home_picture_id=?";
+            $deleteQuery = "DELETE FROM home_pictures WHERE home_picture_id =:home_picture_id";
             $stmt = $this->db->prepare($deleteQuery);
-            $stmt->execute([$home_picture_id]);
+            $stmt->bindParam(':home_picture_id', $home_picture_id, PDO::PARAM_INT);
+            $stmt->execute();
            
 
         } catch (PDOException $e) {
@@ -127,10 +128,10 @@ class PictureModel
          try {
  
              // Préparer une requête pour la suppression des données dans la table "animals"
-             $deleteQuery = "DELETE FROM animal_pictures WHERE animal_picture_id=?";
+             $deleteQuery = "DELETE FROM animal_pictures WHERE animal_picture_id=:animal_picture_id";
              $stmt = $this->db->prepare($deleteQuery);
-           //  $stmt->bindParam(':animal_id', $animal_id, PDO::PARAM_INT);
-             $stmt->execute([$animal_picture_id]);
+             $stmt->bindParam(':animal_picture_id', $animal_picture_id, PDO::PARAM_INT);
+             $stmt->execute();
              if ($stmt) {
                  echo "Photo d'habitat supprimée avec succès";
  

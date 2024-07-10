@@ -39,7 +39,7 @@ class Navbar
             '/employee' => 'app/views/employee_area.view.php',
             '/information'=> 'app/views/information.php',
             '/opinionStatusUpdate' => 'app/controllers/handler/opinionStatusUpdate.php',
-            '/employee_validation_opinion' => 'app/views/elements/employee_validation_opinions.php',
+            '/employee_validation_opinion' => 'app/views/employee_validation_opinions.php',
             '/opinionSend' => 'app/controllers/handler/opinionSend.php',
             '/admin_area'=> 'app/views/admin_area.view.php',
             '/employee_area'=> 'app/views/employee_area.view.php',
@@ -69,7 +69,7 @@ class Navbar
             '/crud_opening_hours'=> 'app/views/crud/crud_opening_hours.php',
             '/crud_opening_hours_update'=> 'app/views/crud/crud_opening_hours_update.php',
             '/crudOpeningHoursHandler'=> 'app/controllers/handler/editHandler/crudOpeningHoursHandler.php',
-
+            '/register' =>'app/views/register.view.php',
         ];
         
         if (array_key_exists($uri, $routes)) {

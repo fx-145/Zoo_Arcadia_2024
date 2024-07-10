@@ -1,6 +1,8 @@
 <?php
-// démarrage de la session
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    // Si aucune session n'est démarrée, démarrer une nouvelle session
+    session_start();
+}
 // Vérification si l'utilisateur est authentifié
 if (!isset($_SESSION['userName']) || !isset($_SESSION['role']) || $_SESSION['role'] !== $role) {
     // Si non, redirection vers la page de connexion

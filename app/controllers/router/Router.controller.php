@@ -61,7 +61,11 @@ class Navbar
             '/crudAnimalHandler'=> 'app/controllers/handler/editHandler/crudAnimalHandler.php',
             '/crud_animals_add'=> 'app/views/crud/crud_animals_add.php',
             '/crud_animal_picture_add'=> 'app/views/crud/crud_animal_picture_add.php',
-            '/crudAnimalPictureHandler'=> 'app/controllers/handler/editHandler/crudAnimalPictureHandler.php'
+            '/crudAnimalPictureHandler'=> 'app/controllers/handler/editHandler/crudAnimalPictureHandler.php',
+            '/crud_services' =>'app/views/crud/crud_services.php',
+            '/crud_services_update' =>'app/views/crud/crud_services_update.php',
+            '/crudServiceHandler'=> 'app/controllers/handler/editHandler/crudServiceHandler.php',
+            '/crud_services_add'=> 'app/views/crud/crud_services_add.php'
 
         ];
         

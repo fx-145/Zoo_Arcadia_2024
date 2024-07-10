@@ -226,9 +226,10 @@ class AnimalModel
             try {
     
                 // Préparer une requête pour la suppression des données dans la table "animals"
-                $deleteQuery = "DELETE FROM animals WHERE animal_id=?";
+                $deleteQuery = "DELETE FROM animals WHERE animal_id=:animal_id";
                 $stmt = $this->db->prepare($deleteQuery);
-                $stmt->execute([$animal_id]);
+                $stmt->bindParam(':service_id', $animal_id, PDO::PARAM_INT);
+                $stmt->execute();
                 if ($stmt) {
                     echo "Fiche animal supprimée avec succès";
     

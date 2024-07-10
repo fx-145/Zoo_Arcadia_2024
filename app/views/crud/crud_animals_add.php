@@ -1,9 +1,7 @@
 <?php
-//require_once '../Model/AnimalModel.php';
-//require_once '../Model/HomeModel.php';
-//require_once '../Controller/AnimalController.php';
+
 require_once 'app/controllers/HomeController.php';
-//require_once '../../config/Database.php';
+
 
  //Récupère les habitats à afficher dans la barre déroulante de sélection
  $homeController = new HomeController();

@@ -50,8 +50,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#submenu3" data-toggle="collapse">Services</a>
                     <ul id="submenu3" class="collapse">
-                        <li><a href="#">Ajouter</a></li>
-                        <li><a href="#">Modifier/supprimer</a></li>
+                        <li><a href="crud_services_add">Ajouter</a></li>
+                        <li><a href="crud_services">Modifier/supprimer</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

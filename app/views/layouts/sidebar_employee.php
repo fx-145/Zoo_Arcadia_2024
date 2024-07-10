@@ -8,7 +8,7 @@
                 <h2>Gestion des avis visiteurs</h2>
                 <img class="icon" src="../../../public/images/icones/consulter.png" alt="Menu" >
                 <li class="nav-item">
-                    <a class="nav-link" href="dd">Validation/ Invalidation</a>
+                    <a class="nav-link" href="employee_validation_opinion">Validation/ Invalidation</a>
                 </li>
                 <br>
                 <hr class="separator">

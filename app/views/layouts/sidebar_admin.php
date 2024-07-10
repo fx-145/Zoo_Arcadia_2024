@@ -73,7 +73,7 @@
                 </ul>
             <ul>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Créer un compte</a>
+                    <a class="nav-link" href="register">Créer un compte</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="end_session">Se déconnecter</a>

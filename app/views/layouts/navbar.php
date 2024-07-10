@@ -46,9 +46,9 @@ $navbar = new Navbar();
 
                 if (isset($_SESSION['role'])) {
                     $currentPage = basename($_SERVER['PHP_SELF']);
-                    $adminPages = ['admin_area', 'vet_reports_for_admin','crud_homes','crud_homes_update','crud_homes_add','crud_home_picture_add','crud_animals','crud_animals_update','crud_animals_add','crud_animal_picture_add','crud_services','crud_services_update','crud_services_add','crud_opening_hours','crud_opening_hours_update'];
+                    $adminPages = ['admin_area', 'vet_reports_for_admin','crud_homes','crud_homes_update','crud_homes_add','crud_home_picture_add','crud_animals','crud_animals_update','crud_animals_add','crud_animal_picture_add','crud_services','crud_services_update','crud_services_add','crud_opening_hours','crud_opening_hours_update','register'];
                     $vetPages = ['vet_area', 'employee_reports_for_vets','vet_visit_form'];
-                    $employeePages = ['employee_area', 'employee_food_form','crud_services','crud_services_update'];
+                    $employeePages = ['employee_area', 'employee_food_form','crud_services','crud_services_update','employee_validation_opinion'];
 
                     switch ($_SESSION['role']) {
                         case 'administrateur':

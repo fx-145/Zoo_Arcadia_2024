@@ -24,7 +24,7 @@ if (isset($_POST['opening_time_id'])) {
             <>
         </button>
         <div class="container mt-4">
-            <h1 class="mb-4">Modifier un service</h1>
+            <h1 class="mb-4">Modifier l'horaire</h1>
             <form action="crudOpeningHoursHandler" method="post">
                 <input type="hidden" value="<?php echo $op_hours_id; ?>" id="opening_time_id" name="opening_time_id">
                 <div class="form-group">
@@ -45,7 +45,7 @@ if (isset($_POST['opening_time_id'])) {
                 </div>
                 <br>
                 <button type="submit" class="btn btn-primary" name="submit_update_hours">Modifier</button>
-                <a href="area_admin" class="btn btn-secondary ml-2">Annuler</a>
+                <a href="crud_opening_hours" class="btn btn-secondary ml-2">Annuler</a>
             </form>
             <hr>
 

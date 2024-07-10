@@ -57,7 +57,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#submenu4" data-toggle="collapse">Horaires</a>
                     <ul id="submenu4" class="collapse">
-                        <li><a href="#">Modifier</a></li>
+                        <li><a href="crud_opening_hours">Modifier</a></li>
                     </ul>
                 </li>
             </ul>

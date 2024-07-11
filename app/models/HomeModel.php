@@ -5,9 +5,10 @@ class HomeModel
     private $db;
     public function __construct()
     {
-        //$this->db = $db;
+        
         $database = new Database();
         $this->db = $database->db;
+        
     }
     // Recenser tous les habitats
     public function getHomes()

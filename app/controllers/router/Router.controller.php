@@ -8,12 +8,7 @@ class Navbar
         return strtok($_SERVER['REQUEST_URI'], '?');
     }
 
-    // Vérifie si l'URl actuelle correspond à la valeur donnée
-    //public function urlValue($value)
-    //{
-       // return $this->getCurrentUri() === $value;
-    //}
-
+    
     public function urlValue($value, $params = []) {
         // Générer l'URL avec les paramètres fournis
         // $params est facultatif, si un message est présent dans l'Url on va l'utiliser
@@ -70,6 +65,11 @@ class Navbar
             '/crud_opening_hours_update'=> 'app/views/crud/crud_opening_hours_update.php',
             '/crudOpeningHoursHandler'=> 'app/controllers/handler/editHandler/crudOpeningHoursHandler.php',
             '/register' =>'app/views/register.view.php',
+            '/animal_details' => 'app/views/animal_details.php',
+            '/viewsHandler' => 'app/controllers/handler/viewsHandler.php',
+            '/animal_views' => 'app/views/animal_views.php',
+            '/resetViewsHandler' => 'app/controllers/handler/resetViewsHandler.php',
+
         ];
         
         if (array_key_exists($uri, $routes)) {

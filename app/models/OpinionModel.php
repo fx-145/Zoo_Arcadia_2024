@@ -10,6 +10,7 @@ class OpinionModel
 
         $database = new Database();
         $this->db = $database->db;
+       
 
     }
 

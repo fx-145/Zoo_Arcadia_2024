@@ -9,6 +9,7 @@ class AnimalModel
     {
         $database = new Database();
         $this->db = $database->db;
+       
 
     }
     public function getAnimals()
@@ -240,4 +241,56 @@ class AnimalModel
                 echo "Erreur lors de la suppression des données : " . $e->getMessage();
             }
         }
+        public function getOneAnimalAndAllPictures($animal_id)
+    {
+        try {
+            $query = "SELECT animals.*, animal_pictures.*
+                      FROM animals
+                      INNER JOIN animal_pictures 
+                      ON animals.animal_id = animal_pictures.animal_id
+                      WHERE animals.animal_id = :animal_id";
+            $statement = $this->db->prepare($query);
+            $statement->bindParam(':animal_id', $animal_id, PDO::PARAM_INT);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+         //   var_dump($statement);
+    
+            // Vérifiez si des résultats ont été récupérés
+            if ($result) {
+                return $result;
+            } else {
+                echo "Impossible de récupérer les enregistrements";
+                return null;
+            }
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+            return null;
+        }
+    }
+    public function getAnimalCondition($animal_id)
+    {
+        try {
+            $query = "SELECT *
+          FROM vet_passages
+          WHERE animal_id = :animal_id
+          ORDER BY vet_passage_id DESC
+          LIMIT 1;";
+            $statement = $this->db->prepare($query);
+            $statement->bindParam(':animal_id', $animal_id, PDO::PARAM_INT);
+            $result= $statement->execute();
+           //var_dump($result);
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            if ($result) {
+                return $result;
+            } else {
+                //echo "Impossible de récupérer la condition de l'animal";
+                return null;
+            }
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+            return null;
+
+
+        }
+    }
 }

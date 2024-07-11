@@ -26,24 +26,29 @@ Créer la base de données avec la commande "create database zoo_arcadia;"
 (La base de données "zoo_arcadia" est installée dans le répertoire "C:\xampp\mysql\data\")
 Se positionner sur la base de données avec la commande "use zoo_arcadia;"
 
+=> Dans le répertoire "config", créer le fichier "Database" qui contient le code de connexion à la base de données SQL MariaDB (port 3306 en local).
+
+=> Cliquer sur "Start" au niveau de "Apache" et Mysql".
+=> encapsuler le code de connexion dans la classe "Database". Intégrer les options PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION par mesure de sécurité, c'est un tableau qui contient un mode d'erreur pour le PDO. Afin de lever une exception en cas d'erreur, ce qui facilite le débogage.
+
 3. Configurer et utiliser Visual Studio Code pour développer le projet.
 => Installer les extensions:
 PHP Intelephense
 PHP Server: pour afficher la page requise
 
 4. Créer et nommer la base de données NoSQl MongoDB
-=> Aller sur le site "https://pecl.php.net/package/mongodb", télécharger la dernière version de fichier DLL compatible
-avec la version de php installée sur le pc.
+=> Aller sur le site "https://pecl.php.net/package/mongodb", télécharger la dernière version de fichier DLL compatible (vérifier la version de php installée) avec la version de php installée sur le pc.
 => Placer ce fichier téléchargé dans le répertoire: "C:\xampp\php\ext"
 => Puis mettre à jour le fichier php.ini, en rajoutant la ligne de code: "extension=mongodb", au niveau
 de l'indication des extensions de fichiers library. Sans le ";".
-=> Télécharger depuis le site Mongodb.com, le mongodb Community Server en version "msi".
+=> Télécharger depuis le site Mongodb.com, le mongodb Community Server en version "zip".
 => Extraire le fichier zip et renommer le dossier bin en "MongoDB" et le coller dans c:\xampp\"
 => Redémarrer xampp, et en cliquant sur le bouton "admin" sur la ligne apache de xampp, on visualise que MongoDB est pris en charge.
 => installer le mongoDB shell (activation en exécutant "mongosh" depuis le terminal)
-=> installer le mongoDb Compass pour visualiser les changements sur la base de données.
+=> installer le mongoDb Compass pour visualiser les changements sur la base de données: création de la collection "views".
 => exécuter depuis le terminal la commande composer require mongodb/mongodb pour installer les dépendances nécessaires 
 pour le package mongodb dans le projet.
+=> Dans le répertoire "config", créer le fichier "DatabaseNoSql" qui contient le code de connexion à la base de données Not Only Sql (port 27017 en local).
 
 
 

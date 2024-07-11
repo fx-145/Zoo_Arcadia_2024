@@ -14,7 +14,7 @@ class UserModel
     {
         $database = new Database();
         $this->db = $database->db;
-
+        
     }
 
     public function checkUser($userName)

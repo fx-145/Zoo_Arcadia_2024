@@ -9,6 +9,7 @@ class ServiceModel
     {
         $database = new Database();
         $this->db = $database->db;
+        
 
     }
 

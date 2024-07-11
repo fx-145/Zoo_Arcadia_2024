@@ -15,7 +15,7 @@
                 </ul>
             <ul>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard consultations par animal</a>
+                    <a class="nav-link" href="animal_views">Dashboard consultations par animal</a>
                 </li>
             </ul>
             <ul>

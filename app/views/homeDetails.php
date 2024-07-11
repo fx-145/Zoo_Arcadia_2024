@@ -19,7 +19,7 @@ require_once 'app/controllers/handler/homeDetailsHandler.php';
     <!-- Affichage de la navbar -->
     <?php
     include_once ("layouts/navbar.php")
-    ?>
+        ?>
 
     <!-- Elements de la page habitats -->
     <div class="container py-5">
@@ -85,11 +85,17 @@ require_once 'app/controllers/handler/homeDetailsHandler.php';
                                             <?php $row['animal_picture_path']; ?>
                                             <tr>
                                                 <td>
-                                                    <a
-                                                        href="/animalDetails?animal_id=<?php echo urlencode($row['animal_id']); ?>"><?php echo $row['animal_name']; ?></a>
+                                                    
+                                                        <h2><?php echo $row['animal_name']; ?></>
+                                                    
+                                                        <form id="animalForm_<?php echo $row['animal_id']; ?>" action="viewsHandler" method="post">
+                                                        <input type="hidden" name="animal_id" value="<?php echo htmlspecialchars($row['animal_id'], ENT_QUOTES, 'UTF-8'); ?>">
+                                                        <input type="image" src="<?php echo htmlspecialchars($row['animal_picture_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="Generic placeholder image" width="200" >
+                                                        </form>
+
+                                                    
                                                 </td>
-                                                <td><img src="<?php echo $row['animal_picture_path']; ?>"
-                                                        alt="Generic placeholder image" width="200"></td>
+                                                
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>
@@ -97,8 +103,9 @@ require_once 'app/controllers/handler/homeDetailsHandler.php';
                     </li>
                 </ul>
                 <!-- Appel du footer -->
-                <?php include ("layouts/footer.php"); ?>
+                <?php include "layouts/footer.php"; ?>
                 <!-- Appel des scripts -->
-                <?php include ("layouts/scripts.php"); ?>
+                <?php include "layouts/scripts.php"; ?>
 </body>
+
 </html>

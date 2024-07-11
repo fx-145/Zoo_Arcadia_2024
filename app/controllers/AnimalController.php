@@ -62,6 +62,16 @@ class AnimalController {
         return $this->model->deleteAnimal($animal_id);
 
     }
-    
+
+    public function getOneAnimalAndAllPictures($animal_id)
+    {
+        return $this->model->getOneAnimalAndAllPictures($animal_id);
+
+    }
+    public function getAnimalCondition($animal_id)
+    {
+        return $this->model->getAnimalCondition($animal_id);
+
+    }
     
 }    

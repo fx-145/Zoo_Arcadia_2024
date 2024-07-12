@@ -6,12 +6,12 @@ $result = $controller->getAllAnimalWithHomes();
 ?>
 
 <!-- Appel de l'area admin-->
-<?php include_once ("app/views/elements/admin_area.php"); ?>
+<?php include_once "app/views/elements/admin_area.php"; ?>
 <!-- Affichage de la sidebar -->
-<?php include_once ("app/views/layouts/sidebar_admin.php"); ?>
+<?php include_once "app/views/layouts/sidebar_admin.php"; ?>
 <!-- Affichage de la navbar -->
 <div id="content">
-    <?php include_once ("app/views/layouts/navbar.php"); ?>
+    <?php include_once "app/views/layouts/navbar.php"; ?>
     <br>
     <button class="btn btn-success mx-2" id="menu-toggle">
         <>
@@ -38,7 +38,7 @@ $result = $controller->getAllAnimalWithHomes();
                                 <td><?php echo htmlspecialchars($row['race'], ENT_QUOTES, 'UTF-8'); ?></td>
                                 <td><?php echo htmlspecialchars($row['home_name'], ENT_QUOTES, 'UTF-8'); ?></td>
                                 <td>
-                                <form action="crud_animals_update" method="post" style="display:inline;">
+                                    <form action="crud_animals_update" method="post" style="display:inline;">
                                         <input type="hidden" name="animal_id"
                                             value="<?php echo htmlspecialchars($row['animal_id'], ENT_QUOTES, 'UTF-8'); ?>">
                                         <button type="submit" name="submit_update_animal"
@@ -57,17 +57,13 @@ $result = $controller->getAllAnimalWithHomes();
                     </tbody>
                 </table>
             </div>
-            <!-- Formulaire caché -->
-            <form id="hiddenanimalUpdateForm" method="post" action="area_admin_animals_update.php" style="display:none;">
-                <input type="hidden" name="id" id="hiddenanimalUpdateFormId">
-            </form>
+
         </div>
         <!-- Appel du footer -->
-        <?php include ("app/views/layouts/footer.php"); ?>
+        <?php include "app/views/layouts/footer.php"; ?>
         <!-- Appel des scripts -->
-        <?php include ("app/views/layouts/scripts.php"); ?>
+        <?php include "app/views/layouts/scripts.php"; ?>
         <!-- Appel du script de la sidebar -->
-
         <script src="public/js/sidebar_script.js"></script>
 
 

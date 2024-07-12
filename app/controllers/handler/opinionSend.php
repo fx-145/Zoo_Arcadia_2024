@@ -1,9 +1,9 @@
 <?php
-
-
 require_once 'app/controllers/OpinionController.php';
 require_once 'config/Database.php';
 
+// Vérification du token CSRF
+require 'security_receiver.php';
 
 // Sécuriser pour valider les données du formulaire
 if (isset($_POST['pseudo']) && !empty(trim($_POST['pseudo'])) && isset($_POST['avis']) && !empty(trim($_POST['avis']))) {
@@ -20,8 +20,6 @@ if (isset($_POST['pseudo']) && !empty(trim($_POST['pseudo'])) && isset($_POST['a
             $controller->sendVisitorOpinion($pseudo, $opinion);
             $success = $controller;
             // Redirection vers la page information (routeur) avec indicateur de succès ou d'échec
-            // header("Location: ../../views/information?success=" . ($success ? '1' : '0'));
-            //exit();
             $navbar = new Navbar();
             $redirectUrl = $navbar->urlValue('/information', ['success' => $success ? '1' : '0']);
             header("Location: " . $redirectUrl);
@@ -31,13 +29,6 @@ if (isset($_POST['pseudo']) && !empty(trim($_POST['pseudo'])) && isset($_POST['a
             $success = false;
             error_log("Error sending email: " . $e->getMessage());
         }
-
-        // Redirection vers la page d'accueil (routeur) avec indicateur de succès ou d'échec
-        // $navbar = new Navbar();
-        // $redirectUrl = $navbar->urlValue('/information', ['success' => $success ? '1' : '0']);
-        //  header("Location: " . $redirectUrl);
-        //  exit();
-
 
     } else {
         // Gérer les erreurs de validation

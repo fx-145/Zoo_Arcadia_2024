@@ -28,12 +28,12 @@ if (isset($_POST['animal_id'])) {
 ?>
 
 <!-- Appel de l'area admin -->
-<?php include_once ("app/views/elements/admin_area.php"); ?>
+<?php include_once "app/views/elements/admin_area.php"; ?>
 <!-- Affichage de la sidebar -->
-<?php include_once ("app/views/layouts/sidebar_admin.php"); ?>
+<?php include_once "app/views/layouts/sidebar_admin.php"; ?>
 <!-- Affichage de la navbar -->
 <div id="content">
-    <?php include_once ("app/views/layouts/navbar.php"); ?>
+    <?php include_once "app/views/layouts/navbar.php"; ?>
     <br>
 
     <body>
@@ -43,6 +43,8 @@ if (isset($_POST['animal_id'])) {
         <div class="container mt-4">
             <h1 class="mb-4">Modifier une fiche animal</h1>
             <form action="crudAnimalHandler" method="post">
+                <!-- Génération du token CSRF -->
+                <?php include "app/controllers/handler/security_issuer.php"; ?>
                 <input type="hidden" value="<?php echo $animal_id; ?>" id="animal_id" name="animal_id">
                 <div class="form-group">
                     <label for="animal_name">Nom de l'animal à modifier:</label>
@@ -82,7 +84,7 @@ if (isset($_POST['animal_id'])) {
                         <a href="crud_animals" class="btn btn-secondary ml-2">Annuler</a>
             </form>
             <hr>
-            <!-- Tableau Bootstrap affichage de toutes les photos des animals -->
+            <!-- Tableau Bootstrap affichage de toutes les photos des animaux -->
             <h2 class="mt-4">Photos de l'animal</h2>
             <form action="crudAnimalPictureHandler" method="post">
                 <table class="table table-striped table-bordered">
@@ -124,9 +126,9 @@ if (isset($_POST['animal_id'])) {
         </div>
         <br>
         <!-- Appel du footer -->
-        <?php include ("app/views/layouts/footer.php"); ?>
+        <?php include "app/views/layouts/footer.php"; ?>
         <!-- Appel des scripts -->
-        <?php include ("app/views/layouts/scripts.php"); ?>
+        <?php include "app/views/layouts/scripts.php"; ?>
         <!-- Appel du script de la sidebar -->
         <script src="public/js/sidebar_script.js"></script>
 </div>

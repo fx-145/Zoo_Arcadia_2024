@@ -1,23 +1,18 @@
-
-
 <div class="container mt-4">
-<form action= "opinionSend" id="visitorForm" method="post">
+    <form action="opinionSend" id="visitorForm" method="post">
+        <!-- Génération du token CSRF -->
+        <?php include "app/controllers/handler/security_issuer.php"; ?>
+
         <div class="form-group">
-        <label for="pseudo">Pseudo :</label><br>
-        <input type="text" id="pseudo" name="pseudo" required><br>
+            <label for="pseudo">Pseudo :</label>
+            <input type="text" id="pseudo" name="pseudo" class="form-control" required>
         </div>
 
-        <div class="form-group"> 
-        <label for="avis">Avis :</label><br>
-        <textarea id="avis" name="avis" cols ="40" rows="4" required></textarea><br><br>
+        <div class="form-group">
+            <label for="avis">Avis :</label>
+            <textarea id="avis" name="avis" class="form-control" rows="4" required></textarea>
         </div>
-     
-        <input type="submit" class="btn btn-primary" value="Envoyer"><br><br>
-</form>
-
+        <br>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
 </div>
-
-
-
-
-

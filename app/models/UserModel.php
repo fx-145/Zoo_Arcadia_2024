@@ -1,64 +1,47 @@
 <?php
-require_once '../../../config/Database.php';
-require '../../../vendor/autoload.php';
-
-
-//charger les dépendances de composer
+require_once __DIR__ . '../../../config.php';
+require_once DB_PATH . '/Database.php';
+require_once __DIR__ . '../../../vendor/autoload.php';
 use Ramsey\Uuid\Uuid;//utilisation de l'UUID pour générer des id_users sécurisés.
 
 class UserModel
 {   // initialisation de la bdd
     private $db;
-
     public function __construct()
     {
         $database = new Database();
         $this->db = $database->db;
-        
     }
-
     public function checkUser($userName)
     {// Vérifier si l'adresse email ou  user_name est déjà dans la bdd
         {
-
-
             try {
                 $query = "SELECT user_id FROM users WHERE user_name = :user_name";
                 $statement = $this->db->prepare($query);
                 $statement->bindParam(':user_name', $userName, PDO::PARAM_STR);
                 $statement->execute();
-
                 if ($statement->rowCount() > 0) {
-
-                    //var_dump($userName);
                     echo "cet identifiant est déjà utilisé";
                     return false;
                 } else {
-
                     return true;
                 }
             } catch (PDOException $e) {
                 echo "Erreur : " . $e->getMessage();
                 return null;
-
-
             }
-
         }
     }
-
     //  Créer un user_id sécurisé: Generer une version 4 (random) UUID: en 128 bits conforme à la spécification uuid
     public function CreateSecuredId()
     {
         $uuid = Uuid::uuid4()->toString();
         return $uuid;
     }
-
     // Vérification du niveau de sécurité du mot de passe et sa confirmation à l'identique
     function validatePassword($password, $confirmPassword)
     {   //les erreurs seront affichées dans le tableau $errors
         $errors = [];
-
         if (strlen($password) < 8) {
             $errors[] = 'Le mot de passe doit contenir au moins 8 caractères.';
         }
@@ -77,7 +60,6 @@ class UserModel
         if ($password !== $confirmPassword) {
             $errors[] = 'Les mots de passe ne correspondent pas.';
         }
-
         if (!empty($errors)) {
             // Si des erreurs sont présentes, on les affiche (ou les traite)
             foreach ($errors as $error) {
@@ -85,10 +67,8 @@ class UserModel
             }
             return false;
         }
-
         return true;
     }
-
     // Créer le mot de passe hashé
     public function CreateSecuredPassword($password)
     {
@@ -100,23 +80,17 @@ class UserModel
             echo "Erreur lors du hashage du mot de passe : " . $e->getMessage();
         }
     }
-
-
-
     public function RegisterUser($uuid, $userName, $hashedPassword)
     {
         // Insérer les données dans la base : dans la table users
         try {
             $insertQuery = "INSERT INTO users (user_id, user_name, password) VALUES (:user_id, :user_name, :password)";
-
             $stmt = $this->db->prepare($insertQuery);
             $stmt->bindValue(':user_id', $uuid);
             $stmt->bindValue(':user_name', $userName);
             $stmt->bindValue(':password', $hashedPassword);
             $stmt->execute();
             return $stmt;
-
-            //echo "Données de register user $userName enregistrées";
         } catch (PDOException $e) {
             echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
         }
@@ -132,7 +106,6 @@ class UserModel
             $result = $statement->fetch(PDO::FETCH_ASSOC);
             if ($result) {
                 return $result['role_id'];
-
             } else {
                 echo "Impossible de récupérer le role_id";
                 return null;
@@ -147,107 +120,70 @@ class UserModel
         // Insérer les données du nouvel user avec son rôle dans la base : dans la table user_roles
         try {
             $insertQuery = "INSERT INTO user_roles (user_id, role_id) VALUES (:user_id, :role_id)";
-
             $stmt = $this->db->prepare($insertQuery);
             $stmt->bindValue(':user_id', $uuid);
             $stmt->bindValue(':role_id', $roleId);
             $stmt->execute();
             return $stmt;
-
-            //echo "Données de role user enregistrées, inscription réussie";
         } catch (PDOException $e) {
             echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
         }
     }
-
     public function checkUserLogin($userName)
-    {
-        // 1. Vérifier si l'adresse email est déjà dans la bdd
-        {
-            // $userName = 'joe3@mail.fr';
-            //$userName = $_SESSION['user_name'];
-
+    { {
             try {
                 $query = "SELECT * FROM users WHERE user_name = :user_name";
                 $statement = $this->db->prepare($query);
                 $statement->bindParam(':user_name', $userName, PDO::PARAM_STR);
                 $statement->execute();
                 $statement->fetch(PDO::FETCH_ASSOC);
-                // var_dump($monUser);
-                //$result = $statement->fetch(PDO::FETCH_ASSOC);
                 if ($statement->rowCount() > 0) {
-                    // die
-                    // $monUser = $statement->fetch(PDO::FETCH_ASSOC);
-                    // var_dump($userName);
                     echo "confirmation login $userName utilisateur ok";
                     return true;
-                    //return $monUser['password'];
                 } else {
                     echo "le username (adresse mail)$userName n'est pas enregistré";
-
                     return false;
                 }
             } catch (PDOException $e) {
                 echo "Erreur : " . $e->getMessage();
                 return null;
-
-
             }
-
         }
-
     }
     public function getPassword($userName)
     { {
-            // $userName = 'joe3@mail.fr';
-            //$userName = $_SESSION['user_name'];
-
             try {
                 $query = "SELECT * FROM users WHERE user_name = :user_name";
                 $statement = $this->db->prepare($query);
                 $statement->bindParam(':user_name', $userName, PDO::PARAM_STR);
                 $statement->execute();
                 $monUser = $statement->fetch(PDO::FETCH_ASSOC);
-                // var_dump($monUser);
-                //$result = $statement->fetch(PDO::FETCH_ASSOC);
                 if ($statement->rowCount() > 0) {
-                    // die
-                    // $monUser = $statement->fetch(PDO::FETCH_ASSOC);
-                    // var_dump($userName);
                     echo "le password de $userName est récupéré ";
                     return $monUser['password'];
-                    //return $monUser['password'];
                 } else {
                     echo "le password de $userName n'est pas enregistré";
-
                     return false;
                 }
             } catch (PDOException $e) {
                 echo "Erreur : " . $e->getMessage();
                 return null;
-
-
             }
-
         }
     }
-
 
     public function checkPassword($passwordForm, $password)
     {
         var_dump($passwordForm);
         var_dump($password);
-        // var_dump($monUser['password']);
-        //3. DéHashage du password et vérification (fichier login.php)
+
+        // DéHashage du password et vérification
         if (password_verify($passwordForm, $password)) {
             return true;
-            // echo "connexion réussie! Bienvenue " . $userName['user_name'];
         } else {
             return false;
-            // echo "Mot de passe incorrect";
         }
     }
-
     public function checkRole($userName)
     {
         // Requête SQL pour récupérer le rôle de l'utilisateur connecté
@@ -263,16 +199,13 @@ class UserModel
             $role = $statement->fetch(PDO::FETCH_ASSOC);
             if ($role) {
                 return $role['role_name'];
-
             } else {
                 echo "Impossible de récupérer le role_name";
-                //return null;
             }
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
             return null;
         }
-
     }
 
     public function roleRouter($userName, $role_name)
@@ -297,13 +230,9 @@ class UserModel
             // Rediriger vers la page de connexion en cas d'échec d'authentification
             header('Location: /login');
         }
-
-
     }
     public function getUserId($userName)
     {
-        //$emailForm = 'joe3@mail.fr';
-        
         try {
             $query = "SELECT user_id FROM users WHERE user_name = :user_name";
             $statement = $this->db->prepare($query);
@@ -314,15 +243,11 @@ class UserModel
                 return $result['user_id'];
             } else {
                 echo "Impossible de récupérer l'id de $userName";
-                //return null;
             }
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
             return null;
-
-
         }
     }
-
 }
 

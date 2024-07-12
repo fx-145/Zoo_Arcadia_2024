@@ -1,14 +1,12 @@
 <?php
 require_once 'app/controllers/AnimalController.php';
 require_once 'app/controllers/ViewController.php';
-
 session_start();
-
 if (isset($_SESSION['animal_id'])) {
     $animal_id = $_SESSION['animal_id'];
 
     // Supprimer l'animal_id de la session si nécessaire
-     unset($_SESSION['animal_id']);
+    unset($_SESSION['animal_id']);
 
     // Récupérer toutes les photos et la condition de l'animal pour affichage
     $controller = new AnimalController();
@@ -18,10 +16,7 @@ if (isset($_SESSION['animal_id'])) {
     header("Location: homes");
     exit(); // fin de script
 }
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -35,16 +30,11 @@ if (isset($_SESSION['animal_id'])) {
 <body>
     <!-- Affichage de la navbar -->
     <?php
-    include_once ("layouts/navbar.php")
+    include_once "layouts/navbar.php"
         ?>
-
     <div class="container py-5">
-
-
-
         <div class="row">
             <div class="col-lg-8 mx-auto">
-
                 <!-- List group-->
                 <ul class="list-group shadow">
                     <li class="list-group-item">
@@ -56,7 +46,6 @@ if (isset($_SESSION['animal_id'])) {
                                         <tr>
                                             <th></th>
                                             <th></th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -87,7 +76,6 @@ if (isset($_SESSION['animal_id'])) {
                                         <tr>
                                             <th></th>
                                             <th></th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -108,7 +96,6 @@ if (isset($_SESSION['animal_id'])) {
                                     </tbody>
                                 </table>
                     </li>
-
                     <li class="list-group-item">
                         <div class="media align-items-lg-center flex-column flex-lg-row p-3">
                             <div class="media-body order-2 order-lg-1">
@@ -118,7 +105,6 @@ if (isset($_SESSION['animal_id'])) {
                                         <tr>
                                             <th></th>
                                             <th></th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -127,13 +113,11 @@ if (isset($_SESSION['animal_id'])) {
                                             <tr>
                                                 <td><img src="<?php echo "../../" . $row['animal_picture_path']; ?>"
                                                         alt="Generic placeholder image" width="200"></td>
-
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
                     </li>
-
                     <!-- list group item-->
                     <li class="list-group-item">
                         <div class="media align-items-lg-center flex-column flex-lg-row p-3">
@@ -145,7 +129,6 @@ if (isset($_SESSION['animal_id'])) {
                                         <tr>
                                             <th></th>
                                             <th></th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -156,7 +139,6 @@ if (isset($_SESSION['animal_id'])) {
                                                 // Afficher seulement la première ligne
                                                 if ($key === 0) {
                                                     echo $row['animal_condition'];
-
                                                     break; // Sortir de la boucle après avoir affiché la première ligne
                                                 }
                                             } ?><br><br>
@@ -164,15 +146,10 @@ if (isset($_SESSION['animal_id'])) {
                                             foreach ($result_condition as $key => $row) {
                                                 // Afficher seulement la première ligne
                                                 if ($key === 0) {
-
                                                     echo $row['animal_condition_detail'];
                                                     break; // Sortir de la boucle après avoir affiché la première ligne
                                                 }
                                             }
-
-
-
-
                                         } else {
                                             // Aucun enregistrement trouvé
                                             echo "Pas d'enregistrement";
@@ -180,18 +157,11 @@ if (isset($_SESSION['animal_id'])) {
                                     </tbody>
                                 </table>
                     </li>
-
-
-
-
-
                 </ul>
                 <!-- Appel du footer -->
                 <?php include "layouts/footer.php"; ?>
-
                 <!-- Appel des scripts -->
                 <?php include "layouts/scripts.php"; ?>
-
 </body>
 
 </html>

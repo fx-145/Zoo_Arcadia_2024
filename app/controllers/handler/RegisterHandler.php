@@ -1,5 +1,5 @@
 <?php
-require_once '../UserController.php';
+require_once 'app/controllers/UserController.php';
 require_once 'MailHandler.php';
 
 class RegisterHandler
@@ -15,7 +15,6 @@ class RegisterHandler
 
     public function registerForm()
     {
-
         try {
             // Récupérer l'userName renseigné dans le formulaire
             if (isset($_POST['userName']) && !empty($_POST['userName'])) {
@@ -68,18 +67,17 @@ class RegisterHandler
     }
 }
 
-
+// Vérification du token CSRF
+require 'security_receiver.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_POST['submitForm'])) {
         // Exécuter la fonction d'enregistrement utilisateur RegisterForm encapsulée
         // dans la classe RegisterHandler
-        
+
         $registerHandler = new RegisterHandler();
         $resultRegister = $registerHandler->registerForm();
-        //var_dump($registerHandler->registerForm());
-        //var_dump($resultRegister);
 
         // Vérifier si les utilisateurs et les rôles sont bien enregistrés
         if ($resultRegister) {
@@ -94,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>';
-           echo'ça fonctionne';
+            echo 'ça fonctionne';
         } else {
             // Message d'échec de l'enregistrement
             echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -103,12 +101,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>';
-            
+
         }
     }
-       
-
-    }
+}
 
 
 

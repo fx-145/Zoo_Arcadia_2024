@@ -1,5 +1,5 @@
 <?php
-$role ='administrateur';
+$role = 'administrateur';
 require_once 'app/controllers/handler/checkSession.php';
 ?>
 <!DOCTYPE html>
@@ -16,39 +16,24 @@ require_once 'app/controllers/handler/checkSession.php';
 <body>
     <!-- Affichage de la sidebar -->
     <?php
-    include_once ("layouts/sidebar_admin.php"); ?>
+    include_once "layouts/sidebar_admin.php"; ?>
     <!-- Affichage de la navbarbar -->
     <div id="content">
-
-        <?php include_once ("layouts/navbar.php"); ?>
-       
-        
-
+        <?php include_once "layouts/navbar.php"; ?>
         <div class="container-fluid">
-
             <h1 class="mt-4">Espace Administrateur</h1>
-            <button class="btn btn-success mx-2" id="menu-toggle"><></button>
+            <button class="btn btn-success mx-2" id="menu-toggle">
+                <>
+            </button>
             <p>Bienvenue sur votre espace <span style="margin-left: 5px;"></span></p>
-            
         </div>
-
-
-
-
-
-
-        
         <!-- Appel du footer -->
-        <?php include ("layouts/footer.php"); ?>
-
+        <?php include "layouts/footer.php"; ?>
         <!-- Appel des scripts -->
-        <?php include ("layouts/scripts.php"); ?>
+        <?php include "layouts/scripts.php"; ?>
         <!-- Appel du script de la sidebar -->
         <script src="../../public/js/sidebar_script.js"></script>
-
-        <!-- cette cloture de div ci-dessous balise la fin du contenu de tout l'affichage dans area_admin -->
     </div>
-
 </body>
 
 </html>

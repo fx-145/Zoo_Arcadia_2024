@@ -5,6 +5,10 @@ require_once '../../controllers/router/Router.controller.php';
 $navbar = new Navbar();
 //use UserController\UserController;
 $controller = new UserController();
+
+// Vérification du token CSRF
+require 'security_receiver.php';
+
 if (isset($_POST['userName']) && !empty($_POST['userName']) && filter_var($_POST['userName'], FILTER_VALIDATE_EMAIL)) {
     //récupérer l'email renseigné dans le formulaire: sécurité: vérifier que l'adresse mail est bien sous format email avec filter_var
     //trim permet de supprimer les espaces superflus
@@ -44,7 +48,7 @@ if ($resultUsername && $resultPassword)
     $redirectUrl = $navbar->urlValue('/information', [
         'login' => '0',
     ]);
-    header("Location: " . $redirectUrl);
+    header("Location:" . $redirectUrl);
     exit;
 }
 

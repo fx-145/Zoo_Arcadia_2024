@@ -1,7 +1,4 @@
 <?php
-//require_once '../../../../config.php';
-//require_once APP_MODEL_PATH. '/HomeModel.php';
-
 require_once 'app/models/HomeModel.php';
 
 class HomeController
@@ -45,13 +42,14 @@ class HomeController
         return $this->model->addHome($home_name, $home_description);
 
     }
-    public function deleteHome($home_id) {
+    public function deleteHome($home_id)
+    {
         return $this->model->deleteHome($home_id);
-        
-    } 
-    public function scrollBarHomeName() {
+
+    }
+    public function scrollBarHomeName()
+    {
         return $this->model->scrollBarHomeName();
     }
-        
-    } 
-    
+
+}

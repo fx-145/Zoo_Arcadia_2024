@@ -1,9 +1,7 @@
-<?php 
+<?php
 session_start();
 require_once 'app/controllers/handler/serviceHandler.php';
 ?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -17,9 +15,8 @@ require_once 'app/controllers/handler/serviceHandler.php';
 <body>
   <!-- Affichage de la navbar -->
   <?php
-  include_once ("layouts/navbar.php")
+  include_once "layouts/navbar.php"
     ?>
-
   <!-- Affichage tableau bootstrap -->
   <div class="container">
     <br><br>
@@ -33,26 +30,20 @@ require_once 'app/controllers/handler/serviceHandler.php';
         </tr>
       </thead>
       <tbody>
-      <?php foreach ($result as $row): ?>
+        <?php foreach ($result as $row): ?>
           <tr>
             <td><?php echo $row['service_name']; ?></td>
             <td><?php echo $row['service_description']; ?></td>
-           
           </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
     <br><br>
   </div>
-
-
-
-
   <!-- Appel du footer -->
-  <?php include ("layouts/footer.php"); ?>
-
+  <?php include "layouts/footer.php"; ?>
   <!-- Appel des scripts -->
-  <?php include ("layouts/scripts.php"); ?>
+  <?php include "layouts/scripts.php"; ?>
 </body>
 
 </html>

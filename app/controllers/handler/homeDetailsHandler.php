@@ -1,12 +1,13 @@
 <?php
 require_once 'app/controllers/HomeController.php';
 require_once 'app/controllers/AnimalController.php';
+session_start();
 
-
-if (isset($_GET['home_id'])) {
+if (isset($_POST['home_id'])) {
     // Récupérer les photos de l'habitat sélectionné, sa description,
     // les animaux qui y sont rattachés.
-    $home_id = $_GET['home_id'];
+    $_SESSION['home_id'] = $_POST['home_id'];
+    $home_id = $_POST['home_id'];
     $controller = new HomeController();
     $result = $controller->getHomeAndAnimalsDetails($home_id);
 

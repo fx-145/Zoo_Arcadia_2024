@@ -1,9 +1,5 @@
 <?php
-require_once 'app/controllers/handler/homeDetailsHandler.php';
-
-?>
-
-
+require_once 'app/controllers/handler/homeDetailsHandler.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,13 +10,9 @@ require_once 'app/controllers/handler/homeDetailsHandler.php';
     <link rel="stylesheet" href="../../public/css/main.css">
 </head>
 
-
 <body>
     <!-- Affichage de la navbar -->
-    <?php
-    include_once ("layouts/navbar.php")
-        ?>
-
+    <?php include_once "layouts/navbar.php" ?>
     <!-- Elements de la page habitats -->
     <div class="container py-5">
         <div class="row">
@@ -75,31 +67,37 @@ require_once 'app/controllers/handler/homeDetailsHandler.php';
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th></th>
-                                            <th></th>
-
+                                            <th>Nom</th>
+                                            <th>Image</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php foreach ($result_pictures as $row): ?>
-                                            <?php $row['animal_picture_path']; ?>
                                             <tr>
+                                                <td><?php echo htmlspecialchars($row['animal_name']); ?></td>
                                                 <td>
-                                                    
-                                                        <h2><?php echo $row['animal_name']; ?></>
-                                                    
-                                                        <form id="animalForm_<?php echo $row['animal_id']; ?>" action="viewsHandler" method="post">
-                                                        <input type="hidden" name="animal_id" value="<?php echo htmlspecialchars($row['animal_id'], ENT_QUOTES, 'UTF-8'); ?>">
-                                                        <input type="image" src="<?php echo htmlspecialchars($row['animal_picture_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="Generic placeholder image" width="200" >
-                                                        </form>
-
-                                                    
+                                                    <form id="animalForm_<?php echo $row['animal_id']; ?>"
+                                                        action="viewsHandler" method="post">
+                                                        <input type="hidden" name="animal_id"
+                                                            value="<?php echo htmlspecialchars($row['animal_id'], ENT_QUOTES, 'UTF-8'); ?>">
+                                                        <input type="image"
+                                                            src="<?php echo htmlspecialchars($row['animal_picture_path'], ENT_QUOTES, 'UTF-8'); ?>"
+                                                            alt="Image de <?php echo htmlspecialchars($row['animal_name']); ?>"
+                                                            width="200">
+                                                    </form>
                                                 </td>
-                                                
                                             </tr>
                                         <?php endforeach; ?>
+                                        <?php if (empty($result_pictures)): ?>
+                                            <tr>
+                                                <td colspan="2">Aucun animal trouvé</td>
+                                            </tr>
+                                        <?php endif; ?>
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                    </li>
                     </li>
                 </ul>
                 <!-- Appel du footer -->

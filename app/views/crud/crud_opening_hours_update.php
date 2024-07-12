@@ -1,7 +1,7 @@
 <?php
 require_once 'app/controllers/OpeningTimeController.php';
 
-if (isset($_POST['opening_time_id'])) {
+if (isset($_POST['opening_time_id']) && !empty($_POST['opening_time_id'])) {
     $op_hours_id = $_POST['opening_time_id'];
     $controller = new OpeningTimeController();
     $result = $controller->getOpeningHoursWithId($op_hours_id);
@@ -19,6 +19,7 @@ if (isset($_POST['opening_time_id'])) {
 <div id="content">
     <?php include_once "app/views/layouts/navbar.php"; ?>
     <br>
+
     <body>
         <button class="btn btn-success mx-2" id="menu-toggle">
             <>
@@ -26,6 +27,8 @@ if (isset($_POST['opening_time_id'])) {
         <div class="container mt-4">
             <h1 class="mb-4">Modifier l'horaire</h1>
             <form action="crudOpeningHoursHandler" method="post">
+                <!-- Génération du token CSRF -->
+                <?php include "app/controllers/handler/security_issuer.php"; ?>
                 <input type="hidden" value="<?php echo $op_hours_id; ?>" id="opening_time_id" name="opening_time_id">
                 <div class="form-group">
                     <label for="opening_day">Jour</label>

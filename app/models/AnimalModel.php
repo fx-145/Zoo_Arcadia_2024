@@ -9,8 +9,6 @@ class AnimalModel
     {
         $database = new Database();
         $this->db = $database->db;
-       
-
     }
     public function getAnimals()
     {
@@ -29,8 +27,6 @@ class AnimalModel
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
             return null;
-
-
         }
     }
     public function getAnimalsAndOnePicture($home_id)
@@ -51,8 +47,6 @@ class AnimalModel
             $statement->bindParam(':home_id', $home_id, PDO::PARAM_INT);
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-            // Vérifiez si des résultats ont été récupérés
             if ($result) {
                 return $result;
             } else {
@@ -81,8 +75,6 @@ class AnimalModel
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
             return null;
-
-
         }
     }
     public function getAnimalId($animal_name)
@@ -97,16 +89,12 @@ class AnimalModel
                 return $result['animal_id'];
             } else {
                 echo "Impossible de récupérer l'id de $animal_name";
-                //return null;
             }
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
             return null;
-
-
         }
     }
-
     public function getAnimalHomeId($animal_name)
     {
         try {
@@ -119,13 +107,10 @@ class AnimalModel
                 return $result['home_id'];
             } else {
                 echo "Impossible de récupérer l'home_id de $animal_name";
-                //return null;
             }
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
             return null;
-
-
         }
     }
     public function getAllAnimalWithHomes()
@@ -137,7 +122,6 @@ class AnimalModel
             $statement = $this->db->prepare($query);
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-            // Vérifiez si des résultats ont été récupérés
             if ($result) {
                 return $result;
             } else {
@@ -155,36 +139,30 @@ class AnimalModel
     {
         // Afficher l'animal sélectionné pour mise à jour, avec affichage de l'habitat
         {
-             try {
+            try {
                 $query = "SELECT * FROM animals 
                 INNER JOIN homes ON animals.home_id = homes.home_id
                 WHERE animal_id = :animal_id";
                 $statement = $this->db->prepare($query);
                 $statement->bindParam(':animal_id', $animal_id, PDO::PARAM_INT);
                 $statement->execute();
-                $result=$statement->fetch(PDO::FETCH_ASSOC);
+                $result = $statement->fetch(PDO::FETCH_ASSOC);
                 if ($result) {
                     return $result;
                 } else {
                     echo "pas d'enregistrement";
-                    //return null;
                 }
-                
+
             } catch (PDOException $e) {
                 echo "Erreur : " . $e->getMessage();
                 return null;
-
-
             }
-
         }
     }
     // mettre à jour les données de l'animal sélectionné
-    public function updateAnimal($animal_id,$new_animal_name, $new_animal_race,$new_home_id)
+    public function updateAnimal($animal_id, $new_animal_name, $new_animal_race, $new_home_id)
     {
-        
         try {
-
             // Préparer une requête pour la mise à jour des données dans la table "animals"
             $insertQuery = "UPDATE animals SET animal_name= :animal_name, race=:animal_race, home_id = :home_id WHERE animal_id=:animal_id";
             $stmt = $this->db->prepare($insertQuery);
@@ -193,55 +171,43 @@ class AnimalModel
             $stmt->bindParam(':home_id', $new_home_id, PDO::PARAM_INT);
             $stmt->bindParam(':animal_id', $animal_id, PDO::PARAM_STR);
             $stmt->execute();
-           
         } catch (PDOException $e) {
             echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
-        }}
-        public function addAnimal($animal_name, $animal_race,$home_id)
-        {
-            try {
-    
-                // Préparer une requête pour la création de données dans la table "animals"
-                $insertQuery = "INSERT INTO animals (animal_name, race, home_id)
+        }
+    }
+    public function addAnimal($animal_name, $animal_race, $home_id)
+    {
+        try {
+            // Préparer une requête pour la création de données dans la table "animals"
+            $insertQuery = "INSERT INTO animals (animal_name, race, home_id)
                 VALUES (:animal_name, :animal_race, :home_id)";
-                $stmt = $this->db->prepare($insertQuery);
-                $stmt->bindParam(':animal_name', $animal_name, PDO::PARAM_STR);
-                $stmt->bindParam(':animal_race', $animal_race, PDO::PARAM_STR);
-                $stmt->bindParam(':home_id', $home_id, PDO::PARAM_INT);
-                $stmt->execute();
-               if ($stmt) {
-                //echo "animal ajouté avec succès";   
-    
-    
+            $stmt = $this->db->prepare($insertQuery);
+            $stmt->bindParam(':animal_name', $animal_name, PDO::PARAM_STR);
+            $stmt->bindParam(':animal_race', $animal_race, PDO::PARAM_STR);
+            $stmt->bindParam(':home_id', $home_id, PDO::PARAM_INT);
+            $stmt->execute();
+            if ($stmt) {
             }
-    
-                //echo "Nouvel animal enregistré";
-            } catch (PDOException $e) {
-                echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
-            }
+        } catch (PDOException $e) {
+            echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
         }
-
-
-        public function deleteAnimal($animal_id)
-        {
-            try {
-    
-                // Préparer une requête pour la suppression des données dans la table "animals"
-                $deleteQuery = "DELETE FROM animals WHERE animal_id=:animal_id";
-                $stmt = $this->db->prepare($deleteQuery);
-                $stmt->bindParam(':service_id', $animal_id, PDO::PARAM_INT);
-                $stmt->execute();
-                if ($stmt) {
-                    echo "Fiche animal supprimée avec succès";
-    
-                }
-    
-    
-            } catch (PDOException $e) {
-                echo "Erreur lors de la suppression des données : " . $e->getMessage();
+    }
+    public function deleteAnimal($animal_id)
+    {
+        try {
+            // Préparer une requête pour la suppression des données dans la table "animals"
+            $deleteQuery = "DELETE FROM animals WHERE animal_id=:animal_id";
+            $stmt = $this->db->prepare($deleteQuery);
+            $stmt->bindParam(':service_id', $animal_id, PDO::PARAM_INT);
+            $stmt->execute();
+            if ($stmt) {
+                echo "Fiche animal supprimée avec succès";
             }
+        } catch (PDOException $e) {
+            echo "Erreur lors de la suppression des données : " . $e->getMessage();
         }
-        public function getOneAnimalAndAllPictures($animal_id)
+    }
+    public function getOneAnimalAndAllPictures($animal_id)
     {
         try {
             $query = "SELECT animals.*, animal_pictures.*
@@ -253,9 +219,6 @@ class AnimalModel
             $statement->bindParam(':animal_id', $animal_id, PDO::PARAM_INT);
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-         //   var_dump($statement);
-    
-            // Vérifiez si des résultats ont été récupérés
             if ($result) {
                 return $result;
             } else {
@@ -277,20 +240,16 @@ class AnimalModel
           LIMIT 1;";
             $statement = $this->db->prepare($query);
             $statement->bindParam(':animal_id', $animal_id, PDO::PARAM_INT);
-            $result= $statement->execute();
-           //var_dump($result);
+            $result = $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             if ($result) {
                 return $result;
             } else {
-                //echo "Impossible de récupérer la condition de l'animal";
                 return null;
             }
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
             return null;
-
-
         }
     }
 }

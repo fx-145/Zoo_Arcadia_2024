@@ -1,10 +1,10 @@
 <!-- Appel de l'area admin-->
-<?php include_once ("app/views/elements/admin_area.php"); ?>
+<?php include_once "app/views/elements/admin_area.php"; ?>
 <!-- Affichage de la sidebar -->
-<?php include_once ("app/views/layouts/sidebar_admin.php"); ?>
+<?php include_once "app/views/layouts/sidebar_admin.php"; ?>
 <!-- Affichage de la navbar -->
 <div id="content">
-  <?php include_once ("app/views/layouts/navbar.php"); ?>
+  <?php include_once "app/views/layouts/navbar.php"; ?>
   <br>
   <button class="btn btn-success mx-2" id="menu-toggle">
     <>
@@ -15,7 +15,11 @@
     <div class="container mt-5">
       <!-- formulaire d'inscription utilisateur  -->
       <h1 class="mb-4">Formulaire d'inscription utilisateur</h1>
-      <form action="../controllers/handler/Registerhandler.php" method="POST">
+      <h5> <em>Un email sera envoyé automatiquement au nouvel utilisateur, contenant son identifiant de connexion</em>
+      </h5>
+      <form action="registerHandler" method="POST">
+        <!-- Génération du token CSRF -->
+        <?php include "app/controllers/handler/security_issuer.php"; ?>
         <!-- EMAIL -->
         <div class="form-group">
           <label for="userName">Renseigner l'adresse email:</label>
@@ -54,11 +58,10 @@
       <br>
     </div>
     <!-- Appel du footer -->
-    <?php include ("app/views/layouts/footer.php"); ?>
+    <?php include "app/views/layouts/footer.php"; ?>
     <!-- Appel des scripts -->
-    <?php include ("app/views/layouts/scripts.php"); ?>
+    <?php include "app/views/layouts/scripts.php"; ?>
     <!-- Appel du script de la sidebar -->
-
     <script src="public/js/sidebar_script.js"></script>
   </body>
 

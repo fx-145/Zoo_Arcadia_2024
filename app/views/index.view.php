@@ -2,8 +2,6 @@
 session_start();
 require 'app/controllers/handler/welcomePageHandler.php';
 ?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -18,14 +16,14 @@ require 'app/controllers/handler/welcomePageHandler.php';
 <body>
   <!-- Affichage de la navbar -->
   <?php
-  include_once ("layouts/navbar.php")
+  include_once "layouts/navbar.php"
     ?>
   <!-- disposition des cartes : carte 1 Présentation du zoo -->
   <div class="row justify-content-around custom-line">
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
       <div class="card h-100">
         <div class="card-body main-content">
-          <h3 class="card-title">Le Zoo Arcadia</h3>
+          <h2 class="card-title">Le Zoo Arcadia</h2>
           <p class="card-text">Le Zoo Arcadia est situé en France, à Paimpont près de la forêt de Brocéliande, en
             Bretagne depuis 1960. Nous avons le souci permanent du bien-être de nos animaux. Le zoo est entièrement
             indépendant au niveau des énergies, et nous sommes fiers d'agir pour la préservation de la biodiversité et
@@ -40,12 +38,11 @@ require 'app/controllers/handler/welcomePageHandler.php';
         </div>
       </div>
     </div>
-
     <!-- disposition des cartes carte 2 Les animaux -->
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
       <div class="card h-100">
         <div class="card-body main-content">
-          <h3 class="card-title">Les animaux</h3>
+          <h2 class="card-title">Les animaux</h2>
           <p class="card-text">Une centaine d’animaux chouchoutés par nos équipes, peuplent le Zoo. Ils vous attendent!
             Voici toutes les races d'animaux que vous allez pouvoir rencontrer tout au long de votre visite :</p>
           <!-- Liste les animaux -->
@@ -76,9 +73,9 @@ require 'app/controllers/handler/welcomePageHandler.php';
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
       <div class="card h-100 d-none d-sm-block">
         <div class="card-body main-content">
-          <h3 class="card-title">Les habitats</h3>
+          <h2 class="card-title">Les habitats</h2>
           <p class="card-text">Les animaux évoluent dans une zone aménagée pour eux, qui réunit les conditions proches
-            de leur milieu d’origine, afin de contribuer à leur santé morale et physique. Ces habitats sont :</p>
+            de leur milieu d'origine, afin de contribuer à leur santé morale et physique. Ces habitats sont :</p>
           <ul>
             <!-- Liste les habitats -->
             <?php foreach ($resultH as $row): ?>
@@ -96,7 +93,7 @@ require 'app/controllers/handler/welcomePageHandler.php';
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
       <div class="card h-100 d-none d-sm-block">
         <div class="card-body main-content">
-          <h3 class="card-title">Les services</h3>
+          <h2 class="card-title">Les services</h2>
           <p class="card-text">Notre Zoo va vous faire vivre une expérience dont vous vous souviendrez très longtemps.
             Pour améliorer encore votre visite, nous proposons plusieurs services :</p>
           <!-- Liste les services -->
@@ -144,7 +141,7 @@ require 'app/controllers/handler/welcomePageHandler.php';
                         <?php foreach ($resultO as $row): ?>
                           <tr>
                             <td><?php echo htmlspecialchars($row['pseudo'], ENT_QUOTES, 'UTF-8'); ?></td>
-                            <td><?php  echo htmlspecialchars($row['opinion'], ENT_QUOTES, 'UTF-8'); ?></td>
+                            <td><?php echo htmlspecialchars($row['opinion'], ENT_QUOTES, 'UTF-8'); ?></td>
                           </tr>
                         <?php endforeach; ?>
                       </tbody>
@@ -178,10 +175,8 @@ require 'app/controllers/handler/welcomePageHandler.php';
       </div>
     </div>
   </div>
-
   <!-- Appel du footer -->
   <?php include_once ("layouts/footer.php"); ?>
-
   <!-- Appel des scripts -->
   <?php include_once ("layouts/scripts.php"); ?>
 

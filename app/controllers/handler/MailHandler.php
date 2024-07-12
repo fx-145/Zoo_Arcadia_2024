@@ -1,9 +1,6 @@
 <?php
-require_once '../MailController.php';
-require_once '../../controllers/router/Router.controller.php';
-
-
-
+require_once __DIR__ . '/../MailController.php';
+require_once __DIR__ . '/../router/Router.controller.php';
 class MailHandler
 {
     private $controller;
@@ -34,8 +31,6 @@ class MailHandler
         }
 
         // Redirection vers la page information (routeur) avec indicateur de succès ou d'échec
-        // header("Location: ../../views/information?success=" . ($success ? '1' : '0'));
-        //exit();
         $navbar = new Navbar();
         $redirectUrl = $navbar->urlValue('/information', ['success' => $success ? '1' : '0']);
         header("Location: " . $redirectUrl);
@@ -62,11 +57,14 @@ class MailHandler
         $redirectUrl = $navbar->urlValue('/information', ['success' => $success ? '1' : '0']);
         header("Location: " . $redirectUrl);
         exit();
-
-
     }
 
 }
+
+// Vérification du token CSRF
+require 'security_receiver.php';
+
+
 //Envoi de mail via le formulaire de contact visiteur
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

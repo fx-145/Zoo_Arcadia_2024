@@ -40,6 +40,7 @@ class Navbar
             '/employee_area'=> 'app/views/employee_area.view.php',
             '/vet_area'=> 'app/views/vet_area.view.php',
             '/homeDetails'=> 'app/views/homeDetails.php',
+            '/homeDetailsHandler'=> 'app/controllers/handler/homeDetailsHandler.php',
             '/employee_food_form' => 'app/views/employee_food_form.php',
             '/employee_report_handler' => 'app/controllers/handler/employee_report_handler.php',
             '/vet_visit_form' => 'app/views/vet_visit_form.php',
@@ -65,11 +66,11 @@ class Navbar
             '/crud_opening_hours_update'=> 'app/views/crud/crud_opening_hours_update.php',
             '/crudOpeningHoursHandler'=> 'app/controllers/handler/editHandler/crudOpeningHoursHandler.php',
             '/register' =>'app/views/register.view.php',
+            '/registerHandler'=> 'app/controllers/handler/RegisterHandler.php',
             '/animal_details' => 'app/views/animal_details.php',
             '/viewsHandler' => 'app/controllers/handler/viewsHandler.php',
             '/animal_views' => 'app/views/animal_views.php',
             '/resetViewsHandler' => 'app/controllers/handler/resetViewsHandler.php',
-
         ];
         
         if (array_key_exists($uri, $routes)) {

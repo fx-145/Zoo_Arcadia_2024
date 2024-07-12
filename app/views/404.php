@@ -19,13 +19,10 @@
     <p class="mt4">
       <a href="/" class="text-blue underline">retour page accueil.</a>
     </p>
-
     <!-- Appel du footer -->
-    <?php include ("layouts/footer.php"); ?>
-
+    <?php include "layouts/footer.php"; ?>
     <!-- Appel des scripts -->
-    <?php include ("layouts/scripts.php"); ?>
-
+    <?php include "layouts/scripts.php"; ?>
 </body>
 
 </html>

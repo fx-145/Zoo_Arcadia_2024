@@ -4,15 +4,14 @@ INSERT INTO roles (role_id, role_name) VALUES ("1", "administrateur");
 INSERT INTO roles (role_id, role_name) VALUES ("2", "employe");
 INSERT INTO roles (role_id, role_name) VALUES ("3", "veterinaire");
 
---2 Insérer donées dans table users: pour l'admin, methode detaillée. Pour les employés et vétérinaires, passer par l'appli.
+--2 Insérer données dans table users: pour l'admin, methode detaillée cf.fichier CreateAdmin.sql. Pour les employés et vétérinaires, passer par l'appli.
 
 -- 3 insérer données dans la table "homes":
 INSERT INTO homes (home_name, home_description ) VALUES ("La Savane","
 La savane est un ecosysteme unique et diversifie qui se caracterise par ses vastes plaines herbeuses parsemees d'arbres clairsemes, tels que les acacias et les baobabs. Ce paysage distinctif est le resultat d'une interaction complexe entre le climat, le sol et la vegetation, offrant un habitat ideal pour une grande variete de faune et de flore");
 INSERT INTO homes (home_name, home_description ) VALUES ("La Jungle","La jungle abrite une incroyable diversite d'especes animales et vegetales. On y trouve des mammiferes, des oiseaux, des reptiles, des amphibiens, des poissons et d'innombrables insectes");
 INSERT INTO homes (home_name, home_description ) VALUES ("Le Marais","Il offre un habitat crucial pour de nombreuses especes et joue un role important dans les cycles de l eau et des nutriments.");
-INSERT INTO homes (home_name, home_description ) VALUES ("Grande Voliere","La volière tropicale recrée un environnement chaud et humide, similaire à celui des forêts tropicales. Elle est généralement abritée sous un dôme ou un filet pour permettre la pénétration de la lumière naturelle tout en offrant une protection contre les prédateurs et les intempéries.");
-INSERT INTO homes (home_name, home_description ) VALUES ("Grand Froid","L'habitat doit maintenir des températures froides, généralement autour de -1°C à 10°C, pour simuler les conditions arctiques. Des systèmes de réfrigération sont utilisés pour réguler la température.");
+
 
 -- 4 insérer données dans la table "animals":
 INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Georges", "Lion", "1");
@@ -22,16 +21,14 @@ INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Arthur", "Gorille", 
 INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Ernest", "Suricate", "2");
 INSERT INTO animals (animal_name, race, home_id  ) VALUES ("John", "Chimpanzé", "2");
 INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Miguel", "Gorille", "2");
-INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Gilbert", "Lemurien", "3");
-INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Po", "Panda", "3");
-INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Sherkan", "Tigre", "3");
-INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Carlos", "Aigle", "4");
-INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Coco", "Perroquet", "4");
-INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Zac", "Perroquet", "4");
-INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Kowalski", "Pingouin", "5");
-INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Octave", "Pingouin", "5");
-INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Roger", "Manchot", "5");
-INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Wladimir", "Singe", "3");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Gilbert", "Lemurien", "2");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Po", "Panda", "2");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Sherkan", "Tigre", "2");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Roger", "Raton_laveur", "3");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Marcel", "Perroquet", "3");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Edwige", "Grue", "3");
+INSERT INTO animals (animal_name, race, home_id  ) VALUES ("Robert", "Crocodile", "3");
+
 
 -- 5 insérer données dans la table "services":
 INSERT INTO services (service_name, service_description) VALUES ("Visite du zoo en petit train", "Ce petit train est concu pour offrir une experience de voyage agreable dans le zoo, avec des sieges confortables et des compartiments ouverts pour une meilleure vue en toute securite");
@@ -74,3 +71,9 @@ INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/i
 INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Po.jpg", "9");
 INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Sherkan.jpg", "10");
 INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Wladimir.jpg", "11");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Roger.jpg", "12");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Roger2.jpg", "12");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Marcel.jpg", "13");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Marcel2.jpg", "13");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Edwige.jpg", "14");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Robert.jpg", "15");

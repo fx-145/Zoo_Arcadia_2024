@@ -10,7 +10,7 @@ $controllerU = new UserController();
 $controllerE = new EmployeeController();
 $controllerN = new Navbar();
 // Rechercher les noms des animaux à afficher dans le champ animaux:
-;
+
 // Si le formulaire est soumis, retrouver l'Id de l'animal en fonction de son nom
 if (isset($_POST['animal_name']) && isset($_POST['type_of_food_given']) && isset($_POST['qty_of_food_given']) && isset($_POST['date_time'])) {
   try {
@@ -35,8 +35,8 @@ if (isset($_POST['animal_name']) && isset($_POST['type_of_food_given']) && isset
       // Intégrer les données dans la table 'employee_passages'
       $controllerE->EmployeePassageReport($animal_id, $user_id, $type_of_food_given, $qty_of_food_given, $date_time);
       $successReportEmployee =1;
+
       // Rediriger vers la page information en cas de succès
-    
       $redirectUrl = $controllerN->urlValue('/information', ['success_report_e' => $successReportEmployee ? '1' : '0']);
       header("Location: " . $redirectUrl);
       exit();

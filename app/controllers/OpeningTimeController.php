@@ -1,6 +1,5 @@
 <?php
 require_once 'app/models/OpeningTimeModel.php';
-
 class OpeningTimeController
 {
     private $model;
@@ -16,14 +15,15 @@ class OpeningTimeController
 
     }
 
-    public function getOpeningHoursWithId($op_hours_id) {
+    public function getOpeningHoursWithId($op_hours_id)
+    {
         return $this->model->getOpeningHoursWithId($op_hours_id);
-        
+
     }
 
-    public function updateOpeningHours($op_hours_id,$new_opening_time, $new_closing_time) {
-        return $this->model->updateOpeningHours($op_hours_id,$new_opening_time, $new_closing_time);
-        
-    }
+    public function updateOpeningHours($op_hours_id, $new_opening_time, $new_closing_time)
+    {
+        return $this->model->updateOpeningHours($op_hours_id, $new_opening_time, $new_closing_time);
 
+    }
 }

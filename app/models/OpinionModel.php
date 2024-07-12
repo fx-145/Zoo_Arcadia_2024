@@ -3,17 +3,11 @@ require_once 'config/Database.php';
 class OpinionModel
 {
     private $db;
-
-
     public function __construct()
     {
-
         $database = new Database();
         $this->db = $database->db;
-       
-
     }
-
     public function SendVisitorOpinion($pseudo, $opinion)
     {
         // Insérer l'avis' dans la table visitor_opinions
@@ -25,13 +19,11 @@ class OpinionModel
             $statement->bindParam(':pseudo', $pseudo);
             $statement->bindParam(':opinion', $opinion);
             $statement->execute();
-
             echo "Avis de $pseudo enregistrées";
         } catch (PDOException $e) {
             echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
         }
     }
-
     public function showPendingVisitorOpinions()
     {
         // Afficher les avis visiteurs en attente de validation
@@ -50,29 +42,22 @@ class OpinionModel
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
             return null;
-
-
         }
     }
-
     public function updateOpinionStatus($opinion_id, $newOpinionStatus)
     {
         // Mettra à jour le statut dans la table visitor_opinions
         try {
             $updateQuery = "UPDATE visitor_opinions SET status= :opinion WHERE opinion_id= :opinion_id";
-
-
             $statement = $this->db->prepare($updateQuery);
             $statement->bindParam(':opinion_id', $opinion_id);
             $statement->bindParam(':opinion', $newOpinionStatus);
             $statement->execute();
-
             echo "Avis de  $opinion_id enregistrées";
         } catch (PDOException $e) {
             echo "Erreur lors de l'enregistrement des données : " . $e->getMessage();
         }
     }
-
     public function getValidatedOpinions()
     {
         // Afficher les avis visiteurs en attente de validation
@@ -86,14 +71,9 @@ class OpinionModel
             } else {
                 echo "pas d'enregistrement";
             }
-
-
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
             return null;
-
-
         }
     }
-
 }

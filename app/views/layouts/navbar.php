@@ -3,7 +3,6 @@
 require_once 'app/controllers/router/Router.controller.php';
 $navbar = new Navbar();
 ?>
-
 <!-- Affichage de la barre de navigation avec Bootstrap -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
@@ -18,7 +17,7 @@ $navbar = new Navbar();
                 <?php
 
                 //mise en surbrillance du lien de la navbar si le lien est actif
-                $currentPage = basename($_SERVER['PHP_SELF']);
+                $currentPage = htmlspecialchars(basename($_SERVER['PHP_SELF']), ENT_QUOTES, 'UTF-8');
 
                 // (code special pour la page index.view)
                 $isHomePage = $currentPage === '' || $currentPage === 'index.php';
@@ -45,10 +44,10 @@ $navbar = new Navbar();
 
 
                 if (isset($_SESSION['role'])) {
-                    $currentPage = basename($_SERVER['PHP_SELF']);
-                    $adminPages = ['admin_area', 'vet_reports_for_admin','crud_homes','crud_homes_update','crud_homes_add','crud_home_picture_add','crud_animals','crud_animals_update','crud_animals_add','crud_animal_picture_add','crud_services','crud_services_update','crud_services_add','crud_opening_hours','crud_opening_hours_update','register'];
-                    $vetPages = ['vet_area', 'employee_reports_for_vets','vet_visit_form'];
-                    $employeePages = ['employee_area', 'employee_food_form','crud_services','crud_services_update','employee_validation_opinion'];
+                    $currentPage = htmlspecialchars(basename($_SERVER['PHP_SELF']), ENT_QUOTES, 'UTF-8');
+                    $adminPages = ['admin_area', 'vet_reports_for_admin', 'crud_homes', 'crud_homes_update', 'crud_homes_add', 'crud_home_picture_add', 'crud_animals', 'crud_animals_update', 'crud_animals_add', 'crud_animal_picture_add', 'crud_services', 'crud_services_update', 'crud_services_add', 'crud_opening_hours', 'crud_opening_hours_update', 'register'];
+                    $vetPages = ['vet_area', 'employee_reports_for_vets', 'vet_visit_form'];
+                    $employeePages = ['employee_area', 'employee_food_form', 'crud_services', 'crud_services_update', 'employee_validation_opinion'];
 
                     switch ($_SESSION['role']) {
                         case 'administrateur':
@@ -74,10 +73,6 @@ $navbar = new Navbar();
                     }
                 }
                 ?>
-
-
-
-
             </ul>
         </div>
     </div>

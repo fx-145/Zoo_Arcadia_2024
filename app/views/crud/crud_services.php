@@ -6,9 +6,6 @@ include_once "app/controllers/handler/SessionRouter.php";
 $controller = new ServiceController();
 $result = $controller->getServices();
 ?>
-
-
-
 <!-- Affichage de la navbar -->
 <div id="content">
     <?php include_once "app/views/layouts/navbar.php"; ?>
@@ -66,14 +63,11 @@ $result = $controller->getServices();
             </form>
         </div>
         <!-- Appel du footer -->
-        <?php include ("app/views/layouts/footer.php"); ?>
+        <?php include "app/views/layouts/footer.php"; ?>
         <!-- Appel des scripts -->
-        <?php include ("app/views/layouts/scripts.php"); ?>
+        <?php include "app/views/layouts/scripts.php"; ?>
         <!-- Appel du script de la sidebar -->
-
         <script src="public/js/sidebar_script.js"></script>
-
-
 </div>
 </body>
 

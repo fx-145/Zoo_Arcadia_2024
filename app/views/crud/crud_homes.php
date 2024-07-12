@@ -1,18 +1,16 @@
 <?php
-
 require_once 'config.php';
 require_once APP_CONTROLLER_PATH . '/HomeController.php';
 $controller = new HomeController();
 $result = $controller->getHomes();
 ?>
-
 <!-- Appel de l'area admin-->
-<?php include_once ("app/views/elements/admin_area.php"); ?>
+<?php include_once "app/views/elements/admin_area.php"; ?>
 <!-- Affichage de la sidebar -->
-<?php include_once ("app/views/layouts/sidebar_admin.php"); ?>
+<?php include_once "app/views/layouts/sidebar_admin.php"; ?>
 <!-- Affichage de la navbar -->
 <div id="content">
-    <?php include_once ("app/views/layouts/navbar.php"); ?>
+    <?php include_once "app/views/layouts/navbar.php"; ?>
     <br>
     <button class="btn btn-success mx-2" id="menu-toggle">
         <>
@@ -62,9 +60,9 @@ $result = $controller->getHomes();
             </form>
         </div>
         <!-- Appel du footer -->
-        <?php include ("app/views/layouts/footer.php"); ?>
+        <?php include "app/views/layouts/footer.php"; ?>
         <!-- Appel des scripts -->
-        <?php include ("app/views/layouts/scripts.php"); ?>
+        <?php include "app/views/layouts/scripts.php"; ?>
         <!-- Appel du script de la sidebar -->
 
         <script src="public/js/sidebar_script.js"></script>

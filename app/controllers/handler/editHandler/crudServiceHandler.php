@@ -41,7 +41,8 @@ class ServiceHandler
     }
 }
 
-
+// Vérification du token CSRF
+require 'app/controllers/handler/security_receiver.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $formHandler = new ServiceHandler();

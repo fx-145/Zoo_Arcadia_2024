@@ -7,18 +7,26 @@ $primary:rgb(30, 82, 30);
 // Définir un espacement entre les items du menu de la navbar
 .navbar-nav > li{
     padding-left:40px;
-    padding-right:40px;
+    padding-right:0px;
+    
+  }
+
+  .navbar{
+    margin: 20px; 
+    border-radius: 15px; /* Arrondi des coins de la barre de navigation */
   }
   
 // Définir une marge d'espacement sur les côtés du site web
-body{
+ body{
     padding: 30px; 
+    border-radius: 15px;
 };
 
 // Définir la couleur de fond du contenu des pages
 .main-content {
   /*background-color: #4e67b1; /* Exemple de couleur de fond en bleu pour le contenu */
-  background-color: #d5eeed;
+  background-color: #f8f3e9;
+  
 }
 
 .main-content2 {
@@ -52,6 +60,20 @@ body {
 
 .btn-custom {
   width: 100px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 8px;
+  text-align: center;
+}
+th {
+  background-color: #f2f2f2;
 }
 
 //@use "../../node_modules/bootstrap/scss/bootstrap" as *;

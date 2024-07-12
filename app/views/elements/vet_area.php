@@ -1,5 +1,5 @@
 <?php
-$role ='veterinaire';
+$role = 'veterinaire';
 require_once 'app/controllers/handler/checkSession.php';
 ?>
 <!DOCTYPE html>

@@ -4,17 +4,14 @@ use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
 $dotenv->load();
-//namespace Model;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//require '../../../vendor/autoload.php';
 class MailModel
 {
-    
-    public function sendMail($titre, $description, $emailContact,$emailRecipient)
+    public function sendMail($titre, $description, $emailContact, $emailRecipient)
     {
         try {
             $mail = new PHPMailer(true);
@@ -22,16 +19,16 @@ class MailModel
             // Configuration du serveur SMTP
             $mail->SMTPDebug = SMTP::DEBUG_OFF;
             $mail->isSMTP();
-            $mail->Host       = 'smtp.gmail.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = $_ENV['MAIL_ADDRESS'];                     //SMTP username   
-            $mail->Password   = $_ENV['MAIL_PASSWORD'];     
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = $_ENV['MAIL_ADDRESS'];                     //SMTP username   
+            $mail->Password = $_ENV['MAIL_PASSWORD'];
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-            $mail->Port       = 465;
+            $mail->Port = 465;
 
             // Destinataire, expéditeur et réponse
             $mail->setFrom($_ENV['MAIL_ADDRESS'], $emailContact);
-            $mail->addAddress($emailRecipient, ''); 
+            $mail->addAddress($emailRecipient, '');
             $mail->addReplyTo($emailContact, '');
 
             // Contenu du message

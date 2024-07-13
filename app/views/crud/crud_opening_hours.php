@@ -12,18 +12,18 @@ $result = $controller->getOpeningHours();
 <!-- Affichage de la navbar -->
 <div id="content">
     <?php include_once "app/views/layouts/navbar.php"; ?>
-    <br>
-    <button class="btn btn-success mx-2" id="menu-toggle">
-        <>
-    </button>
+   
 
     <body>
-        <div class="container mt-4">
-            <h1 class="mb-4">Edition des animaux</h1>
+        <div class="container-fluid py-5 main-content">
+        <button class="btn btn-primary" id="menu-toggle">
+        <>
+    </button>
+            <h1 class="mb-4">Edition des horaires d'ouverture et de fermeture</h1>
             <!-- affichage de tous les habitats -->
             <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <thead class="thead-dark">
+                <table class="table table-striped table-bordered table-primary">
+                    <thead class="thead-dark text-center">
                         <tr>
                             <th>Jour</th>
                             <th>Heure début</th>
@@ -42,7 +42,7 @@ $result = $controller->getOpeningHours();
                                         <input type="hidden" name="opening_time_id"
                                             value="<?php echo htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8'); ?>">
                                         <button type="submit" name="submit_update_opening_hours"
-                                            class="btn btn-success btn-custom mr-2">Modifier</button>
+                                            class="btn btn-primary btn-custom mr-2">Modifier</button>
                                     </form>
                                     <br><br>
 

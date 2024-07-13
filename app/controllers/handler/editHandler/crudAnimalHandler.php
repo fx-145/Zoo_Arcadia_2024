@@ -36,6 +36,8 @@ class AnimalHandler
     }
     public function handleDeleteAnimal()
     {
+               
+          
         // supprime l'enregistrement de l'animal
         $animal_id = $_POST['animal_id'];
         $this->controller->deleteAnimal($animal_id);
@@ -47,6 +49,7 @@ class AnimalHandler
 
 // Vérification du token CSRF
 require 'app/controllers/handler/security_receiver.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $formHandler = new AnimalHandler();
@@ -66,3 +69,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
 }
+
+

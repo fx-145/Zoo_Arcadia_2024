@@ -71,6 +71,7 @@ class Navbar
             '/viewsHandler' => 'app/controllers/handler/viewsHandler.php',
             '/animal_views' => 'app/views/animal_views.php',
             '/resetViewsHandler' => 'app/controllers/handler/resetViewsHandler.php',
+            '/security_issuer' => 'app/controllers/handler/security_issuer.php',
         ];
         
         if (array_key_exists($uri, $routes)) {

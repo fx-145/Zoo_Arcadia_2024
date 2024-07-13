@@ -13,34 +13,44 @@ session_start(); ?>
 <body>
     <!-- Affichage de la navbar -->
     <?php include_once "layouts/navbar.php" ?>
-    <div class="container mt-4">
-        <h2>Contactez-nous</h2>
-        <form action="app/controllers/handler/MailHandler.php" method="post">
-            <!-- Génération du token CSRF -->
-            <?php include "app/controllers/handler/security_issuer.php"; ?>
-            <input type="hidden" name="csrf_token"
-                value="<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
+     <!-- Contenu principal avec classe main-content -->
+     <div class="container-fluid main-content py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="text-center mb-4">Contactez-nous</h2>
 
-            <div class="form-group">
-                <label for="titre">Titre :</label>
-                <input type="text" id="titre" name="titre" class="form-control" required>
-            </div>
+                <!-- Formulaire de contact -->
+                <form action="app/controllers/handler/MailHandler.php" method="post">
+                    <!-- Génération du token CSRF -->
+                    <?php include "app/controllers/handler/security_issuer.php"; ?>
+                    <input type="hidden" name="csrf_token"
+                        value="<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
 
-            <div class="form-group">
-                <label for="description">Description :</label>
-                <textarea id="description" name="description" cols="50" rows="4" class="form-control"
-                    required></textarea>
-            </div>
+                    <!-- Champ Titre -->
+                    <div class="form-group col-md-4">
+                        <label for="titre">Titre :</label>
+                        <input type="text" id="titre" name="titre" class="form-control" required>
+                    </div>
 
-            <div class="form-group">
-                <label for="emailContact">Votre email :</label>
-                <input type="email" id="emailContact" name="emailContact" class="form-control" required>
+                    <!-- Champ Description -->
+                    <div class="form-group col-md-6">
+                        <label for="description">Description :</label>
+                        <textarea id="description" name="description" cols="50" rows="4"
+                            class="form-control" required></textarea>
+                    </div>
+
+                    <!-- Champ Email -->
+                    <div class="form-group col-md-2">
+                        <label for="emailContact">Votre email :</label>
+                        <input type="email" id="emailContact" name="emailContact" class="form-control" required>
+                    </div>
+                    <br>
+                    <!-- Bouton Envoyer -->
+                    <button type="submit" class="btn btn-primary btn-block" name="submitForm2">Envoyer</button>
+                </form>
             </div>
-            <br>
-            <button type="submit" class="btn btn-primary" name="submitForm2">Envoyer</button>
-        </form>
+        </div>
     </div>
-    <br>
     <!-- Appel du footer -->
     <?php include "layouts/footer.php"; ?>
     <!-- Appel des scripts -->

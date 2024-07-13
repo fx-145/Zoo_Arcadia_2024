@@ -36,19 +36,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['service_id'])&& !empt
     <!-- Affichage de la navbar -->
     <div id="content">
         <?php include_once "app/views/layouts/navbar.php"; ?>
-        <br>
-        <button class="btn btn-success mx-2" id="menu-toggle">Toggle Menu</button>
-        <div class="container mt-4">
+        
+        <div class="container-fluid py-5 main-content">
+        <button class="btn btn-primary" id="menu-toggle"><></button>
             <h1 class="mb-4">Modifier un service</h1>
             <form action="crudServiceHandler" method="post">
                 <!-- Génération du token CSRF -->
                 <?php include "app/controllers/handler/security_issuer.php"; ?>
                 <input type="hidden" value="<?php echo $service_id; ?>" id="service_id" name="service_id">
-                <div class="form-group">
+                <div class="form-group col-md-2">
                     <label for="service_name">Nom du service à modifier:</label>
                     <input value="<?php echo $service_name; ?>" type="text" class="form-control" id="service_name" name="new_service_name" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-2">
                     <label for="service_description">Description:</label>
                     <textarea class="form-control" id="service_description" name="new_service_description" rows="4" required><?php echo $service_description; ?></textarea>
                 </div>

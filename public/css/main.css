@@ -1,23 +1,74 @@
 @charset "UTF-8";
-/*background-color: rgb(30,82,30);/* vert foncé navbar*/
+/* Définir les variables, dont couleur de la barre de navigation bootstrap */
+/*background-color: rgb(30,82,30); /* vert foncé navbar */
+.table-responsive {
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+.navbar-brand {
+  margin-left: 10px; /* Marge à gauche pour la marque de la navbar */
+}
+
+/* Définir un espacement entre les items du menu de la navbar */
 .navbar-nav > li {
-  padding-left: 40px;
-  padding-right: 0px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
+/* Styles pour la navbar */
 .navbar {
-  margin: 20px;
+  margin: 5; /* Supprimez la marge ici pour éviter le décalage */
   border-radius: 15px; /* Arrondi des coins de la barre de navigation */
+  padding: 0;
+  font-family: "calibri", sans-serif;
 }
 
+/* la navbar occupe toute la largeur */
+.navbar-custom {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Définir une marge d'espacement sur les côtés du site web */
 body {
   padding: 30px;
   border-radius: 15px;
+  font-family: "impact", "Arial", sans-serif;
 }
 
+/* Définir la couleur de fond du contenu des pages */
 .main-content {
-  /*background-color: #4e67b1; /* Exemple de couleur de fond en bleu pour le contenu */
   background-color: #f8f3e9;
+  height: 100%;
+  border-radius: 15px;
+  font-family: "calibri", "Arial", sans-serif;
+  font-size: 18px;
+}
+
+/* Styles pour les cartes */
+.card {
+  border-radius: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+/* Arrondi les bords des images des cartes */
+.card img,
+.carousel-inner img {
+  border-radius: 15px;
+}
+
+/* Supprimer la marge de la classe .custom-line */
+.custom-line {
+  margin: 0;
+  padding: 0;
 }
 
 .main-content2 {
@@ -26,6 +77,44 @@ body {
   /*background-color: rgb(98,114,101); /*vert-gris sombre*/
   /*background-color: rgb(171,162,145); /*marron*/
   /*background-color: rgb(62,83,66); /*vert pastel foncé*/
+}
+
+/* Styles personnalisés pour la sidebar */
+.sidebar {
+  background-color: #f8f9fa; /* Couleur de fond */
+  border-radius: 15px; /* Bords arrondis */
+  padding: 20px;
+  height: 100%; /* Hauteur jusqu'en bas de la page */
+}
+
+@media (max-width: 992px) {
+  .sidebar.collapsed {
+    display: none;
+  }
+}
+.sidebar-heading {
+  margin-top: 10px; /* Marge en haut du titre */
+  margin-bottom: 10px; /* Marge en bas du titre */
+}
+
+.sidebar h2, .sidebar .h2 {
+  margin-top: 20px; /* Marge en haut des sous-titres */
+  margin-bottom: 10px; /* Marge en bas des sous-titres */
+}
+
+.sidebar ul {
+  list-style-type: none; /* Supprimer les puces */
+  padding-left: 0; /* Supprimer le padding à gauche */
+}
+
+.sidebar .nav-link {
+  color: #343a40; /* Couleur du texte des liens */
+}
+
+.sidebar .icon {
+  width: 30px; /* Taille des icônes */
+  height: auto;
+  margin-right: 10px; /* Marge à droite des icônes */
 }
 
 /*gère le menu accordeon des cartes bootstrap en mode écran smartphone*/
@@ -39,10 +128,6 @@ body {
   color: red;
 }
 
-body {
-  font-family: "Calibri", "Arial", sans-serif;
-}
-
 #tableContainer {
   max-height: 700px;
   overflow-y: auto;
@@ -50,6 +135,25 @@ body {
 
 .btn-custom {
   width: 100px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #007bff;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
 }
 
 /*!

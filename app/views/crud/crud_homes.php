@@ -11,18 +11,19 @@ $result = $controller->getHomes();
 <!-- Affichage de la navbar -->
 <div id="content">
     <?php include_once "app/views/layouts/navbar.php"; ?>
-    <br>
-    <button class="btn btn-success mx-2" id="menu-toggle">
-        <>
-    </button>
+
+
 
     <body>
-        <div class="container mt-4">
+        <div class="container-fluid py-5 main-content ">
+            <button class="btn btn-primary" id="menu-toggle">
+                <>
+            </button>
             <h1 class="mb-4">Edition des habitats</h1>
             <!-- affichage de tous les habitats -->
             <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <thead class="thead-dark">
+                <table class="table table-striped table-bordered table-primary">
+                    <thead class="thead-dark text-center">
                         <tr>
                             <th>Nom de l'habitat</th>
                             <th>Description de l'habitat</th>
@@ -39,10 +40,12 @@ $result = $controller->getHomes();
                                         <input type="hidden" name="home_id"
                                             value="<?php echo htmlspecialchars($row['home_id'], ENT_QUOTES, 'UTF-8'); ?>">
                                         <button type="submit" name="submit_update_home"
-                                            class="btn btn-success btn-custom mr-2">Modifier</button>
+                                            class="btn btn-primary btn-custom mr-2">Modifier</button>
                                     </form>
                                     <br><br>
                                     <form action="crudHomeHandler" method="post" style="display:inline;">
+                                        <!-- Génération du token CSRF -->
+                                        <?php include "app/controllers/handler/security_issuer.php"; ?>
                                         <input type="hidden" name="home_id"
                                             value="<?php echo htmlspecialchars($row['home_id'], ENT_QUOTES, 'UTF-8'); ?>">
                                         <button type="submit" name="submit_delete_home"

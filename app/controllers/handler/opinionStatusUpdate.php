@@ -1,5 +1,8 @@
 <?php
 require_once 'app/controllers/OpinionController.php';
+
+// Vérification du token CSRF
+require 'security_receiver.php';
 // Vérification si le formulaire a été soumis
 if (isset($_POST['s_id']) && isset($_POST['id']) && !empty($_POST['s_id']) && !empty($_POST['id'])) {
   // Récupération des données 

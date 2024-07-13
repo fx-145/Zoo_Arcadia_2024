@@ -10,6 +10,8 @@ $controllerU = new UserController();
 $controllerE = new EmployeeController();
 $controllerN = new Navbar();
 // Rechercher les noms des animaux à afficher dans le champ animaux:
+// Vérification du token CSRF
+require 'security_receiver.php';
 
 // Si le formulaire est soumis, retrouver l'Id de l'animal en fonction de son nom
 if (isset($_POST['animal_name']) && isset($_POST['type_of_food_given']) && isset($_POST['qty_of_food_given']) && isset($_POST['date_time'])) {

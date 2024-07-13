@@ -5,34 +5,37 @@ $homeController = new HomeController();
 $data = $homeController->scrollBarHomeName();
 ?>
 <!-- Appel de l'area admin -->
-<?php include_once ("app/views/elements/admin_area.php"); ?>
+<?php include_once "app/views/elements/admin_area.php"; ?>
 <!-- Affichage de la sidebar -->
-<?php include_once ("app/views/layouts/sidebar_admin.php"); ?>
+<?php include_once "app/views/layouts/sidebar_admin.php"; ?>
 <!-- Affichage de la navbar -->
 <div id="content">
-    <?php include_once ("app/views/layouts/navbar.php"); ?>
+    <?php include_once "app/views/layouts/navbar.php"; ?>
     <title>Ajouter un habitat</title>
 
     <body>
-        <br>
-        <button class="btn btn-success mx-2" id="menu-toggle">
+       
+        
+        <div class="container-fluid py-5 main-content">
+        <button class="btn btn-primary" id="menu-toggle">
             <>
         </button>
-        <div class="container mt-4">
             <h1>Ajouter un nouvel Animal</h1>
             <form action="crudAnimalHandler" method="post">
                 <!-- Génération du token CSRF -->
                 <?php include "app/controllers/handler/security_issuer.php"; ?>
-                <div class="form-group">
+                <div class="form-group col-md-2">
                     <label for="animal_name">Nom du nouvel animal:</label>
                     <input type="text" class="form-control" id="animal_name" name="animal_name" required>
                 </div>
-                <div class="form-group">
+                <br>
+                <div class="form-group col-md-2">
                     <label for="animal_race">Race:</label>
                     <input type="text" class="form-control" id="animal_race" name="animal_race" required>
                 </div>
-                <div class="form-group">
-                    <label for="new_home_id">Habitat à ajouter - Liste déroulante :</label>
+                <br>
+                <div class="form-group col-md-3">
+                    <label for="new_home_id">Habitat à affecter - Liste déroulante :</label>
                     <select name="new_home_id" id="new_home_id" class="form-control" required>
                         <?php
                         // Vérifier si $data est définie et non vide

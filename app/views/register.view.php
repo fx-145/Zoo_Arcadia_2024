@@ -5,14 +5,14 @@
 <!-- Affichage de la navbar -->
 <div id="content">
   <?php include_once "app/views/layouts/navbar.php"; ?>
-  <br>
-  <button class="btn btn-success mx-2" id="menu-toggle">
-    <>
-  </button>
+  
 
   <body>
 
-    <div class="container mt-5">
+    <div class="container-fluid py-5 main-content">
+    <button class="btn btn-primary" id="menu-toggle">
+    <>
+  </button>
       <!-- formulaire d'inscription utilisateur  -->
       <h1 class="mb-4">Formulaire d'inscription utilisateur</h1>
       <h5> <em>Un email sera envoyé automatiquement au nouvel utilisateur, contenant son identifiant de connexion</em>
@@ -21,25 +21,25 @@
         <!-- Génération du token CSRF -->
         <?php include "app/controllers/handler/security_issuer.php"; ?>
         <!-- EMAIL -->
-        <div class="form-group">
+        <div class="form-group col-md-2">
           <label for="userName">Renseigner l'adresse email:</label>
           <input type="email" class="form-control" id="userName" name="userName" required>
         </div>
         <br>
         <!-- PASSWORD -->
-        <div class="form-group">
+        <div class="form-group col-md-2">
           <label for="password">Mot de passe :</label>
           <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <br>
         <!-- CONFIRMATION PASSWORD -->
-        <div class="form-group">
+        <div class="form-group col-md-2 col-md-2">
           <label for="confirmPassword">Confirmation du mot de passe :</label>
           <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
         </div>
         <br>
         <!-- Compte: choix entre employé et vétérinaire -->
-        <div class="form-group">
+        <div class="form-group col-md-2 col-md-2">
           <label>Compte</label><br>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" id="employe" name="compte" value="employe" required>

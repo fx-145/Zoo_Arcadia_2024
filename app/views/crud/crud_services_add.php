@@ -7,24 +7,25 @@
 <!-- Affichage de la navbar -->
 <div id="content">
     <?php include_once "app/views/layouts/navbar.php"; ?>
-    <br>
-    <button class="btn btn-success mx-2" id="menu-toggle">
-        <>
-    </button>
+
+   
 
     <body>
         <title>Ajouter un habitat</title>
-        <br>
-        <div class="container mt-4">
+       
+        <div class="container-fluid py-5 main-content">
+        <button class="btn btn-primary" id="menu-toggle">
+        <>
+    </button>
             <h1>Ajouter un nouveau Service</h1>
             <form action="crudServiceHandler" method="post">
                 <!-- Génération du token CSRF -->
                 <?php include "app/controllers/handler/security_issuer.php"; ?>
-                <div class="form-group">
+                <div class="form-group col-md-2">
                     <label for="service_name">Nom du nouveau service:</label>
                     <input type="text" class="form-control" id="service_name" name="service_name" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <label for="service_description">Description:</label>
                     <textarea class="form-control" id="service_description" name="service_description" rows="4"
                         required></textarea>

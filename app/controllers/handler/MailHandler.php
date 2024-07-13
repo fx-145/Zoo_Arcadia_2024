@@ -32,7 +32,7 @@ class MailHandler
 
         // Redirection vers la page information (routeur) avec indicateur de succès ou d'échec
         $navbar = new Navbar();
-        $redirectUrl = $navbar->urlValue('/information', ['success' => $success ? '1' : '0']);
+        $redirectUrl = $navbar->urlValue('/information', ['success_register' => $success ? '1' : '0']);
         header("Location: " . $redirectUrl);
         exit();
     }

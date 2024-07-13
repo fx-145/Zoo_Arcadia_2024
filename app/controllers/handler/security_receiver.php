@@ -7,6 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 // Vérification du token CSRF
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-    die('Erreur CSRF !');
+    header("Location: /connection");
+    exit;
   }
 }

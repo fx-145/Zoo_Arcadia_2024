@@ -1,7 +1,9 @@
 <?php
 require_once 'app/controllers/UserController.php';
 require_once 'MailHandler.php';
-
+require_once 'app/controllers/router/Router.controller.php';
+//activer le routeur
+$navbar = new Navbar();
 class RegisterHandler
 {
     private $controller;
@@ -33,7 +35,7 @@ class RegisterHandler
             }
 
             // Vérifier si le username existe déjà (checkuser) et passage en revue des critères pour le niveau de sécurité du mot de passe (validatePassword)
-            if (isset($userName)) {
+            if (isset($userName)&& !empty($userName)) {
                 $result = $this->controller->checkUser($userName);
                 $result2 = $this->controller->validatePassword($password, $confirmPassword);
 
@@ -55,8 +57,40 @@ class RegisterHandler
 
                     // Rediriger l'utilisateur vers une nouvelle page
                     return true;
-                }
+                
+            } elseif ($result && !$result2) {
+                // Le username existe mais le mot de passe est invalide
+                // Ajoutez votre logique ici
+                $navbar = new Navbar();
+                $redirectUrl = $navbar->urlValue('/information', [
+                'register' => '0',
+            ]);
+            header("Location:" . $redirectUrl);
+            exit;
+               // return false;
+            } elseif (!$result && $result2) {
+                // Le username n'existe pas mais le mot de passe est valide
+                // Ajoutez votre logique ici
+                //redirection vers la page information, avec le login=0, qui sera interprété comme "erreur d'authentification"
+                $navbar = new Navbar();
+                $redirectUrl = $navbar->urlValue('/information', [
+                'register' => '0',
+            ]);
+            header("Location:" . $redirectUrl);
+            exit;
+               // return false;
+            } else {
+                // Le username n'existe pas et le mot de passe est invalide
+                // Ajoutez votre logique ici
+                $navbar = new Navbar();
+                $redirectUrl = $navbar->urlValue('/information', [
+                'register' => '0',
+            ]);
+            header("Location:" . $redirectUrl);
+            exit;
             }
+            }
+            
         } catch (PDOException $e) {
             // Gérer l'erreur
             error_log('Error registering user: ' . $e->getMessage());
@@ -86,24 +120,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // pour récupérer son mot de passe pour accéder à son compte
             $mailHandler = new MailHandler();
             $mailHandler->handleForm1($_POST);
-            echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-            Enregistrement réussi!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>';
-            echo 'ça fonctionne';
-        } else {
-            // Message d'échec de l'enregistrement
-            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    Échec de l\'enregistrement!
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>';
-
+            $redirectUrl = $navbar->urlValue('/information', [
+                'register' => '1',
+            ]);
+            header("Location:" . $redirectUrl);
+            exit;
+        }} else {
+            //redirection vers la page information, avec le login=0, qui sera interprété comme "erreur d'authentification"
+            $redirectUrl = $navbar->urlValue('/information', [
+                'register' => '0',
+            ]);
+            header("Location:" . $redirectUrl);
+            exit;
         }
-    }
 }
 
 

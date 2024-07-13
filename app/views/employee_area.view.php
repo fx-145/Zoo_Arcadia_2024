@@ -1,18 +1,18 @@
 <!-- Appel de l'area employee-->
-<?php include_once ("elements/employee_area.php"); ?>
+<?php include_once "elements/employee_area.php"; ?>
 
 <body>
     <!-- Affichage de la sidebar -->
     <?php
-    include_once ("app/views/layouts/sidebar_employee.php"); ?>
+    include_once "app/views/layouts/sidebar_employee.php"; ?>
     <!-- Affichage de la navbarbar -->
     <div id="content">
         <?php include_once "app/views/layouts/navbar.php"; ?>
-        <div class="container-fluid">
-            <h1 class="mt-4">Espace Employé</h1>
-            <button class="btn btn-success mx-2" id="menu-toggle">
+        <div class="container-fluid main-content py-5">
+        <button class="btn btn-primary" id="menu-toggle">
                 <>
             </button>
+            <h1 class="mt-4">Espace Employé</h1> 
             <p>Bienvenue sur votre espace <span style="margin-left: 5px;"></span></p>
         </div>
         <!-- Appel du footer -->

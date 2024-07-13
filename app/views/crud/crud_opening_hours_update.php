@@ -21,27 +21,27 @@ if (isset($_POST['opening_time_id']) && !empty($_POST['opening_time_id'])) {
     <br>
 
     <body>
-        <button class="btn btn-success mx-2" id="menu-toggle">
+        <button class="btn btn-primary" id="menu-toggle">
             <>
         </button>
-        <div class="container mt-4">
+        <div class="container-fluid py-5 main-content">
             <h1 class="mb-4">Modifier l'horaire</h1>
             <form action="crudOpeningHoursHandler" method="post">
                 <!-- Génération du token CSRF -->
                 <?php include "app/controllers/handler/security_issuer.php"; ?>
                 <input type="hidden" value="<?php echo $op_hours_id; ?>" id="opening_time_id" name="opening_time_id">
-                <div class="form-group">
+                <div class="form-group col-md-2">
                     <label for="opening_day">Jour</label>
                     <input value="<?php echo $opening_day; ?>" type="text" class="form-control" id="op_day"
                         name="opening_day" readonly>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-md-2">
                     <label for="opening_time">heure d'ouverture</label>
                     <input value="<?php echo $opening_time; ?>" type="text" class="form-control" id="new_opening_time"
                         name="new_opening_time" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-2">
                     <label for="closing_time">heure de fermeture</label>
                     <input value="<?php echo $closing_time; ?>" type="text" class="form-control" id="new_closing_time"
                         name="new_closing_time" required>

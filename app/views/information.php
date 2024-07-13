@@ -1,5 +1,6 @@
 <?php
-session_start(); ?>
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,30 +17,83 @@ session_start(); ?>
 
   <!-- Affichage tableau bootstrap -->
   <div class="container">
+  
     <?php
-    function displayMessage($type, $successMsg, $failureMsg)
+    function displayMessage($type, $messages)
     {
-      $success = $_GET[$type] ?? null;
-      if ($success !== null) {
-        if ($success === '1') {
-          echo '<p style="color: green;">' . $successMsg . '</p>';
+      $status = $_GET[$type] ?? null;
+      if ($status !== null) {
+        if ($status === '1') {
+          echo '<p style="color: green;">' . $messages['success'] . '</p>';
         } else {
-          echo '<p style="color: red;">' . $failureMsg . '</p>';
+          echo '<p style="color: red;">' . $messages['failure'] . '</p>';
         }
       }
     }
 
-    displayMessage('success_report_e', "Le rapport d'alimentation de l'animal a été envoyé avec succès!", "Échec de l'envoi du rapport d'alimentation animal. Veuillez réessayer.");
-    displayMessage('success_report_v', "Le rapport de visite de l'animal a été envoyé avec succès!", "Échec d'envoi du rapport de visite animal. Veuillez réessayer.");
-    displayMessage('success', "Le message a été envoyé avec succès!", "Échec de l'envoi du message. Veuillez réessayer.");
+    $messages = [
+      'success_report_e' => [
+        'success' => "Le rapport d'alimentation de l'animal a été envoyé avec succès!",
+        'failure' => "Échec de l'envoi du rapport d'alimentation animal. Veuillez réessayer."
+      ],
+      'success_report_v' => [
+        'success' => "Le rapport de visite de l'animal a été envoyé avec succès!",
+        'failure' => "Échec d'envoi du rapport de visite animal. Veuillez réessayer."
+      ],
+      'success' => [
+        'success' => "Le message a été envoyé par email avec succès!",
+        'failure' => "Échec de l'envoi du message par email. Veuillez réessayer."
+      ],
+      'success_register' => [
+        'success' => "Le nouvel utilisateur a été créé avec succès, un email lui a été envoyé avec succès!",
+        'failure' => "Échec de l'enregistrement du nouvel utilisateur. Veuillez réessayer."
+      ],
+      'login' => [
+        'failure' => "Erreur lors de l'authentification. Veuillez réessayer."
+      ],
+      'register' => [
+        'failure' => "Erreur lors de l'enregistrement. Veuillez réessayer."
+      ]
+    ];
 
-    if (isset($_GET['login']) && $_GET['login'] === '0') {
-      echo '<p style="color: red;">Erreur lors de l\'authentification. Veuillez réessayer.</p>';
-    } elseif (!isset($_GET['success_report_e']) && !isset($_GET['success_report_v']) && !isset($_GET['success'])) {
+    foreach ($messages as $type => $msg) {
+      displayMessage($type, $msg);
+    }
+
+    // Afficher un message d'erreur inattendue si aucun autre message n'est affiché
+    $keys = array_keys($messages);
+    $showUnexpectedError = true;
+    foreach ($keys as $key) {
+      if (isset($_GET[$key])) {
+        $showUnexpectedError = false;
+        break;
+      }
+    }
+    if ($showUnexpectedError) {
       echo '<p style="color: red;">Erreur inattendue</p>';
     }
     ?>
   </div>
+<div>
+<a href="<?php 
+    if (!empty($_SERVER['HTTP_REFERER'])) {
+        echo htmlspecialchars($_SERVER['HTTP_REFERER'], ENT_QUOTES, 'UTF-8');
+    } else {
+      header("Location: /");
+exit;
+
+    }
+?>" class="btn btn-secondary">
+<?php 
+if (!empty($_SERVER['HTTP_REFERER'])) {
+    echo 'Retour à la page précédente';
+} else {
+    echo 'Retour à la page d\'accueil';
+}
+?>
+</a>
+</div>
+<br>
   <!-- Appel du footer -->
   <?php include "layouts/footer.php"; ?>
   <!-- Appel des scripts -->

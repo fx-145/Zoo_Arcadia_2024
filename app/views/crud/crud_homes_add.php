@@ -1,27 +1,28 @@
 <!-- Appel de l'area admin -->
-<?php include_once ("app/views/elements/admin_area.php"); ?>
+<?php include_once "app/views/elements/admin_area.php"; ?>
 <!-- Affichage de la sidebar -->
-<?php include_once ("app/views/layouts/sidebar_admin.php"); ?>
+<?php include_once "app/views/layouts/sidebar_admin.php"; ?>
 <!-- Affichage de la navbar -->
 <div id="content">
-    <?php include_once ("app/views/layouts/navbar.php"); ?>
+    <?php include_once "app/views/layouts/navbar.php"; ?>
     <title>Ajouter un habitat</title>
 
     <body>
-        <br>
-        <button class="btn btn-success mx-2" id="menu-toggle">
+        
+        
+        <div class="container-fluid py-5 main-content">
+        <button class="btn btn-primary" id="menu-toggle">
             <>
         </button>
-        <div class="container mt-4">
             <h1>Ajouter un nouvel habitat</h1>
             <form action="crudHomeHandler" method="post">
                 <!-- Génération du token CSRF -->
                 <?php include "app/controllers/handler/security_issuer.php"; ?>
-                <div class="form-group">
+                <div class="form-group col-md-2 col-md-2">
                     <label for="home_name">Nom du nouvel habitat:</label>
                     <input type="text" class="form-control" id="home_name" name="home_name" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-2 col-md-2 col-md-6">
                     <label for="home_description">Description:</label>
                     <textarea class="form-control" id="home_description" name="home_description" rows="4"
                         required></textarea>

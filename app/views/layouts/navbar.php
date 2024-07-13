@@ -2,53 +2,59 @@
 //en fonction du clic sur un item de la navbar, activation du router
 require_once 'app/controllers/router/Router.controller.php';
 $navbar = new Navbar();
+//mise en surbrillance du lien de la navbar si le lien est actif
+
 ?>
+
 <!-- Affichage de la barre de navigation avec Bootstrap -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Zoo Arcadia</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- Bouton de toggler pour le menu burger -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+                aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- Marque de la navbar (Zoo Arcadia) -->
+        <a class="navbar-brand" href="/">Zoo Arcadia</a>
+        <?php
+        // Définir la page actuelle
+        $currentPage = basename($_SERVER['PHP_SELF'], ".php");
+
+        // Définir les pages publiques
+        $publicPages = [
+            'index' => 'Accueil',
+            'services' => 'Services',
+            'homes' => 'Habitats',
+            'contact' => 'Contact',
+            'connection' => 'Connexion',
+            
+        ];
+
+        // Définir les pages selon le rôle
+        $adminPages = ['admin_area', 'vet_reports_for_admin', 'crud_homes', 'crud_homes_update', 'crud_homes_add', 'crud_home_picture_add', 'crud_animals', 'crud_animals_update', 'crud_animals_add', 'crud_animal_picture_add', 'crud_services', 'crud_services_update', 'crud_services_add', 'crud_opening_hours', 'crud_opening_hours_update', 'register','animal_views'];
+        $vetPages = ['vet_area', 'employee_reports_for_vets', 'vet_visit_form'];
+        $employeePages = ['employee_area', 'employee_food_form', 'crud_services', 'crud_services_update', 'employee_validation_opinion'];
+        ?>
+
+        <?php //Pages enfants de "Habitats"
+        $habitatsSubPages = ['homeDetails','animal_details'];
+        ?>
+
+        <!-- Contenu de la navbar : liens et menus -->
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ml-auto">
+                <!-- Liens de la navbar pour les pages publiques -->
                 <?php
+                foreach ($publicPages as $page => $title) {
+                    $activeClass = ($currentPage === $page || ($page === 'index' && $currentPage === '') || ($page === 'homes' && in_array($currentPage, $habitatsSubPages))) ? 'active' : '';
+                    echo '<li class="nav-item ' . $activeClass . '">';
+                    echo '<a class="nav-link ' . $activeClass . '" href="/' . ($page === 'index' ? '' : $page) . '">' . $title . '</a>';
+                    echo '</li>';
+                }
 
-                //mise en surbrillance du lien de la navbar si le lien est actif
-                $currentPage = htmlspecialchars(basename($_SERVER['PHP_SELF']), ENT_QUOTES, 'UTF-8');
-
-                // (code special pour la page index.view)
-                $isHomePage = $currentPage === '' || $currentPage === 'index.php';
-
-                echo $isHomePage ?
-                    '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Accueil</a></li>' :
-                    '<li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>';
-
-                echo ($currentPage === 'services') ?
-                    '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/services">Services</a></li>' :
-                    '<li class="nav-item"><a class="nav-link" href="/services">Services</a></li>';
-
-                echo ($currentPage === 'homes') ?
-                    '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/homes">Habitats</a></li>' :
-                    '<li class="nav-item"><a class="nav-link" href="/homes">Habitats</a></li>';
-
-                echo ($currentPage === 'connection') ?
-                    '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/connection">Connexion</a></li>' :
-                    '<li class="nav-item"><a class="nav-link" href="/connection">Connexion</a></li>';
-
-                echo ($currentPage === 'contact') ?
-                    '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/contact">Contact</a></li>' :
-                    '<li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>';
-
-
+                // Affichage du lien selon le rôle de l'utilisateur
                 if (isset($_SESSION['role'])) {
-                    $currentPage = htmlspecialchars(basename($_SERVER['PHP_SELF']), ENT_QUOTES, 'UTF-8');
-                    $adminPages = ['admin_area', 'vet_reports_for_admin', 'crud_homes', 'crud_homes_update', 'crud_homes_add', 'crud_home_picture_add', 'crud_animals', 'crud_animals_update', 'crud_animals_add', 'crud_animal_picture_add', 'crud_services', 'crud_services_update', 'crud_services_add', 'crud_opening_hours', 'crud_opening_hours_update', 'register'];
-                    $vetPages = ['vet_area', 'employee_reports_for_vets', 'vet_visit_form'];
-                    $employeePages = ['employee_area', 'employee_food_form', 'crud_services', 'crud_services_update', 'employee_validation_opinion'];
-
                     switch ($_SESSION['role']) {
                         case 'administrateur':
                             $isAdminPage = in_array($currentPage, $adminPages);

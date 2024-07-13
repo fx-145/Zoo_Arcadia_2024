@@ -7,8 +7,8 @@ $result = $controller->getEmployeeReports();
    <input type="text" id="searchInput" class="form-control search-input" placeholder="Rechercher par Nom de l'animal"> 
      <!--  affichage de tous les champs, croisées de 3 tables (récupère username et animal_name) -->
     <div id = "tableContainer">
-     <table class="table mt-3">
-       <thead>
+     <table class="table table-striped table-bordered table-primary">
+       <thead class="thead-dark text-center">
          <tr>
            <th>Username de l'employé</th>
            <th>Date et heure de rapport</th>

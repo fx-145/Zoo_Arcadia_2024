@@ -32,7 +32,7 @@ if (isset($_SESSION['animal_id'])) {
     <?php
     include_once "layouts/navbar.php"
         ?>
-    <div class="container py-5">
+    <div class="container py-5 main-content">
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <!-- List group-->
@@ -43,10 +43,7 @@ if (isset($_SESSION['animal_id'])) {
                                 <h2 class="mt-0 font-weight-bold mb-2"><?php ?></h2>
                                 <table class="table">
                                     <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th></th>
-                                        </tr>
+                                      
                                     </thead>
                                     <tbody>
                                         <?php if ($result) {
@@ -73,10 +70,7 @@ if (isset($_SESSION['animal_id'])) {
                                 <h2 class="mt-0 font-weight-bold mb-2"><?php ?></h2>
                                 <table class="table">
                                     <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th></th>
-                                        </tr>
+                                        
                                     </thead>
                                     <tbody>
                                         <?php if ($result) {
@@ -99,63 +93,57 @@ if (isset($_SESSION['animal_id'])) {
                     <li class="list-group-item">
                         <div class="media align-items-lg-center flex-column flex-lg-row p-3">
                             <div class="media-body order-2 order-lg-1">
-                                <h4 class="mt-0 font-weight-bold mb-2">Voici pour le reconnaître</h4>
+                                <h4 class="mt-0 font-weight-bold mb-2">Voici pour le (la) reconnaître</h4>
                                 <table class="table">
                                     <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th></th>
-                                        </tr>
+                                      
                                     </thead>
                                     <tbody>
                                         <?php foreach ($result as $row): ?>
                                             <?php $row['animal_picture_path']; ?>
                                             <tr>
-                                                <td><img src="<?php echo "../../" . $row['animal_picture_path']; ?>"
-                                                        alt="Generic placeholder image" width="200"></td>
+                                                <td><img class="img-fluid" src="<?php echo "../../" . $row['animal_picture_path']; ?>"
+                                                        alt="Generic placeholder image" width="400"></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
                     </li>
                     <!-- list group item-->
-                    <li class="list-group-item">
-                        <div class="media align-items-lg-center flex-column flex-lg-row p-3">
-                            <div class="media-body order-2 order-lg-1">
-                                <h4 class="mt-0 font-weight-bold mb-2"><?php ?> Comment va notre ami? Voici ce qu'en
-                                    pense notre équipe de vétérinaires</h4>
-                                <table class="table">
-                                    <thead>
+                    <ul class="list-group shadow">
+                <li class="list-group-item">
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-1">
+                            <h4 class="mt-0 font-weight-bold mb-2">Comment se porte notre ami(e)</h4>
+                            <table class="table">
+                                <thead>
+                                    <!-- Entête du tableau pour les détails supplémentaires -->
+                                </thead>
+                                <tbody>
+                                    <?php if ($result_condition): ?>
+                                        <?php foreach ($result_condition as $key => $row): ?>
+                                            <?php if ($key === 0): ?>
+                                                <tr>
+                                                    <th>Etat général</th>
+                                                    <td><?php echo htmlspecialchars($row['animal_condition'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Plus en détail</th>
+                                                    <td><?php echo htmlspecialchars($row['animal_condition_detail'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                                </tr>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
                                         <tr>
-                                            <th></th>
-                                            <th></th>
+                                            <td colspan="2">Pas d'enregistrement trouvé</td>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php if ($result_condition) {
-                                            // Parcourir le tableau mais s'arrêter à la première ligne, la description est unique,
-                                        
-                                            foreach ($result_condition as $key => $row) {
-                                                // Afficher seulement la première ligne
-                                                if ($key === 0) {
-                                                    echo $row['animal_condition'];
-                                                    break; // Sortir de la boucle après avoir affiché la première ligne
-                                                }
-                                            } ?><br><br>
-                                            <?php
-                                            foreach ($result_condition as $key => $row) {
-                                                // Afficher seulement la première ligne
-                                                if ($key === 0) {
-                                                    echo $row['animal_condition_detail'];
-                                                    break; // Sortir de la boucle après avoir affiché la première ligne
-                                                }
-                                            }
-                                        } else {
-                                            // Aucun enregistrement trouvé
-                                            echo "Pas d'enregistrement";
-                                        } ?>
-                                    </tbody>
-                                </table>
+                                    <?php endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
+            </ul>
                     </li>
                 </ul>
                 <!-- Appel du footer -->

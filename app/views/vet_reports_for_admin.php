@@ -5,9 +5,9 @@ $controller = new VetController();
 $result = $controller->getVetReports();
 ?>
 <!-- Appel de l'area admin-->
-<?php include_once ("app/views/elements/admin_area.php"); ?>
+<?php include_once "app/views/elements/admin_area.php"; ?>
 <!-- Affichage de la sidebar -->
-<?php include_once ("app/views/layouts/sidebar_admin.php"); ?>
+<?php include_once "app/views/layouts/sidebar_admin.php"; ?>
 <!-- Affichage de la navbar -->
 <div id="content">
   <?php include_once "app/views/layouts/navbar.php"; ?>
@@ -15,8 +15,8 @@ $result = $controller->getVetReports();
   <body>
 
     <!-- Ajouter un service -->
-    <div class="container">
-      <button class="btn btn-success mx-2" id="menu-toggle">
+    <div class="container-fluid py-5 main-content">
+      <button class="btn btn-primary" id="menu-toggle">
         <>
       </button>
       <h1>Rapports des vétérinaires</h1>
@@ -26,8 +26,8 @@ $result = $controller->getVetReports();
       <button id="sortByNameAscBtn">Trier par nom d'animal croissant</button>
       <button id="sortByNameDescBtn">Trier par nom d'animal décroissant</button>
       <div id="tableContainer">
-        <table class="table">
-          <thead>
+        <table class="table table-striped table-bordered table-primary text-center">
+          <thead class="thead-dark text-center"->
             <tr>
               <th col-index=1> Date de rapport
                 <select class="table-filter">

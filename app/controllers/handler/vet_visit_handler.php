@@ -15,6 +15,8 @@ session_start();
 $userName = $_SESSION['userName'];
 $role = $_SESSION['role'];
 
+// Vérification du token CSRF
+require 'security_receiver.php';
 // Si le formulaire est soumis, retrouver l'Id de l'animal en fonction de son nom
 if (isset($_POST['animal_name']) && isset($_POST['type_of_food_proposed']) && isset($_POST['qty_of_food_proposed']) && isset($_POST['date']) && isset($_POST['animal_condition']) && isset($_POST['animal_condition_detail']) && isset($_POST['home_condition'])) {
 

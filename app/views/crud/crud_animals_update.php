@@ -34,37 +34,38 @@ if (isset($_POST['animal_id'])) {
 <!-- Affichage de la navbar -->
 <div id="content">
     <?php include_once "app/views/layouts/navbar.php"; ?>
-    <br>
+    
 
     <body>
-        <button class="btn btn-success mx-2" id="menu-toggle">
+        
+        <div class="container-fluid py-5 main-content">
+        <button class="btn btn-primary" id="menu-toggle">
             <>
         </button>
-        <div class="container mt-4">
             <h1 class="mb-4">Modifier une fiche animal</h1>
             <form action="crudAnimalHandler" method="post">
                 <!-- Génération du token CSRF -->
                 <?php include "app/controllers/handler/security_issuer.php"; ?>
                 <input type="hidden" value="<?php echo $animal_id; ?>" id="animal_id" name="animal_id">
-                <div class="form-group">
+                <div class="form-group col-md-2">
                     <label for="animal_name">Nom de l'animal à modifier:</label>
                     <input value="<?php echo htmlspecialchars($animal_name, ENT_QUOTES, 'UTF-8'); ?>" type="text"
                         class="form-control" id="animal_name" name="new_animal_name" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-2">
                     <label for="animal_race">Race de l'animal à modifier:</label>
                     <input value="<?php echo htmlspecialchars($animal_race, ENT_QUOTES, 'UTF-8'); ?>" type="text"
                         class="form-control" id="animal_race" name="new_animal_race" required>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-2 col-md-6">
                         <label for="current_home">Habitat actuel :</label><br>
                         <input value="<?php echo $home_name; ?>" type="text" class="form-control" id="current_home"
                             name="current_home" readonly>
                     </div>
 
-                    <div class="form-group col-md-6">
-                        <label for="new_home_id">Habitat à modifier - Liste déroulante :</label>
+                    <div class="form-group col-md-2 col-md-6">
+                        <label for="new_home_id">Nouvel Habitat à sélectionner - Liste déroulante :</label>
                         <select name="new_home_id" id="new_home_id" class="form-control" required>
 
                             <?php
@@ -88,7 +89,7 @@ if (isset($_POST['animal_id'])) {
             <h2 class="mt-4">Photos de l'animal</h2>
             <form action="crudAnimalPictureHandler" method="post">
                 <table class="table table-striped table-bordered">
-                    <thead class="thead-dark">
+                    <thead class="thead-dark text-center">
                         <tr>
                             <th>Photos</th>
                             <th>Action</th>
@@ -100,6 +101,7 @@ if (isset($_POST['animal_id'])) {
                                 <td><img src="<?php echo "../../" . htmlspecialchars($row['animal_picture_path'], ENT_QUOTES, 'UTF-8'); ?>"
                                         alt="Photo de l'animal" class="img-fluid" width="200"></td>
                                 <td>
+                                    
                                     <input type="hidden" name="animal_id"
                                         value="<?php echo htmlspecialchars($animal_id, ENT_QUOTES, 'UTF-8'); ?>">
                                     <input type="hidden" name="animal_name"
@@ -108,6 +110,8 @@ if (isset($_POST['animal_id'])) {
                                         value="<?php echo htmlspecialchars($row['animal_picture_id'], ENT_QUOTES, 'UTF-8'); ?>">
                                     <input type="hidden" name="animal_picture_path"
                                         value="<?php echo htmlspecialchars($row['animal_picture_path'], ENT_QUOTES, 'UTF-8'); ?>">
+                                        <!-- Génération du token CSRF -->
+                            <?php include "app/controllers/handler/security_issuer.php"; ?>
                                     <button type="submit" name="submit_delete_animal_picture"
                                         class="btn btn-danger">Supprimer</button>
                                 </td>
@@ -121,7 +125,7 @@ if (isset($_POST['animal_id'])) {
                     value="<?php echo htmlspecialchars($animal_id, ENT_QUOTES, 'UTF-8'); ?>">
                 <input type="hidden" name="animal_name"
                     value="<?php echo htmlspecialchars($animal_name, ENT_QUOTES, 'UTF-8'); ?>">
-                <button type="submit" class="btn btn-success">Ajouter Photo</button>
+                <button type="submit" class="btn btn-primary">Ajouter Photo</button>
             </form>
         </div>
         <br>

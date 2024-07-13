@@ -17,7 +17,7 @@ require 'app/controllers/handler/welcomePageHandler.php';
   <!-- Affichage de la navbar -->
   <?php
   include_once "layouts/navbar.php"
-    ?>
+  ?>
   <!-- disposition des cartes : carte 1 Présentation du zoo -->
   <div class="row justify-content-around custom-line">
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
@@ -27,13 +27,11 @@ require 'app/controllers/handler/welcomePageHandler.php';
           <p class="card-text">Le Zoo Arcadia est situé en France, à Paimpont près de la forêt de Brocéliande, en
             Bretagne depuis 1960. Nous avons le souci permanent du bien-être de nos animaux. Le zoo est entièrement
             indépendant au niveau des énergies, et nous sommes fiers d'agir pour la préservation de la biodiversité et
-            des ressources de notre belle planète bleue.</p>
-          <a href="#"><img class="card-img-top d-none d-sm-block" src="../../public/images/carte/Carte_Zoo.jpg"
+            des ressources de notre belle planète bleue. Le parc est ouvert toute l'année.</p>
+          <a><img class="card-img-top img-fluid" src="../../public/images/carte/Carte_Zoo.jpg"
               alt="Carte Zoo Arcadia"></a>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Le Zoo Arcadia</h5>
-          <p class="card-text">Le parc est ouvert toute l'année. Voici les horaires d'ouverture :</p>
           <?php include_once 'app/views/elements/opening_hours.php' ?>
         </div>
       </div>
@@ -52,16 +50,16 @@ require 'app/controllers/handler/welcomePageHandler.php';
             <?php endforeach; ?>
           </ul>
           <!-- carousel d'images animaux -->
-          <div id="carousel_animaux" class="carousel slide d-none d-sm-block" data-bs-ride="carousel">
+          <div id="carousel_animaux" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" src="../../public/images/animaux/JU_Arthur.jpg" alt="First slide">
+                <img class="d-block w-100 img-fluid" src="../../public/images/animaux/JU_Arthur.jpg" alt="First slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="../../public/images/animaux/JU_Gilbert.jpg" alt="Second slide">
+                <img class="d-block w-100 img-fluid" src="../../public/images/animaux/JU_Gilbert.jpg" alt="Second slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="../../public/images/animaux/SA_Georges.jpg" alt="Third slide">
+                <img class="d-block w-100 img-fluid" src="../../public/images/animaux/SA_Georges.jpg" alt="Third slide">
               </div>
             </div>
           </div>
@@ -71,7 +69,7 @@ require 'app/controllers/handler/welcomePageHandler.php';
 
     <!-- disposition des cartes carte 3 Les habitats -->
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-      <div class="card h-100 d-none d-sm-block">
+      <div class="card h-100">
         <div class="card-body main-content">
           <h2 class="card-title">Les habitats</h2>
           <p class="card-text">Les animaux évoluent dans une zone aménagée pour eux, qui réunit les conditions proches
@@ -91,7 +89,7 @@ require 'app/controllers/handler/welcomePageHandler.php';
 
     <!-- disposition des cartes carte 4 Les services -->
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-      <div class="card h-100 d-none d-sm-block">
+      <div class="card h-100">
         <div class="card-body main-content">
           <h2 class="card-title">Les services</h2>
           <p class="card-text">Notre Zoo va vous faire vivre une expérience dont vous vous souviendrez très longtemps.
@@ -128,9 +126,10 @@ require 'app/controllers/handler/welcomePageHandler.php';
                   </h5>
                 </div>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                  <div class="card-body">
-                    <table class="table">
-                      <thead>
+                <div class="table-responsive">
+                <div class="card-body">
+                    <table class="table table-striped table-bordered table-primary">
+                      <thead class="thead-dark text-center">
                         <tr>
                           <th>Pseudo</th>
                           <th>Avis</th>
@@ -146,6 +145,7 @@ require 'app/controllers/handler/welcomePageHandler.php';
                         <?php endforeach; ?>
                       </tbody>
                     </table>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -176,9 +176,9 @@ require 'app/controllers/handler/welcomePageHandler.php';
     </div>
   </div>
   <!-- Appel du footer -->
-  <?php include_once ("layouts/footer.php"); ?>
+  <?php "layouts/footer.php"; ?>
   <!-- Appel des scripts -->
-  <?php include_once ("layouts/scripts.php"); ?>
+  <?php include_once "layouts/scripts.php"; ?>
 
 </body>
 

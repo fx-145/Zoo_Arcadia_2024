@@ -3,7 +3,6 @@ require_once '../UserController.php';
 require_once '../../controllers/router/Router.controller.php';
 //activer le routeur
 $navbar = new Navbar();
-//use UserController\UserController;
 $controller = new UserController();
 
 // Vérification du token CSRF

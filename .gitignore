@@ -28,10 +28,10 @@ build/
 .idea/
 
 # Fichiers de configuration Composer
-composer.lock
+
 
 # Fichiers de configuration NPM
-package-lock.json
+
 
 
 # Fichiers de sortie et de cache

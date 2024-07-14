@@ -1,7 +1,3 @@
-// Le principe est de créer un tableau non visible pour travailler dessus
-// et de remplacer les données du tableau visible par les donnéées retravaillées
-
-
 // Sélectionner les éléments de filtre
 const dateFilterSelect = document.querySelector('th[col-index="1"] select.table-filter');
 const animalFilterSelect = document.querySelector('th[col-index="2"] select.table-filter');

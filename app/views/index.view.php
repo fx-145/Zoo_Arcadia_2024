@@ -110,7 +110,7 @@ require 'app/controllers/handler/welcomePageHandler.php';
     <div class="card h-100">
       <div class="card-body main-content">
         <h2 class="card-title">Les avis de nos visiteurs</h2>
-        <p class="card-text">Voici les commentaires sur le zoo</p>
+        
         <!-- menu accordéon - début -->
         <div class="container">
           <h3>Que pensent les visiteurs de notre zoo?</h3>

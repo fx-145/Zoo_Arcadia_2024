@@ -15,10 +15,10 @@ class Database {
     public $db;
 
     public function __construct() {
-        $this->host = $_ENV['DB_HOST'];
-        $this->db_name = $_ENV['DB_NAME'];
-        $this->user_name = $_ENV['DB_USER'];
-        $this->password = $_ENV['DB_PASS'];
+        $this->host = getenv('DB_HOST') ?: $_ENV['DB_HOST'];
+        $this->db_name = getenv('DB_NAME') ?: $_ENV['DB_NAME'];
+        $this->user_name = getenv('DB_USER') ?: $_ENV['DB_USER'];
+        $this->password = getenv('DB_PASS') ?: $_ENV['DB_PASS'];
 
         try {
             $this->db = new PDO("mysql:host={$this->host};dbname={$this->db_name}", $this->user_name, $this->password);

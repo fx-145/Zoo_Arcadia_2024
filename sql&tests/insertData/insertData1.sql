@@ -70,10 +70,9 @@ INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/i
 INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Gilbert.jpg", "8");
 INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Po.jpg", "9");
 INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Sherkan.jpg", "10");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/JU_Wladimir.jpg", "11");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Roger.jpg", "12");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Roger2.jpg", "12");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Marcel.jpg", "13");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Marcel2.jpg", "13");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Edwige.jpg", "14");
-INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Robert.jpg", "15");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Roger.jpg", "11");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Roger2.jpg", "11");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Marcel.jpg", "12");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Marcel2.jpg", "12");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Edwige.jpg", "13");
+INSERT INTO animal_pictures (animal_picture_path, animal_id  ) VALUES ("public/images/animaux/MA_Robert.jpg", "14");

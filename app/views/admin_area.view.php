@@ -1,6 +1,6 @@
 <?php
 $role = 'administrateur';
-require_once 'app/controllers/handler/checkSession.php';
+require_once __DIR__ . '/../controllers/handler/checkSession.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">

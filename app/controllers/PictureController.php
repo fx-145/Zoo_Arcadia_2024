@@ -1,5 +1,5 @@
 <?php
-require_once 'app/models/PictureModel.php';
+require_once __DIR__ . '/../models/PictureModel.php';
 
 class PictureController
 {

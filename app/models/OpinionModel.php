@@ -1,5 +1,6 @@
 <?php
-require_once 'config/Database.php';
+require_once __DIR__ . '../../../config.php';
+require_once DB_PATH . '/Database.php';
 class OpinionModel
 {
     private $db;

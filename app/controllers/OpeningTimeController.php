@@ -1,5 +1,5 @@
 <?php
-require_once 'app/models/OpeningTimeModel.php';
+require_once __DIR__ . '/../models/OpeningTimeModel.php';
 class OpeningTimeController
 {
     private $model;

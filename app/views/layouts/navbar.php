@@ -1,6 +1,6 @@
 <?php
 //en fonction du clic sur un item de la navbar, activation du router
-require_once 'app/controllers/router/Router.controller.php';
+require_once __DIR__ . '/../../controllers/router/Router.controller.php';
 $navbar = new Navbar();
 //mise en surbrillance du lien de la navbar si le lien est actif
 

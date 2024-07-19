@@ -1,5 +1,5 @@
 <?php
-require_once 'app/models/OpinionModel.php';
+require_once __DIR__ . '/../models/OpinionModel.php';
 
 class OpinionController
 {

@@ -1,16 +1,5 @@
 {
     "name": "fx/ecfzooarcadia2024",
-    "autoload": {
-        "psr-4": {
-            "Fx\\Ecfzooarcadia2024\\": "app/"
-        }
-    },
-    "authors": [
-        {
-            "name": "fx-145",
-            "email": "fxlecoeur2@gmail.com"
-        }
-    ],
     "require": {
         "ramsey/uuid": "^4.7",
         "phpmailer/phpmailer": "^6.9",
@@ -18,3 +7,4 @@
         "mongodb/mongodb": "^1.17"
     }
 }
+

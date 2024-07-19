@@ -1,7 +1,18 @@
 
 <?php
 echo "test";
-var_dump(getenv('DB_HOST'));
+
+
+require_once __DIR__ . '/app/controllers/router/Router.controller.php';
+$controller = new Navbar();
+var_dump($controller);
+$uri = $controller->getCurrentUri();
+var_dump($uri);
+$result = $controller->router($uri);
+var_dump($result);
+
+
+
 
 
 try {

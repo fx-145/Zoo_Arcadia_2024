@@ -25,12 +25,12 @@ $result = $controller->getHomesAndOnePicture();
     <div class="row">
       <div class="col-lg-12 mx-auto">
         <!-- List group-->
-        <ul class="list-group shadow macouleur">
+        <ul class="list-group shadow">
           <!-- list group item-->
-          <li class="list-group-item macouleur">
+          <li class="list-group-item">
             <!-- Custom content -->
-            <div class="media align-items-lg-center flex-column flex-lg-row p-3 macouleur">
-              <div class="media-body order-2 order-lg-1 macouleur">
+            <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+              <div class="media-body order-2 order-lg-1 ">
                 <h1 class="text-center">Les habitats du Zoo</h1>
                 <table class="table table-striped table-bordered table-hover table-primary">
                   <thead class="thead-dark text-center">

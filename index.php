@@ -1,5 +1,5 @@
 <?php
-require_once 'app/controllers/router/Router.controller.php';
+require_once __DIR__ . '/app/controllers/router/Router.controller.php';
 
 //var_dump($_SERVER['REQUEST_URI']);
 

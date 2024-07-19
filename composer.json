@@ -2,7 +2,7 @@
     "name": "fx/ecfzooarcadia2024",
     "autoload": {
         "psr-4": {
-            "Fx\\Ecfzooarcadia2024\\": "src/"
+            "Fx\\Ecfzooarcadia2024\\": "app/"
         }
     },
     "authors": [

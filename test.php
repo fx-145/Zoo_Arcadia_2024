@@ -6,7 +6,7 @@ var_dump(getenv('DB_HOST'));
 
 try {
     require_once __DIR__ . '/app/controllers/router/Router.controller.php';
-    if($_SERVER['REQUEST_URI'] == '/index.php') {
+    if($_SERVER['REQUEST_URI'] == '/test.php') {
         $_SERVER['REQUEST_URI'] = '/';
         $controller = new Navbar();
         $uri = $controller->getCurrentUri();

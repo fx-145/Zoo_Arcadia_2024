@@ -2,6 +2,10 @@
 
 //Charger les données du fichier d'environnement sécurisé
 require_once __DIR__ . '/../vendor/autoload.php';
+
+$envPath = __DIR__ . '/../';
+error_log("Loading .env file from: " . $envPath);
+
 use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();

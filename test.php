@@ -6,8 +6,7 @@ var_dump(getenv('DB_HOST'));
 
 try {
     require_once __DIR__ . '/app/controllers/router/Router.controller.php';
-
-    
+    echo 'ok';    
 } catch (PDOException $e) {
     echo "Erreur : " . $e->getMessage();
     return null;

@@ -71,5 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['submitForm2'])) {
         $mailHandler = new MailHandler();
         $mailHandler->handleForm2();
+        var_dump($mailHandler);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '../../../config.php';
 require_once APP_MODEL_PATH . '/MailModel.php';
-require_once __DIR__ . '../handler/MailHandler.php';
+//require_once __DIR__ . '../handler/MailHandler.php';
 
 class MailController
 {

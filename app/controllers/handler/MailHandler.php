@@ -38,12 +38,12 @@ class MailHandler
     }
 
     //fonction d'envoi de mail de contact pour un visiteur avec pseudo
-    public function handleForm2($postData)
+    public function handleForm2()
     {
-        $titre = $postData['titre'];
-        $description = $postData['description'];
-        $emailContact = $postData['emailContact'];
-        $emailRecipient = isset($postData['emailRecipient']) ? $postData['emailRecipient'] : 'zooarcadia2024@gmail.com';
+        $titre = $_POST['titre'];
+        $description = $_POST['description'];
+        $emailContact = $_POST['emailContact'];
+        $emailRecipient = isset($_POST['emailRecipient']) ? $_POST['emailRecipient'] : 'zooarcadia2024@gmail.com';
         try {
 
             $success = $this->controller->sendContactMail($titre, $description, $emailContact, $emailRecipient);
@@ -70,6 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_POST['submitForm2'])) {
         $mailHandler = new MailHandler();
-        $mailHandler->handleForm2($_POST);
+        $mailHandler->handleForm2();
     }
 }

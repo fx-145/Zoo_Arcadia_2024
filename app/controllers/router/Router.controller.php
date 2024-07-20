@@ -7,10 +7,7 @@ class Navbar
     {
         return strtok($_SERVER['REQUEST_URI'], '?');
     }
-    
-    
-    
-    
+      
     
     public function urlValue($value, $params = []) {
         // Générer l'URL avec les paramètres fournis
@@ -21,7 +18,6 @@ class Navbar
             $url .= '?' . $queryString;
         }
         return $url;
-        var_dump($url);
     }
 
     public function router($uri)
@@ -78,7 +74,7 @@ class Navbar
             '/resetViewsHandler' => 'app/controllers/handler/resetViewsHandler.php',
             '/security_issuer' => 'app/controllers/handler/security_issuer.php',
         ];
-        var_dump($routes);
+        
         if (array_key_exists($uri, $routes)) {
             require $routes[$uri];
             return true;

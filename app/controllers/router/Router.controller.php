@@ -27,7 +27,7 @@ class Navbar
     public function router($uri)
     {
         $uri = str_replace('/app', '', $uri);
-        var_dump($uri);
+        var_dump($routes);
         $routes = [
             '/'  => 'app/views/index.view.php',
             '/services' => 'app/views/services.view.php',

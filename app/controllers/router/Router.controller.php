@@ -27,7 +27,7 @@ class Navbar
     public function router($uri)
     {
         $uri = str_replace('/app', '', $uri);
-        var_dump($routes);
+        
         $routes = [
             '/'  => 'app/views/index.view.php',
             '/services' => 'app/views/services.view.php',
@@ -78,7 +78,7 @@ class Navbar
             '/resetViewsHandler' => 'app/controllers/handler/resetViewsHandler.php',
             '/security_issuer' => 'app/controllers/handler/security_issuer.php',
         ];
-        
+        var_dump($routes);
         if (array_key_exists($uri, $routes)) {
             require $routes[$uri];
             return true;

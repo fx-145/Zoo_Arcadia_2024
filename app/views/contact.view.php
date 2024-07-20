@@ -23,8 +23,7 @@ session_start(); ?>
                 <form action="app/controllers/handler/MailHandler.php" method="post">
                     <!-- Génération du token CSRF -->
                     <?php include "app/controllers/handler/security_issuer.php"; ?>
-                    <input type="hidden" name="csrf_token"
-                        value="<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
+                    
 
                     <!-- Champ Titre -->
                     <div class="form-group col-md-4">

@@ -32,10 +32,12 @@ class Navbar
         // Normaliser l'URI
         $uri = $this->normalizeUri($uri);
         $uri = str_replace('/app', '', $uri);
+        var_dump($uri);
+        
 
         $routes = [
             '/'  => __DIR__ . '/../../views/index.view.php',
-            'services' => __DIR__ . '/../../views/services.view.php',
+            '/services' => __DIR__ . '/../../views/services.view.php',
             '/homes' => __DIR__ . '/../../views/homes.view.php',
             '/connection' => __DIR__ . '/../../views/connection.view.php',
             '/contact' => __DIR__ . '/../../views/contact.view.php',
@@ -82,8 +84,9 @@ class Navbar
             '/animal_views' => __DIR__ . '/../../views/animal_views.php',
             '/resetViewsHandler' => __DIR__ . '/../../controllers/handler/resetViewsHandler.php',
             '/security_issuer' => __DIR__ . '/../../controllers/handler/security_issuer.php',
+            
         ];
-
+        var_dump($routes);
         if (array_key_exists($uri, $routes)) {
             require $routes[$uri];
             return true;

@@ -7,7 +7,10 @@ class Navbar
     {
         return strtok($_SERVER['REQUEST_URI'], '?');
     }
-
+    
+    
+    
+    
     
     public function urlValue($value, $params = []) {
         // Générer l'URL avec les paramètres fournis
@@ -18,11 +21,13 @@ class Navbar
             $url .= '?' . $queryString;
         }
         return $url;
+        var_dump($url);
     }
 
     public function router($uri)
     {
         $uri = str_replace('/app', '', $uri);
+        var_dump($uri);
         $routes = [
             '/'  => 'app/views/index.view.php',
             '/services' => 'app/views/services.view.php',

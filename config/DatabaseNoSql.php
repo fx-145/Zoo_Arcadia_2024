@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
+//require_once __DIR__ . '/../vendor/autoload.php';
 //appelle les variables déclarées dans .env
-use Dotenv\Dotenv;
-$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
-$dotenv->load();
+//use Dotenv\Dotenv;
+//$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+//$dotenv->load();
 
 class DatabaseMongo {
     private static $instance = null;

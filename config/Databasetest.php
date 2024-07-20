@@ -1,17 +1,17 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+//require_once __DIR__ . '/../vendor/autoload.php';
 
-use Dotenv\Dotenv;
+//use Dotenv\Dotenv;
 
 // Charger les variables d'environnement depuis le fichier .env si présent
-$envPath = __DIR__ . '/../';
-if (file_exists($envPath . '.env')) {
-    $dotenv = Dotenv::createImmutable($envPath);
-    $dotenv->load();
-} else {
+//$envPath = __DIR__ . '/../';
+//if (file_exists($envPath . '.env')) {
+    //$dotenv = Dotenv::createImmutable($envPath);
+    //$dotenv->load();
+//} else {
     error_log('Warning: .env file not found');
-}
+//}
 
 class Database {
 

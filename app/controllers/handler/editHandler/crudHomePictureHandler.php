@@ -1,10 +1,10 @@
 <?php
 require_once 'app/controllers/PictureController.php';
 require_once 'vendor/autoload.php';
-use Dotenv\Dotenv;
+//use Dotenv\Dotenv;
 
-$dotenv = Dotenv::createImmutable(dirname(__DIR__, 4));
-$dotenv->load();
+//$dotenv = Dotenv::createImmutable(dirname(__DIR__, 4));
+//$dotenv->load();
 class HomePictureHandler
 {
 

@@ -2,14 +2,16 @@
 
 class Navbar
 {
-    // Retourne l'URL actuelle
+    // Retourne l'URl actuelle
     public function getCurrentUri()
     {
         return strtok($_SERVER['REQUEST_URI'], '?');
     }
 
+    
     public function urlValue($value, $params = []) {
         // Générer l'URL avec les paramètres fournis
+        // $params est facultatif, si un message est présent dans l'Url on va l'utiliser
         $url = $value;
         if (!empty($params)) {
             $queryString = http_build_query($params);
@@ -18,9 +20,8 @@ class Navbar
         return $url;
     }
 
-    public function router()
+    public function router($uri)
     {
-        $uri = $this->getCurrentUri();
         $uri = str_replace('/app', '', $uri);
         $routes = [
             '/'  => __DIR__ . '/../../views/index.view.php',
@@ -72,7 +73,7 @@ class Navbar
             '/resetViewsHandler' => __DIR__ . '/../../controllers/handler/resetViewsHandler.php',
             '/security_issuer' => __DIR__ . '/../../controllers/handler/security_issuer.php',
         ];
-
+        
         if (array_key_exists($uri, $routes)) {
             require $routes[$uri];
             return true;
@@ -82,9 +83,7 @@ class Navbar
             echo "La page demandée n'existe pas.";
             die();
         }
-    }
-}
 
-// utilisation du routeur
-$navbar = new Navbar();
-$navbar->router($navbar->getCurrentUri());
+    }
+
+}

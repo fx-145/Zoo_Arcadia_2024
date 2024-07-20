@@ -34,7 +34,7 @@ class Navbar
         $uri = str_replace('/app', '', $uri);
 
         $routes = [
-            '/'  => __DIR__ . '/../../views/index.view.php',
+            '/'  => __DIR__ . '/../../views/services.view.php',
             '/services' => __DIR__ . '/../../views/services.view.php',
             '/homes' => __DIR__ . '/../../views/homes.view.php',
             '/connection' => __DIR__ . '/../../views/connection.view.php',

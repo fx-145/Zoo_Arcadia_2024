@@ -1,5 +1,8 @@
 <?php
-require_once __DIR__ . '../../../vendor/autoload.php';
+//require_once __DIR__ . '../../../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+
+
 //use Dotenv\Dotenv;
 
 //$dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
@@ -21,9 +24,9 @@ class MailModel
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-           //$mail->Username = $_ENV['MAIL_ADDRESS'];                     //SMTP username   
+           //$mail->Username = $_ENV['MAIL_ADDRESS'];                       
             //$mail->Password = $_ENV['MAIL_PASSWORD'];
-            $mail->Username = getenv('MAIL_ADDRESS');                     //SMTP username   
+            $mail->Username = getenv('MAIL_ADDRESS');                      
             $mail->Password = getenv('MAIL_PASSWORD');
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;

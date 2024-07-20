@@ -29,7 +29,7 @@ class Navbar
         $uri = str_replace('/app', '', $uri);
         
         $routes = [
-            '/iiii'  => 'app/views/index.view.php',
+            '/'  => 'app/views/index.view.php',
             '/services' => 'app/views/services.view.php',
             '/homes' => 'app/views/homes.view.php',
             '/connection' => 'app/views/connection.view.php',

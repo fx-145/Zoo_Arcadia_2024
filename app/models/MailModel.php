@@ -21,13 +21,16 @@ class MailModel
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = $_ENV['MAIL_ADDRESS'];                     //SMTP username   
-            $mail->Password = $_ENV['MAIL_PASSWORD'];
+           //$mail->Username = $_ENV['MAIL_ADDRESS'];                     //SMTP username   
+            //$mail->Password = $_ENV['MAIL_PASSWORD'];
+            $mail->Username = getenv('MAIL_ADDRESS');                     //SMTP username   
+            $mail->Password = getenv('MAIL_PASSWORD');
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
             // Destinataire, expéditeur et réponse
-            $mail->setFrom($_ENV['MAIL_ADDRESS'], $emailContact);
+            //$mail->setFrom($_ENV['MAIL_ADDRESS'], $emailContact);
+            $mail->setFrom(getenv('MAIL_ADDRESS'), $emailContact);
             $mail->addAddress($emailRecipient, '');
             $mail->addReplyTo($emailContact, '');
 

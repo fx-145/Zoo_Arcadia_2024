@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../MailController.php';
 require_once __DIR__ . '/../router/Router.controller.php';
 
-class MailHandler
+class MailHandler2
 {
     private $controller;
 

@@ -44,11 +44,11 @@ if ($resultUsername && $resultPassword)
 
 } else {
     //redirection vers la page information, avec le login=0, qui sera interprété comme "erreur d'authentification"
-   // $redirectUrl = $navbar->urlValue('/information', [
-       // 'login' => '0',
-   // ]);
-   // header("Location:" . $redirectUrl);
-   // exit;
+    $redirectUrl = $navbar->urlValue('/information', [
+        'login' => '0',
+    ]);
+    header("Location:" . $redirectUrl);
+    exit;
    var_dump($resultUsername);
    var_dump($resultPassword);
 }

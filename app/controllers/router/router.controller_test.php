@@ -71,6 +71,7 @@ class Navbar
             '/animal_views' => __DIR__ . '/../../views/animal_views.php',
             '/resetViewsHandler' => __DIR__ . '/../../controllers/handler/resetViewsHandler.php',
             '/security_issuer' => __DIR__ . '/../../controllers/handler/security_issuer.php',
+            
         ];
 
         if (array_key_exists($uri, $routes)) {

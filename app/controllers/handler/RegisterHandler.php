@@ -118,8 +118,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Envoyer un message par email au nouvel utilisateur l'informant que
             // son compte est créé, et qu'il faut qu'il se rapproche de l'admin
             // pour récupérer son mot de passe pour accéder à son compte
-           // $mailHandler = new MailHandler();
-           //$mailHandler->handleForm1($_POST);
+            $mailHandler = new MailHandler();
+            $mailHandler->handleForm1($_POST);
             $redirectUrl = $navbar->urlValue('/information', [
                 'register' => '1',
             ]);

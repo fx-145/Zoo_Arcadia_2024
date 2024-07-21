@@ -8,7 +8,9 @@
 
     
     <?php
-    require_once 'app/controllers/Opinioncontroller.php';
+   // require_once 'app/controllers/Opinioncontroller.php';
+    require_once __DIR__ . '/../controllers/Opinioncontroller.php';
+
     $controller = new OpinionController();
     $result = $controller->showPendingvisitorOpinions();
     ?>

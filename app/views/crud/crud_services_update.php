@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['service_id'])&& !empt
                     <label for="service_name">Nom du service à modifier:</label>
                     <input value="<?php echo $service_name; ?>" type="text" class="form-control" id="service_name" name="new_service_name" required>
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-6">
                     <label for="service_description">Description:</label>
                     <textarea class="form-control" id="service_description" name="new_service_description" rows="4" required><?php echo $service_description; ?></textarea>
                 </div>

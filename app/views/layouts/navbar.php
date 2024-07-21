@@ -19,7 +19,9 @@ $navbar = new Navbar();
         <a class="navbar-brand" href="/">Zoo Arcadia</a>
         <?php
         // Définir la page actuelle
-        $currentPage = basename($_SERVER['PHP_SELF'], ".php");
+        $requestUri = $_SERVER['REQUEST_URI'];
+        $currentPage = basename(parse_url($requestUri, PHP_URL_PATH), ".php");
+        //$currentPage = basename($_SERVER['PHP_SELF'], ".php");
 
         // Définir les pages publiques
         $publicPages = [

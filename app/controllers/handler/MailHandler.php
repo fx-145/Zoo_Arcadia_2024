@@ -20,7 +20,7 @@ class MailHandler2
         // Construction du mail et envoi du mail
         $titre = "Creation de compte sur l'application web ZooArcadia en tant que " . htmlspecialchars($postData['compte'], ENT_QUOTES, 'UTF-8');
         $description = "Félicitations! Votre compte utilisateur en tant que " . htmlspecialchars($postData['compte'], ENT_QUOTES, 'UTF-8') . " est créé dans l'application ZooArcadia. Merci de vous rapprocher de l'administrateur du site web pour obtenir votre mot de passe. Votre username est " . htmlspecialchars($postData['userName'], ENT_QUOTES, 'UTF-8');
-        $emailContact = "zooarcadia2024@gmail.com";
+        $emailContact = getenv('MAIL_ADDRESS');
         $emailRecipient = htmlspecialchars($postData['userName'], ENT_QUOTES, 'UTF-8');
 
         try {
@@ -44,7 +44,7 @@ class MailHandler2
         $titre = $_POST['titre'];
         $description = $_POST['description'];
         $emailContact = $_POST['emailContact'];
-        $emailRecipient = isset($_POST['emailRecipient']) ? $_POST['emailRecipient'] : 'zooarcadia2024@gmail.com';
+        $emailRecipient = isset($_POST['emailRecipient']) ? $_POST['emailRecipient'] : getenv('MAIL_ADDRESS');
         try {
 
             $success = $this->controller->sendContactMail($titre, $description, $emailContact, $emailRecipient);

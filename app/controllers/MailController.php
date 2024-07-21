@@ -39,7 +39,7 @@ class MailHandler
         // Construction du mail et envoi du mail
         $titre = "Creation de compte sur l'application web ZooArcadia en tant que " . htmlspecialchars($postData['compte'], ENT_QUOTES, 'UTF-8');
         $description = "Félicitations! Votre compte utilisateur en tant que " . htmlspecialchars($postData['compte'], ENT_QUOTES, 'UTF-8') . " est créé dans l'application ZooArcadia. Merci de vous rapprocher de l'administrateur du site web pour obtenir votre mot de passe. Votre username est " . htmlspecialchars($postData['userName'], ENT_QUOTES, 'UTF-8');
-        $emailContact = "zooarcadia2024@gmail.com";
+        $emailContact = getenv('MAIL_ADDRESS');
         $emailRecipient = htmlspecialchars($postData['userName'], ENT_QUOTES, 'UTF-8');
 
         try {
@@ -58,12 +58,12 @@ class MailHandler
     }
 
     //fonction d'envoi de mail de contact pour un visiteur avec pseudo
-    public function handleForm2($postData)
+    public function handleForm2()
     {
-        $titre = $postData['titre'];
-        $description = $postData['description'];
-        $emailContact = $postData['emailContact'];
-        $emailRecipient = isset($postData['emailRecipient']) ? $postData['emailRecipient'] : 'zooarcadia2024@gmail.com';
+        $titre = $_POST['titre'];
+        $description = $_POST['description'];
+        $emailContact = $_POST['emailContact'];
+        $emailRecipient = isset($_POST['emailRecipient']) ? $_POST['emailRecipient'] : getenv('MAIL_ADDRESS');
         try {
 
             $success = $this->controller->sendContactMail($titre, $description, $emailContact, $emailRecipient);
@@ -90,6 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_POST['submitForm2'])) {
         $mailHandler = new MailHandler();
-        $mailHandler->handleForm2($_POST);
+        $mailHandler->handleForm2();
     }
 }

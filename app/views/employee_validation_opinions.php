@@ -4,14 +4,31 @@
 <?php include_once "app/views/layouts/sidebar_employee.php"; ?>
 <!-- Affichage de la navbar -->
 <div id="content">
-    <?php include_once "app/views/layouts/navbar.php"; ?>
+    <?php include_once "app/views/layouts/navbar.php"; 
+    require_once __DIR__ . '/../models/OpinionModel.php';
+
+class OpinionController2
+{
+    private $model;
+
+    public function __construct()
+    {
+        $this->model = new OpinionModel();
+    }
+    public function showPendingvisitorOpinions()
+    {
+        return $this->model->showPendingvisitorOpinions();
+    }   
+
+
+}
 
     
-    <?php
+   
    // require_once 'app/controllers/Opinioncontroller.php';
-    require_once __DIR__ . '/../controllers/Opinioncontroller.php';
+    //require_once __DIR__ . '/../controllers/Opinioncontroller.php';
 
-    $controller = new OpinionController();
+    $controller = new OpinionController2();
     $result = $controller->showPendingvisitorOpinions();
     ?>
     <body>

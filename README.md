@@ -1,6 +1,6 @@
 Démarche à suivre pour le déploiement en local:
 => Prérequis: sont installées des versions récentes sur ce pc de:
-PHP
+PHP (dans xampp)
 GIT
 XAMPP (avec les composants apache et Mysql)
 VISUAL STUDIO CODE
@@ -19,7 +19,7 @@ NODEJS
 
 => Lancer le Shell depuis le Xampp control Panel: on accède au mariaDB monitor.
 A l'invite, indiquer "mysql -u root -p", puis cliquer sur "entrée" à l'invite du mot de passe.
--u indique que l'on va connecter un utilisateur. "root" est le nom d'utilisateur-administrateur par défaut.
+"-u" indique que l'on va connecter un utilisateur. "root" est le nom d'utilisateur-administrateur par défaut.
 
 => Créer la base de données relationnelle MariaDB via le shell de Xampp:
 Créer la base de données avec la commande "create database zoo_arcadia;"
@@ -33,7 +33,7 @@ Se positionner sur la base de données avec la commande "use zoo_arcadia;"
 
 3. Configurer et utiliser Visual Studio Code pour développer le projet.
 => Installer les extensions:
-PHP Intelephense
+PHP Intelephense: pour l'aide à l'autocomplétion du code
 PHP Server: pour afficher la page requise
 
 4. Créer et nommer la base de données NoSQl MongoDB
@@ -46,8 +46,7 @@ de l'indication des extensions de fichiers library. Sans le ";".
 => Redémarrer xampp, et en cliquant sur le bouton "admin" sur la ligne apache de xampp, on visualise que MongoDB est pris en charge.
 => installer le mongoDB shell (activation en exécutant "mongosh" depuis le terminal)
 => installer le mongoDb Compass pour visualiser les changements sur la base de données: création de la collection "views".
-=> exécuter depuis le terminal la commande composer require mongodb/mongodb pour installer les dépendances nécessaires 
-pour le package mongodb dans le projet.
+=> exécuter depuis le terminal la commande composer require mongodb/mongodb pour installer les dépendances nécessaires dans le répertoire "vendor"pour le package mongodb dans le projet.
 => Dans le répertoire "config", créer le fichier "DatabaseNoSql" qui contient le code de connexion à la base de données Not Only Sql (port 27017 en local).
 
 

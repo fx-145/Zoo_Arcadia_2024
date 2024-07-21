@@ -27,7 +27,7 @@ if (isset($_POST['pseudo']) && !empty(trim($_POST['pseudo'])) && isset($_POST['a
         } catch (Exception $e) {
             // Gestion de l'erreur
             $success = false;
-            error_log("Error sending email: " . $e->getMessage());
+            error_log("Error sending opinion: " . $e->getMessage());
         }
 
     } else {

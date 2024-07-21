@@ -41,8 +41,8 @@ session_start();
         'failure' => "Échec d'envoi du rapport de visite animal. Veuillez réessayer."
       ],
       'success' => [
-        'success' => "Le message a été envoyé par email avec succès!",
-        'failure' => "Échec de l'envoi du message par email. Veuillez réessayer."
+        'success' => "Le message a été envoyé avec succès!",
+        'failure' => "Échec de l'envoi du message. Veuillez réessayer."
       ],
       'success_register' => [
         'success' => "Le nouvel utilisateur a été créé avec succès, un email lui a été envoyé avec succès!",

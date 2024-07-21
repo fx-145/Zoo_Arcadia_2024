@@ -20,7 +20,7 @@ session_start(); ?>
                 <h2 class="text-center mb-4">Contactez-nous</h2>
 
                 <!-- Formulaire de contact <form action="app/controllers/handler/MailHandler.php" method="post">-->
-                <form action="MailHandler" method="post">
+                <form action="app/controllers/handler/MailHandler.php" method="post">
                     <!-- Génération du token CSRF -->
                     <?php include "app/controllers/handler/security_issuer.php"; ?>
                     

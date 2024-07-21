@@ -21,25 +21,25 @@
         <!-- Génération du token CSRF -->
         <?php include "app/controllers/handler/security_issuer.php"; ?>
         <!-- EMAIL -->
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
           <label for="userName">Renseigner l'adresse email:</label>
           <input type="email" class="form-control" id="userName" name="userName" required>
         </div>
         <br>
         <!-- PASSWORD -->
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
           <label for="password">Mot de passe :</label>
           <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <br>
         <!-- CONFIRMATION PASSWORD -->
-        <div class="form-group col-md-2 col-md-2">
+        <div class="form-group col-md-3">
           <label for="confirmPassword">Confirmation du mot de passe :</label>
           <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
         </div>
         <br>
         <!-- Compte: choix entre employé et vétérinaire -->
-        <div class="form-group col-md-2 col-md-2">
+        <div class="form-group col-md-2">
           <label>Compte</label><br>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" id="employe" name="compte" value="employe" required>

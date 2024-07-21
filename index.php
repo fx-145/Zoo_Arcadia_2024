@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/app/controllers/router/Router.controller.php';
 
 //var_dump($_SERVER['REQUEST_URI']);
